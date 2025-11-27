@@ -929,4 +929,276 @@ a {
         flex-wrap: wrap;
         justify-content: center;
     }
+/* ========================================
+   ZUSÄTZLICHE STYLES FÜR FAHRZEUGBESCHRIFTUNG
+   Füge dies ans Ende deiner styles.css hinzu
+   ======================================== */
+
+/* Kleinere Hero Section für Unterseiten */
+.hero-section-small {
+    min-height: 50vh;
+}
+
+/* Content Section */
+.content-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-bg-white);
+}
+
+.content-intro {
+    max-width: 900px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.lead-text {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Features Grid für Unterseiten */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.feature-card {
+    background: var(--color-bg-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.feature-icon-large {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 auto var(--spacing-md);
+}
+
+.feature-card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.feature-card-text {
+    color: var(--color-text-medium);
+    font-size: 0.95rem;
+}
+
+/* Pricing Section */
+.pricing-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-bg-light);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.pricing-card {
+    background: var(--color-bg-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.pricing-card-featured {
+    border: 2px solid var(--color-primary);
+}
+
+.pricing-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--color-primary);
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.pricing-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.pricing-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.pricing-description {
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-md) 0;
+}
+
+.pricing-features li {
+    padding: 0.5rem 0;
+    color: var(--color-text-medium);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.pricing-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.pricing-note {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    font-style: italic;
+    margin-top: var(--spacing-md);
+}
+
+/* Materials Section */
+.materials-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-bg-white);
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.brand-card {
+    background: var(--color-bg-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition: all var(--transition-normal);
+    border: 2px solid transparent;
+}
+
+.brand-card:hover {
+    border-color: var(--color-primary);
+    transform: scale(1.05);
+}
+
+.brand-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* Service Info Section */
+.service-info-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-bg-light);
+}
+
+.service-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.service-info-card {
+    background: var(--color-bg-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+}
+
+.service-info-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-5px);
+}
+
+.service-info-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.service-info-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-info-text {
+    color: var(--color-text-medium);
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: var(--spacing-xl) 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: white;
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+}
+
+.cta-text {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.95;
+}
+
+.btn-large {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1.1rem;
+}
+
 }
