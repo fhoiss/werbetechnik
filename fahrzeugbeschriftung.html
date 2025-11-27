@@ -53,7 +53,7 @@
             </div>
         </section>
 
-        <!-- Intro Section -->
+        <!-- Intro Section - WEIß -->
         <section class="services-section">
             <div class="container">
                 <div style="max-width: 900px; margin: 0 auto; text-align: center;">
@@ -64,7 +64,7 @@
             </div>
         </section>
 
-        <!-- Individuelle Fahrzeugbeschriftung -->
+        <!-- Individuelle Fahrzeugbeschriftung - GRAU -->
         <section class="about-section about-section-full">
             <div class="container">
                 <h2 class="section-heading about-heading-left">Individuelle Fahrzeugbeschriftung in Schechen bei Rosenheim</h2>
@@ -103,7 +103,7 @@
             </div>
         </section>
 
-        <!-- Vom Konzept bis zur Montage -->
+        <!-- Vom Konzept bis zur Montage - WEIß -->
         <section class="services-section">
             <div class="container">
                 <h2 class="section-heading" style="text-align: center;">Vom Konzept bis zur Montage – Ihr Full-Service-Partner</h2>
@@ -139,7 +139,7 @@
             </div>
         </section>
 
-        <!-- Premium-Materialien -->
+        <!-- Premium-Materialien - GRAU -->
         <section class="about-section about-section-full">
             <div class="container">
                 <h2 class="section-heading about-heading-left">Premium-Materialien für langlebige Ergebnisse</h2>
@@ -150,52 +150,76 @@
                     <p>Je nach Anforderung kombinieren wir verschiedene Materialien für unterschiedliche Fahrzeugbereiche – so finden wir die perfekte Lösung für Ihre Fahrzeugbeschriftung.</p>
                 </div>
 
-                <!-- Material-Partner - 4 Spalten in einer Zeile mit Links -->
-                <div class="brands-grid-inline" style="margin-top: var(--spacing-lg);">
-                    <a href="https://www.orafol.com" target="_blank" rel="noopener" class="brand-link">
-                        <div class="brand-card">
+                <!-- Material-Partner - 4 Spalten in EINER Zeile mit Links -->
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-md); margin-top: var(--spacing-lg);">
+                    <a href="https://www.orafol.com" target="_blank" rel="noopener" style="text-decoration: none;">
+                        <div class="brand-card" style="cursor: pointer;">
                             <h3 class="brand-name">Orafol</h3>
                         </div>
                     </a>
-                    <a href="https://www.3m.com" target="_blank" rel="noopener" class="brand-link">
-                        <div class="brand-card">
+                    <a href="https://www.3m.com" target="_blank" rel="noopener" style="text-decoration: none;">
+                        <div class="brand-card" style="cursor: pointer;">
                             <h3 class="brand-name">3M</h3>
                         </div>
                     </a>
-                    <a href="https://www.hexis-graphics.com" target="_blank" rel="noopener" class="brand-link">
-                        <div class="brand-card">
+                    <a href="https://www.hexis-graphics.com" target="_blank" rel="noopener" style="text-decoration: none;">
+                        <div class="brand-card" style="cursor: pointer;">
                             <h3 class="brand-name">Hexis</h3>
                         </div>
                     </a>
-                    <a href="https://www.graphics.averydennison.com" target="_blank" rel="noopener" class="brand-link">
-                        <div class="brand-card">
+                    <a href="https://www.graphics.averydennison.com" target="_blank" rel="noopener" style="text-decoration: none;">
+                        <div class="brand-card" style="cursor: pointer;">
                             <h3 class="brand-name">Avery Dennison</h3>
                         </div>
                     </a>
                 </div>
+
+                <!-- Responsive Media Query inline -->
+                <style>
+                    @media (max-width: 968px) {
+                        .about-section-full > .container > div[style*="grid-template-columns: repeat(4, 1fr)"] {
+                            grid-template-columns: repeat(2, 1fr) !important;
+                        }
+                    }
+                    @media (max-width: 600px) {
+                        .about-section-full > .container > div[style*="grid-template-columns: repeat(4, 1fr)"],
+                        .about-section-full > .container > div[style*="grid-template-columns: repeat(2, 1fr)"] {
+                            grid-template-columns: 1fr !important;
+                        }
+                    }
+                </style>
             </div>
         </section>
 
-        <!-- Flexibler Service - 2 Spalten ohne Icons -->
+        <!-- Flexibler Service - WEIß - 2 SPALTEN OHNE ICONS -->
         <section class="services-section">
             <div class="container">
                 <h2 class="section-heading" style="text-align: center;">Flexibler Service – vor Ort oder bei uns</h2>
 
-                <div class="service-two-columns">
-                    <div class="service-column-item">
-                        <h3 class="service-column-title">Mobile Beklebung</h3>
-                        <p class="service-column-text">Damit Ihr Fahrzeug nicht ausfällt, bieten wir Beklebung vor Ort an.</p>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-lg); max-width: 1000px; margin: var(--spacing-lg) auto 0;">
+                    <div style="background: var(--color-bg-white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); border-left: 4px solid var(--color-primary);">
+                        <h3 style="font-size: 1.3rem; font-weight: 600; color: var(--color-primary); margin-bottom: var(--spacing-sm);">Mobile Beklebung</h3>
+                        <p style="color: var(--color-text-medium); line-height: 1.7;">Damit Ihr Fahrzeug nicht ausfällt, bieten wir Beklebung vor Ort an.</p>
                     </div>
 
-                    <div class="service-column-item">
-                        <h3 class="service-column-title">Vom Kleinwagen bis zum LKW</h3>
-                        <p class="service-column-text">Dank langjähriger Erfahrung beschriften unsere Fachkräfte jedes Fahrzeug professionell und individuell.</p>
+                    <div style="background: var(--color-bg-white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); border-left: 4px solid var(--color-primary);">
+                        <h3 style="font-size: 1.3rem; font-weight: 600; color: var(--color-primary); margin-bottom: var(--spacing-sm);">Vom Kleinwagen bis zum LKW</h3>
+                        <p style="color: var(--color-text-medium); line-height: 1.7;">Dank langjähriger Erfahrung beschriften unsere Fachkräfte jedes Fahrzeug professionell und individuell.</p>
                     </div>
                 </div>
+
+                <!-- Responsive für 2-Spalten -->
+                <style>
+                    @media (max-width: 768px) {
+                        .services-section > .container > div[style*="grid-template-columns: repeat(2, 1fr)"] {
+                            grid-template-columns: 1fr !important;
+                        }
+                    }
+                </style>
             </div>
         </section>
 
-        <!-- Gallery -->
+        <!-- Gallery - GRAU -->
         <section class="gallery-section" style="background: var(--color-bg-light);">
             <div class="container">
                 <h2 class="section-heading gallery-heading-left">Erfolgreiche Projekte in der Fahrzeugbeschriftung</h2>
@@ -224,45 +248,39 @@
             </div>
         </section>
 
-        <!-- FAQ Section - Mit besserer Struktur -->
+        <!-- FAQ Section - WEIß - ALLES ZENTRIERT -->
         <section class="services-section">
             <div class="container">
                 <div style="text-align: center; margin-bottom: var(--spacing-xl);">
                     <h2 class="section-heading">FAQ – Häufige Fragen zur Fahrzeugbeschriftung</h2>
-                    <p style="color: var(--color-text-medium); max-width: 700px; margin: var(--spacing-md) auto 0;">
+                    <p style="color: var(--color-text-medium); max-width: 700px; margin: var(--spacing-md) auto 0; font-size: 1.05rem;">
                         Lassen Sie uns Ihre Werbung gemeinsam zum Erfolg führen!
                     </p>
                 </div>
 
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <h3 class="faq-question">Wie lange hält eine Fahrzeugbeschriftung?</h3>
-                        <div class="faq-answer-wrapper">
-                            <p class="faq-answer">Bei guter Pflege kann unsere Beschriftung 5-8 Jahre halten.</p>
-                        </div>
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div style="background: var(--color-bg-white); padding: var(--spacing-lg); margin-bottom: var(--spacing-lg); border-radius: var(--radius-lg); border-left: 5px solid var(--color-primary); box-shadow: var(--shadow-md); text-align: center;">
+                        <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--color-primary); margin-bottom: var(--spacing-md);">Wie lange hält eine Fahrzeugbeschriftung?</h3>
+                        <p style="color: var(--color-text-medium); line-height: 1.8; margin: 0; font-size: 1.05rem;">Bei guter Pflege kann unsere Beschriftung 5-8 Jahre halten.</p>
                     </div>
 
-                    <div class="faq-item">
-                        <h3 class="faq-question">Kann ich die Folie selbst entfernen?</h3>
-                        <div class="faq-answer-wrapper">
-                            <p class="faq-answer">Ja, unsere Folien sind rückstandslos entfernbar. Klebereste können mit handelsüblichem Spiritus entfernt werden. Für größere Folierungen empfehlen wir eine professionelle Entfernung.</p>
-                        </div>
+                    <div style="background: var(--color-bg-white); padding: var(--spacing-lg); margin-bottom: var(--spacing-lg); border-radius: var(--radius-lg); border-left: 5px solid var(--color-primary); box-shadow: var(--shadow-md); text-align: center;">
+                        <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--color-primary); margin-bottom: var(--spacing-md);">Kann ich die Folie selbst entfernen?</h3>
+                        <p style="color: var(--color-text-medium); line-height: 1.8; margin: 0; font-size: 1.05rem;">Ja, unsere Folien sind rückstandslos entfernbar. Klebereste können mit handelsüblichem Spiritus entfernt werden. Für größere Folierungen empfehlen wir eine professionelle Entfernung.</p>
                     </div>
 
-                    <div class="faq-item">
-                        <h3 class="faq-question">Was kostet eine Fahrzeugbeschriftung?</h3>
-                        <div class="faq-answer-wrapper">
-                            <p class="faq-answer">Die Kosten variieren je nach Größe und Design. Gerne erstellen wir ein individuelles Angebot!</p>
-                        </div>
+                    <div style="background: var(--color-bg-white); padding: var(--spacing-lg); margin-bottom: var(--spacing-lg); border-radius: var(--radius-lg); border-left: 5px solid var(--color-primary); box-shadow: var(--shadow-md); text-align: center;">
+                        <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--color-primary); margin-bottom: var(--spacing-md);">Was kostet eine Fahrzeugbeschriftung?</h3>
+                        <p style="color: var(--color-text-medium); line-height: 1.8; margin: 0; font-size: 1.05rem;">Die Kosten variieren je nach Größe und Design. Gerne erstellen wir ein individuelles Angebot!</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Kontakt CTA -->
+        <!-- Kontakt CTA - ZENTRIERT -->
         <section id="kontakt" class="cta-section">
             <div class="container">
-                <div class="cta-content">
+                <div class="cta-content" style="text-align: center;">
                     <h2 class="cta-title">Kontaktieren Sie uns für ein unverbindliches Angebot zur Fahrzeugbeschriftung in Rosenheim!</h2>
                     <p class="cta-text">Unser Team freut sich darauf, Ihr Fahrzeug in eine professionelle mobile Werbefläche zu verwandeln. Lassen Sie sich beraten!</p>
                     <a href="index.html#kontakt" class="btn btn-primary btn-large">Jetzt unverbindlich anfragen</a>
