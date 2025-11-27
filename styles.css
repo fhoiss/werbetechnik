@@ -930,8 +930,7 @@ a {
         justify-content: center;
     }
 /* ========================================
-   ZUSÄTZLICHE STYLES FÜR FAHRZEUGBESCHRIFTUNG
-   Füge dies ans Ende deiner styles.css hinzu
+   ZUSÄTZLICHE STYLES FÜR UNTERSEITEN
    ======================================== */
 
 /* Kleinere Hero Section für Unterseiten */
@@ -1201,4 +1200,40 @@ a {
     font-size: 1.1rem;
 }
 
+/* ========================================
+   FAQ SECTION
+   ======================================== */
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
 }
+
+.faq-item {
+    background: var(--color-bg-white);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--color-primary);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+}
+
+.faq-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateX(5px);
+}
+
+.faq-question {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.faq-answer {
+    color: var(--color-text-medium);
+    line-height: 1.7;
+    margin: 0;
+}
+
