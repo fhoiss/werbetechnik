@@ -133,11 +133,11 @@ a {
 .top-bar {
     background: var(--color-primary);
     color: white;
-    font-size: 0.85rem;
-    padding: var(--spacing-xs) 0;
+    font-size: 0.8rem;
+    padding: 6px 0; /* Schmaler */
     width: 100%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+}}
 
 .top-bar-content {
     display: flex;
@@ -209,16 +209,13 @@ a {
 }
 
 @media (max-width: 576px) {
-    .top-bar-hours .top-bar-text {
-        display: block;
-    }
-
-    .top-bar-hours .top-bar-text strong {
-        display: inline;
-    }
-
-    /* Auf sehr kleinen Geräten Öffnungszeiten ausblenden */
+    /* Öffnungszeiten ausblenden */
     .top-bar-hours {
+        display: none;
+    }
+
+    /* E-Mail ausblenden, nur Telefon anzeigen */
+    .top-bar-contact a[href^="mailto"] {
         display: none;
     }
 
@@ -231,8 +228,8 @@ a {
         gap: var(--spacing-xs);
     }
 
-    .top-bar-link span:not(.top-bar-icon) {
-        font-size: 0.75rem;
+    .top-bar-link {
+        font-size: 0.85rem;
     }
 }
 /* ========================================
@@ -242,7 +239,6 @@ a {
 .site-header {
     position: sticky;
     top: 0;
-    left: 0;
     width: 100%;
     background: var(--color-bg-white);
     box-shadow: var(--shadow-sm);
