@@ -93,6 +93,16 @@ body {
     background-color: var(--color-bg-white);
     overflow-x: hidden;
 }
+main,
+#main-content {
+    margin: 0;
+    padding: 0;
+}
+
+.hero-section {
+    margin-top: 0;
+    padding-top: 0;
+}
 
 img {
     max-width: 100%;
@@ -133,57 +143,50 @@ a {
 .top-bar {
     background: var(--color-primary);
     color: white;
-    font-size: 0.8rem;
-    padding: 6px 0; /* Schmaler */
+    font-size: 0.875rem;
+    padding: 8px 0;
     width: 100%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}}
+}
 
 .top-bar-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: var(--spacing-md);
+    flex-wrap: nowrap;
 }
 
-.top-bar-hours {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
+.top-bar-text {
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.top-bar-text strong {
+    font-weight: 600;
 }
 
 .top-bar-contact {
     display: flex;
     align-items: center;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
+    white-space: nowrap;
 }
 
-.top-bar-icon {
-    font-size: 1rem;
-}
-
-.top-bar-text {
-    line-height: 1.4;
+.top-bar-separator {
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .top-bar-link {
     color: white;
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 5px 10px;
-    border-radius: var(--radius-sm);
     transition: all var(--transition-fast);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
 }
 
 .top-bar-link:hover {
     background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-1px);
-}
-
-.top-bar-text strong {
-    font-weight: 600;
 }
 
 /* Responsive Top Bar */
@@ -193,43 +196,46 @@ a {
         padding: 6px 0;
     }
 
+    .top-bar-text {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 768px) {
     .top-bar-content {
         flex-direction: column;
-        gap: var(--spacing-xs);
-        text-align: center;
+        gap: 4px;
+        padding: 6px 0;
     }
 
-    .top-bar-hours {
-        font-size: 0.75rem;
+    .top-bar-text {
+        font-size: 0.7rem;
     }
 
     .top-bar-contact {
-        gap: var(--spacing-sm);
+        font-size: 0.75rem;
     }
 }
 
 @media (max-width: 576px) {
     /* Öffnungszeiten ausblenden */
-    .top-bar-hours {
+    .top-bar-text {
         display: none;
     }
 
-    /* E-Mail ausblenden, nur Telefon anzeigen */
-    .top-bar-contact a[href^="mailto"] {
+    /* E-Mail und Separator ausblenden, nur Telefon */
+    .top-bar-contact a[href^="mailto"],
+    .top-bar-separator {
         display: none;
     }
 
     .top-bar-content {
-        flex-direction: row;
         justify-content: center;
-    }
-
-    .top-bar-contact {
-        gap: var(--spacing-xs);
+        padding: 6px 0;
     }
 
     .top-bar-link {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
     }
 }
 /* ========================================
