@@ -23,29 +23,74 @@
     <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
 
     <!-- Header -->
+    <!-- Skip Link für Barrierefreiheit -->
+    <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
+
+    <!-- HEADER & NAVIGATION -->
     <header class="site-header">
-        <div class="container">
-            <nav class="main-nav">
-                <div class="nav-brand">
-                    <a href="index.html" class="logo-link">
-                        <img src="https://www.werbetechnik-hoiss.de/wp-content/uploads/2019/02/Header-Logo.png" alt="Hoiß Werbetechnik Logo" class="logo-img">
+        <nav class="main-nav container" aria-label="Hauptnavigation">
+
+            <!-- Logo -->
+            <a href="/" class="logo-link" aria-label="Zur Startseite">
+                <img src="img/Header-Logo.png" alt="Hoiß Werbetechnik Logo" class="logo-img">
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <!-- Navigation Menu -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/fahrzeugbeschriftung" class="nav-link">Fahrzeugbeschriftung</a>
+                </li>
+
+                <li class="nav-item nav-dropdown">
+                    <a href="#" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Außenwerbung
+                        <span class="dropdown-icon">▾</span>
                     </a>
-                </div>
-                <button class="nav-toggle" aria-label="Navigation öffnen" aria-expanded="false">
-                    <span class="nav-toggle-bar"></span>
-                    <span class="nav-toggle-bar"></span>
-                    <span class="nav-toggle-bar"></span>
-                </button>
-                <ul class="nav-menu">
-                    <li class="nav-item"><a href="index.html" class="nav-link nav-link-active">Startseite</a></li>
-                    <li class="nav-item"><a href="#leistungen" class="nav-link">Leistungen</a></li>
-                    <li class="nav-item"><a href="fahrzeugbeschriftung.html" class="nav-link">Fahrzeugbeschriftung</a></li>
-                    <li class="nav-item"><a href="#ueber-uns" class="nav-link">Über uns</a></li>
-                    <li class="nav-item"><a href="#kontakt" class="nav-link">Kontakt</a></li>
-                </ul>
-            </nav>
-        </div>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="/schilder-leitsysteme" class="nav-dropdown-link">Schilder & Leitsysteme</a></li>
+                        <li><a href="/banner-werbeplanen" class="nav-dropdown-link">Banner & Werbeplanen</a></li>
+                        <li><a href="/grossformatdruck" class="nav-dropdown-link">Großformatdruck</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item nav-dropdown">
+                    <a href="#" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Glas & Fenster
+                        <span class="dropdown-icon">▾</span>
+                    </a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="/schaufensterbeschriftung" class="nav-dropdown-link">Schaufensterbeschriftung</a></li>
+                        <li><a href="/glasdekor-sichtschutz" class="nav-dropdown-link">Glasdekor & Sichtschutz</a></li>
+                        <li><a href="/sonnenschutzfolien" class="nav-dropdown-link">Sonnenschutzfolien</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/textilwerbung" class="nav-link" target="_blank" rel="noopener">
+                        Textilwerbung
+                        <span class="external-icon">↗</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/ueber-uns" class="nav-link">Über uns</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#kontakt" class="nav-link nav-link-cta">Kontakt</a>
+                </li>
+            </ul>
+        </nav>
     </header>
+
+    <!-- Restlicher Content bleibt gleich -->
 
     <main id="main-content">
         <!-- Hero Section -->
@@ -53,8 +98,8 @@
             <img src="https://www.werbetechnik-hoiss.de/wp-content/uploads/2024/07/Hoiss_Werbetechnik_Gebaede-1.webp" alt="Hoiß Werbetechnik Gebäude in Rosenheim" class="hero-bg" loading="eager">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h1 class="hero-title">Herzlich Willkommen</h1>
-                <p class="hero-subtitle">Ihr professioneller Partner für Werbetechnik in Rosenheim</p>
+                <h1 class="hero-title">Werbetechnik Hoiß</h1>
+                <h2 class="hero-subtitle">Ihr professioneller Partner für Werbetechnik in Rosenheim</h2>
                 <a href="#kontakt" class="btn btn-primary">Jetzt Kontakt aufnehmen</a>
             </div>
         </section>
@@ -79,7 +124,7 @@
                     <article class="service-card">
                         <img src="https://www.werbetechnik-hoiss.de/wp-content/uploads/2021/09/20210910_174540-scaled.jpg" alt="Flachglasbeschriftung Schaufenster" class="service-image" loading="lazy">
                         <div class="service-content">
-                            <h3 class="service-title">Flachglas Beschriftungen</h3>
+                            <h3 class="service-title">Glasbeschriftungen</h3>
                             <p class="service-description">Moderne Schaufenster- und Fensterbeschriftungen. Selbstklebende Glasdekorfolien bieten Sichtschutz und Design in vielen Farben.</p>
                             <a href="#leistungen" class="service-link">Mehr erfahren →</a>
                         </div>

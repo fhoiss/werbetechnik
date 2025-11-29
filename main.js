@@ -105,11 +105,35 @@ const initActiveNavLink = () => {
 // Initialisierung beim DOM-Load
 const init = () => {
     initMobileNav();
+	initDropdowns();
     initSmoothScroll();
     initHeaderScroll();
     initActiveNavLink();
 
     console.log('Hoiß Werbetechnik - Website initialisiert');
+};
+// Dropdown Toggle für Mobile
+const initDropdowns = () => {
+    const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
+
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            // Nur auf Mobile (wenn Burger-Menü sichtbar)
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+                // Schließe alle anderen Dropdowns
+                dropdownToggles.forEach(t => {
+                    if (t !== toggle) {
+                        t.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                toggle.setAttribute('aria-expanded', !isExpanded);
+            }
+        });
+    });
 };
 
 // Start
