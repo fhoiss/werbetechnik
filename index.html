@@ -18,74 +18,11 @@
     <link rel="icon" type="image/webp" href="img/Logo-Hoiß.webp">
 </head>
 <body>
-    <!-- Header -->
-    <!-- Skip Link für Barrierefreiheit -->
+    <!-- Skip Link -->
     <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
-    <!-- HEADER & NAVIGATION -->
-    <header class="site-header">
-        <nav class="main-nav container" aria-label="Hauptnavigation">
-
-            <!-- Logo -->
-            <a href="/" class="logo-link" aria-label="Zur Startseite">
-                <img src="img/Header-Logo.png" alt="Hoiß Werbetechnik Logo" class="logo-img">
-            </a>
-
-            <!-- Mobile Toggle Button -->
-            <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
-                <span class="nav-toggle-bar"></span>
-                <span class="nav-toggle-bar"></span>
-                <span class="nav-toggle-bar"></span>
-            </button>
-
-            <!-- Navigation Menu -->
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="fahrzeugbeschriftung.html" class="nav-link">Fahrzeugbeschriftung</a>
-                </li>
-
-                <li class="nav-item nav-dropdown">
-                    <a href="#" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                        Außenwerbung
-                        <span class="dropdown-icon">▾</span>
-                    </a>
-                    <ul class="nav-dropdown-menu">
-                        <li><a href="schilder-leitsysteme.html" class="nav-dropdown-link">Schilder & Leitsysteme</a></li>
-                        <li><a href="banner-werbeplanen.html" class="nav-dropdown-link">Banner & Werbeplanen</a></li>
-                        <li><a href="grossformatdruck.html" class="nav-dropdown-link">Großformatdruck</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item nav-dropdown">
-                    <a href="#" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                        Glas & Fenster
-                        <span class="dropdown-icon">▾</span>
-                    </a>
-                    <ul class="nav-dropdown-menu">
-                        <li><a href="schaufensterbeschriftung.html" class="nav-dropdown-link">Schaufensterbeschriftung</a></li>
-                        <li><a href="glasdekor-sichtschutz.html" class="nav-dropdown-link">Glasdekor & Sichtschutz</a></li>
-                        <li><a href="sonnenschutzfolien.html" class="nav-dropdown-link">Sonnenschutzfolien</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a href="https://hoiss-stickerei.de/" class="nav-link" target="_blank" rel="noopener">
-                        Textilwerbung
-                        <span class="external-icon">↗</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="ueber-uns.html" class="nav-link">Über uns</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#kontakt" class="nav-link nav-link-cta">Kontakt</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
+    <!-- Header wird hier geladen -->
+    <div id="header-placeholder"></div>
     <!-- Restlicher Content bleibt gleich -->
 
     <main id="main-content">
@@ -326,46 +263,8 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer-section">
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Logo -->
-                <div class="footer-column footer-logo-column">
-                    <img src="https://www.werbetechnik-hoiss.de/wp-content/uploads/2019/01/Retina-Logo_Footer-300x114.png" alt="HoiB Beklebe & Werbetechnik Logo" class="footer-logo">
-                </div>
-
-                <!-- Öffnungszeiten -->
-                <div class="footer-column footer-hours-column">
-                    <h3 class="footer-heading">Öffnungszeiten:</h3>
-                    <p class="footer-text">Mo – Fr: 8.00 – 17.00</p>
-                    <p class="footer-text">Fr: 8.00 – 12.00</p>
-                </div>
-
-                <!-- Kontaktdaten -->
-                <div class="footer-column footer-contact-column">
-                    <p class="footer-company">HoiB Beklebe & Werbetechnik</p>
-                    <p class="footer-text">Inhaber: Gabriele Hoiß</p>
-                    <p class="footer-text">Lochberg 12</p>
-                    <p class="footer-text">83135 Schechen</p>
-                    <p class="footer-text footer-spacing-top">Tel: +49 (0) 8031 9003379</p>
-                    <p class="footer-text footer-spacing-top"><a href="mailto:info@werbetechnik-hoiss.de">info@werbetechnik-hoiss.de</a></p>
-                </div>
-            </div>
-
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <p class="footer-copyright">© 2025 Hoiß Werbetechnik. Alle Rechte vorbehalten.</p>
-                <div class="footer-links">
-                    <a href="impressum.html">Impressum</a>
-                    <span class="footer-divider">|</span>
-                    <a href="datenschutz.html">Datenschutz</a>
-                    <span class="footer-divider">|</span>
-                    <a href="#kontakt">Kontakt</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+<div id="footer-placeholder"></div>
+	
 <div id="cookie-banner">
     <div class="cookie-container">
         <div class="cookie-message">
@@ -446,6 +345,7 @@
     </div>
 </div>
     <script src="main.js"></script>
-    <script src="cookie-consent.js"></script>  <!-- NEU -->
+    <script src="cookie-consent.js"></script>
+	<script src="includes.js"></script><!-- NEU -->
 </body>
 </html>
