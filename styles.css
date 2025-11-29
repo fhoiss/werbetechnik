@@ -233,7 +233,7 @@ a {
     }
 }
 /* ========================================
-   HEADER & NAVIGATION - GRÖßER
+   HEADER & NAVIGATION
    ======================================== */
 
 .site-header {
@@ -254,22 +254,22 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing-md) var(--spacing-md);
+    padding: var(--spacing-md);
     min-height: 100px;
-    gap: var(--spacing-xl); /* Größerer Abstand zwischen Logo und Navigation */
-}
+    gap: var(--spacing-xl);
 }
 
 .logo-link {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
+    flex-shrink: 0;
 }
 
 .logo-img {
     height: 70px;
     width: auto;
-    object-fit: contain; /* Verhindert Stauchung */
+    object-fit: contain;
     max-width: 200px;
 }
 
@@ -281,6 +281,7 @@ a {
     border: none;
     cursor: pointer;
     padding: var(--spacing-xs);
+    z-index: 1002;
 }
 
 .nav-toggle-bar {
@@ -292,13 +293,18 @@ a {
 }
 
 .nav-menu {
-    position: fixed;
-    top: 100px;
-    left: 0;
+    display: flex !important;
+    list-style: none;
+    gap: var(--spacing-sm);
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
 }
 
 .nav-item {
     list-style: none;
+    position: relative;
 }
 
 .nav-link {
@@ -308,9 +314,10 @@ a {
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: var(--radius-sm);
     position: relative;
-    display: flex; /* Flexbox für vertikale Zentrierung */
-    align-items: center; /* Icons und Text vertikal zentriert */
-    white-space: nowrap; /* Verhindert Umbruch */
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    text-decoration: none;
 }
 
 .nav-link::after {
@@ -343,6 +350,11 @@ a {
 .nav-dropdown-toggle:hover {
     color: var(--color-primary);
 }
+
+.nav-dropdown-toggle[aria-expanded="false"] {
+    color: var(--color-text-dark);
+}
+
 /* ========================================
    DROPDOWN NAVIGATION
    ======================================== */
@@ -431,20 +443,21 @@ a {
 .nav-link-cta::after {
     display: none;
 }
+
 /* Responsive Logo-Größe */
 @media (max-width: 1200px) {
     .logo-img {
-        height: 60px; /* Etwas kleiner auf kleineren Bildschirmen */
+        height: 60px;
         max-width: 180px;
     }
 
     .main-nav {
         min-height: 90px;
-        gap: var(--spacing-lg); /* Etwas weniger Abstand */
+        gap: var(--spacing-lg);
     }
 
     .nav-link {
-        font-size: 0.95rem; /* Leicht kleinere Schrift */
+        font-size: 0.95rem;
         padding: var(--spacing-xs) 10px;
     }
 }
@@ -456,96 +469,7 @@ a {
     }
 
     .nav-menu {
-        gap: 8px; /* Noch kompakter */
-    }
-}
-
-/* ========================================
-   MOBILE NAVIGATION
-   ======================================== */
-
-@media (max-width: 992px) {
-    .nav-toggle {
-        display: flex;
-    }
-
-    .nav-menu {
-        position: fixed;
-        top: 100px;
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 100px);
-        background: var(--color-bg-white);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: var(--spacing-lg);
-        gap: 0;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateX(-100%);
-        transition: all var(--transition-normal);
-        overflow-y: auto;
-        box-shadow: var(--shadow-lg);
-    }
-
-    .nav-menu.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateX(0);
-    }
-
-    .nav-item {
-        width: 100%;
-        border-bottom: 1px solid var(--color-border);
-        padding: var(--spacing-sm) 0;
-    }
-
-    .nav-link {
-        display: block;
-        width: 100%;
-        padding: var(--spacing-sm) 0;
-        font-size: 1.1rem;
-    }
-
-    /* Mobile Dropdown */
-    .nav-dropdown-menu {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        box-shadow: none;
-        background: var(--color-bg-light);
-        margin-top: var(--spacing-xs);
-        border-radius: var(--radius-sm);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height var(--transition-normal);
-    }
-
-    .nav-dropdown-toggle[aria-expanded="true"] + .nav-dropdown-menu {
-        max-height: 500px;
-    }
-
-    .nav-dropdown:hover .nav-dropdown-menu {
-        max-height: 0;
-    }
-
-    .nav-link-cta {
-        margin-top: var(--spacing-md);
-        text-align: center;
-    }
-
-    /* Burger Animation */
-    .nav-toggle.active .nav-toggle-bar:nth-child(1) {
-        transform: rotate(45deg) translate(7px, 7px);
-    }
-
-    .nav-toggle.active .nav-toggle-bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .nav-toggle.active .nav-toggle-bar:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
+        gap: 8px;
     }
 }
 
