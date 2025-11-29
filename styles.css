@@ -231,6 +231,15 @@ a {
 .nav-link-active::after {
     width: 80%;
 }
+
+/* Dropdown-Toggle Standard-Farbe */
+.nav-dropdown-toggle {
+    color: var(--color-text-dark);
+}
+
+.nav-dropdown-toggle:hover {
+    color: var(--color-primary);
+}
 /* ========================================
    DROPDOWN NAVIGATION
    ======================================== */
