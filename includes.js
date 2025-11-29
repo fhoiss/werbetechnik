@@ -1,38 +1,43 @@
-   ========================================
+// ========================================
 // HEADER & FOOTER LADEN
 // ========================================
 
-// Header laden und Navigation initialisieren
-fetch('header.html')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Header konnte nicht geladen werden');
-        }
-        return response.text();
-    })
-    .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-        initNavigation();
-        highlightActiveNavLink();
-    })
-    .catch(error => {
-        console.error('Fehler beim Laden des Headers:', error);
-    });
+document.addEventListener('DOMContentLoaded', () => {
 
-// Footer laden
-fetch('footer.html')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Footer konnte nicht geladen werden');
-        }
-        return response.text();
-    })
-    .then(data => {
-        document.getElementById('footer-placeholder').innerHTML = data;
-    })
-    .catch(error => {
-        console.error('Fehler beim Laden des Footers:', error);
-    });
+    // Header laden
+    fetch('header.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Header konnte nicht geladen werden');
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+            initNavigation();
+            highlightActiveNavLink();
+        })
+        .catch(error => {
+            console.error('Fehler beim Laden des Headers:', error);
+            document.getElementById('header-placeholder').innerHTML =
+                '<header class="site-header"><div class="container"><p style="color: red; padding: 20px;">Header konnte nicht geladen werden. Bitte Seite neu laden oder lokalen Server verwenden.</p></div></header>';
+        });
+
+    // Footer laden
+    fetch('footer.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Footer konnte nicht geladen werden');
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Fehler beim Laden des Footers:', error);
+        });
+});
 
 // ========================================
 // NAVIGATION FUNKTIONALITÄT
@@ -109,11 +114,9 @@ function highlightActiveNavLink() {
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
 
-        // Prüfe ob der Link zur aktuellen Seite führt
         if (href === currentPage || href === './' + currentPage) {
             link.classList.add('nav-link-active');
 
-            // Wenn es ein Dropdown-Link ist, markiere auch den Haupt-Toggle
             const parentDropdown = link.closest('.nav-dropdown');
             if (parentDropdown) {
                 const parentToggle = parentDropdown.querySelector('.nav-dropdown-toggle');
@@ -130,7 +133,6 @@ function highlightActiveNavLink() {
 // ========================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Warte kurz, damit Header/Footer geladen sind
     setTimeout(() => {
         const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
@@ -138,7 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', (e) => {
                 const href = link.getAttribute('href');
 
-                // Nur für echte Anker (nicht #)
                 if (href && href !== '#') {
                     const target = document.querySelector(href);
 
@@ -153,7 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             behavior: 'smooth'
                         });
 
-                        // Mobile Menü schließen
                         const navMenu = document.querySelector('.nav-menu');
                         const navToggle = document.querySelector('.nav-toggle');
                         if (navMenu && navToggle) {
