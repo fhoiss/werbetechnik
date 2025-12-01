@@ -3,56 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookie-Banner Debug Test</title>
+    <title>Modal Debug Test</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            padding: 20px;
-            font-family: Arial, sans-serif;
-        }
-        .debug-info {
-            background: #f0f0f0;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-        .debug-info h2 {
-            margin-top: 0;
-        }
-        .status {
-            padding: 5px 10px;
-            border-radius: 3px;
-            display: inline-block;
-            margin: 5px 0;
-        }
-        .status.success { background: #4CAF50; color: white; }
-        .status.error { background: #f44336; color: white; }
-        .status.warning { background: #ff9800; color: white; }
-        #test-buttons {
-            margin: 20px 0;
-        }
-        #test-buttons button {
-            padding: 10px 20px;
-            margin: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+        body { padding: 20px; font-family: Arial, sans-serif; }
+        .debug { background: #f0f0f0; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .debug h3 { margin-top: 0; }
+        button { padding: 10px 20px; margin: 5px; font-size: 16px; cursor: pointer; }
+        .success { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
     </style>
 </head>
 <body>
-    <h1>ðŸª Cookie-Banner Debug Test</h1>
+    <h1>ðŸ” Cookie-Modal Debug</h1>
 
-    <div class="debug-info">
-        <h2>Status Check</h2>
-        <div id="debug-output"></div>
+    <div class="debug">
+        <h3>Schritt 1: Elemente prÃ¼fen</h3>
+        <button onclick="checkElements()">Elemente prÃ¼fen</button>
+        <div id="element-status"></div>
     </div>
 
-    <div id="test-buttons">
-        <button onclick="testBannerExists()">1. Banner HTML prÃ¼fen</button>
-        <button onclick="testInitFunction()">2. Init-Funktion prÃ¼fen</button>
-        <button onclick="forceShowBanner()">3. Banner ZWANGSWEISE anzeigen</button>
-        <button onclick="checkCSS()">4. CSS prÃ¼fen</button>
-        <button onclick="clearCookies()">5. Cookies lÃ¶schen & neu laden</button>
+    <div class="debug">
+        <h3>Schritt 2: Modal manuell Ã¶ffnen</h3>
+        <button onclick="forceOpenModal()">Modal ZWANGSWEISE Ã¶ffnen</button>
+        <button onclick="forceCloseModal()">Modal schlieÃŸen</button>
+    </div>
+
+    <div class="debug">
+        <h3>Schritt 3: Event Listener prÃ¼fen</h3>
+        <button onclick="testEventListeners()">Event Listener testen</button>
+        <div id="listener-status"></div>
+    </div>
+
+    <div class="debug">
+        <h3>Schritt 4: Settings-Button klicken</h3>
+        <button onclick="clickSettingsButton()">Settings-Button simulieren</button>
+        <div id="click-status"></div>
     </div>
 
     <!-- Footer wird hier geladen -->
@@ -63,103 +49,106 @@
 
     <!-- Debug Scripts -->
     <script>
-        function log(message, type = 'info') {
-            const output = document.getElementById('debug-output');
-            const statusClass = type === 'success' ? 'success' : type === 'error' ? 'error' : 'warning';
-            output.innerHTML += '<div class="status ' + statusClass + '">' + message + '</div><br>';
-        }
-
-        function testBannerExists() {
-            document.getElementById('debug-output').innerHTML = '';
-            log('Teste Cookie-Banner HTML...', 'info');
+        function checkElements() {
+            const output = document.getElementById('element-status');
+            output.innerHTML = '<h4>Element-Status:</h4>';
 
             const banner = document.getElementById('cookie-banner');
             const modal = document.getElementById('cookie-modal');
-            const acceptBtn = document.getElementById('cookie-accept-all');
-            const declineBtn = document.getElementById('cookie-decline-all');
+            const settingsBtn = document.getElementById('cookie-settings-open');
+            const closeBtn = document.getElementById('cookie-modal-close');
+            const saveBtn = document.getElementById('cookie-save-settings');
+
+            output.innerHTML += banner ? '<p class="success">âœ“ Banner gefunden</p>' : '<p class="error">âœ— Banner FEHLT</p>';
+            output.innerHTML += modal ? '<p class="success">âœ“ Modal gefunden</p>' : '<p class="error">âœ— Modal FEHLT</p>';
+            output.innerHTML += settingsBtn ? '<p class="success">âœ“ Settings-Button gefunden</p>' : '<p class="error">âœ— Settings-Button FEHLT</p>';
+            output.innerHTML += closeBtn ? '<p class="success">âœ“ Close-Button gefunden</p>' : '<p class="error">âœ— Close-Button FEHLT</p>';
+            output.innerHTML += saveBtn ? '<p class="success">âœ“ Save-Button gefunden</p>' : '<p class="error">âœ— Save-Button FEHLT</p>';
+
+            if (modal) {
+                const styles = window.getComputedStyle(modal);
+                output.innerHTML += '<p>Modal Display: <strong>' + styles.display + '</strong></p>';
+                output.innerHTML += '<p>Modal Z-Index: <strong>' + styles.zIndex + '</strong></p>';
+                output.innerHTML += '<p>Modal hat .active: <strong>' + modal.classList.contains('active') + '</strong></p>';
+            }
+        }
+
+        function forceOpenModal() {
+            const modal = document.getElementById('cookie-modal');
+            if (modal) {
+                modal.classList.add('active');
+                console.log('Modal wurde mit .active Klasse versehen');
+                alert('Modal sollte jetzt sichtbar sein! Wenn nicht, ist das CSS das Problem.');
+            } else {
+                alert('Modal Element nicht gefunden!');
+            }
+        }
+
+        function forceCloseModal() {
+            const modal = document.getElementById('cookie-modal');
+            if (modal) {
+                modal.classList.remove('active');
+                console.log('Modal wurde geschlossen');
+            }
+        }
+
+        function testEventListeners() {
+            const output = document.getElementById('listener-status');
+            output.innerHTML = '<h4>Event Listener Test:</h4>';
+
             const settingsBtn = document.getElementById('cookie-settings-open');
 
-            if (banner) {
-                log('âœ“ Banner Element gefunden', 'success');
-                log('Banner display: ' + window.getComputedStyle(banner).display, 'info');
-                log('Banner hat .active Klasse: ' + banner.classList.contains('active'), 'info');
+            if (settingsBtn) {
+                // PrÃ¼fe ob bereits Listener vorhanden
+                const listeners = getEventListeners ? getEventListeners(settingsBtn) : null;
+
+                output.innerHTML += '<p class="success">âœ“ Settings-Button existiert</p>';
+
+                // FÃ¼ge Test-Listener hinzu
+                settingsBtn.addEventListener('click', function testListener() {
+                    output.innerHTML += '<p class="success">âœ“âœ“âœ“ KLICK FUNKTIONIERT! Event Listener aktiv!</p>';
+                    console.log('Test-Listener wurde ausgelÃ¶st');
+                }, { once: true });
+
+                output.innerHTML += '<p>Test-Listener hinzugefÃ¼gt. Klicke auf "Einstellungen" im Cookie-Banner!</p>';
             } else {
-                log('âœ— Banner Element NICHT gefunden!', 'error');
-            }
-
-            if (modal) log('âœ“ Modal Element gefunden', 'success');
-            else log('âœ— Modal Element NICHT gefunden', 'error');
-
-            if (acceptBtn) log('âœ“ Accept Button gefunden', 'success');
-            else log('âœ— Accept Button NICHT gefunden', 'error');
-
-            if (declineBtn) log('âœ“ Decline Button gefunden', 'success');
-            else log('âœ— Decline Button NICHT gefunden', 'error');
-
-            if (settingsBtn) log('âœ“ Settings Button gefunden', 'success');
-            else log('âœ— Settings Button NICHT gefunden', 'error');
-        }
-
-        function testInitFunction() {
-            document.getElementById('debug-output').innerHTML = '';
-            log('Teste initCookieBanner Funktion...', 'info');
-
-            if (typeof window.initCookieBanner === 'function') {
-                log('âœ“ initCookieBanner ist definiert', 'success');
-                try {
-                    window.initCookieBanner();
-                    log('âœ“ initCookieBanner() wurde aufgerufen', 'success');
-                } catch(e) {
-                    log('âœ— Fehler beim Aufruf: ' + e.message, 'error');
-                }
-            } else {
-                log('âœ— initCookieBanner ist NICHT definiert!', 'error');
+                output.innerHTML += '<p class="error">âœ— Settings-Button nicht gefunden</p>';
             }
         }
 
-        function forceShowBanner() {
-            document.getElementById('debug-output').innerHTML = '';
-            log('Zeige Banner zwangsweise an...', 'warning');
+        function clickSettingsButton() {
+            const output = document.getElementById('click-status');
+            const settingsBtn = document.getElementById('cookie-settings-open');
 
-            const banner = document.getElementById('cookie-banner');
-            if (banner) {
-                banner.classList.add('active');
-                banner.style.display = 'block';
-                log('âœ“ Banner sollte jetzt sichtbar sein!', 'success');
+            if (settingsBtn) {
+                output.innerHTML = '<p>Klicke Settings-Button programmatisch...</p>';
+                settingsBtn.click();
+
+                setTimeout(() => {
+                    const modal = document.getElementById('cookie-modal');
+                    if (modal && modal.classList.contains('active')) {
+                        output.innerHTML += '<p class="success">âœ“âœ“âœ“ ERFOLG! Modal wurde geÃ¶ffnet!</p>';
+                    } else {
+                        output.innerHTML += '<p class="error">âœ— Modal wurde NICHT geÃ¶ffnet</p>';
+                        output.innerHTML += '<p>MÃ¶glicherweise sind Event Listener noch nicht registriert.</p>';
+                    }
+                }, 200);
             } else {
-                log('âœ— Banner Element nicht gefunden', 'error');
+                output.innerHTML = '<p class="error">âœ— Settings-Button nicht gefunden</p>';
             }
         }
 
-        function checkCSS() {
-            document.getElementById('debug-output').innerHTML = '';
-            log('PrÃ¼fe CSS...', 'info');
-
-            const banner = document.getElementById('cookie-banner');
-            if (banner) {
-                const styles = window.getComputedStyle(banner);
-                log('Display: ' + styles.display, 'info');
-                log('Position: ' + styles.position, 'info');
-                log('Z-Index: ' + styles.zIndex, 'info');
-                log('Bottom: ' + styles.bottom, 'info');
-                log('Background: ' + styles.backgroundColor, 'info');
-            } else {
-                log('âœ— Banner nicht im DOM', 'error');
-            }
-        }
-
-        function clearCookies() {
-            document.getElementById('debug-output').innerHTML = '';
-            log('LÃ¶sche Cookie und lade neu...', 'warning');
-            document.cookie = 'hoiss_cookie_consent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-            setTimeout(() => location.reload(), 500);
-        }
-
-        // Automatischer Test nach 2 Sekunden
+        // Automatischer Check nach 2 Sekunden
         setTimeout(() => {
-            log('=== AUTOMATISCHER START-TEST ===', 'warning');
-            testBannerExists();
+            console.log('=== Automatischer Element-Check ===');
+            checkElements();
         }, 2000);
+
+        // Warte auf Footer-Laden und teste dann erneut
+        setTimeout(() => {
+            console.log('=== Erneuter Check nach 3 Sekunden ===');
+            checkElements();
+        }, 3000);
     </script>
 </body>
 </html>
