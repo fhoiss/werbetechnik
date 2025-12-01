@@ -168,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     // Footer laden
+// Footer laden
     fetch('footer.html')
         .then(response => {
             if (!response.ok) {
@@ -177,12 +178,15 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(data => {
             document.getElementById('footer-placeholder').innerHTML = data;
+
+            // Cookie-Banner NACH Footer-Laden initialisieren
+            setTimeout(() => {
+                initCookieBanner();
+            }, 100);
         })
         .catch(error => {
             console.error('Fehler beim Laden des Footers:', error);
         });
-});
-
 // ========================================
 // NAVIGATION FUNKTIONALITÄT
 // ========================================
