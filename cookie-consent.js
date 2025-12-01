@@ -9,10 +9,13 @@
     const COOKIE_NAME = 'hoiss_cookie_consent';
     const COOKIE_DURATION = 180; // Tage
 
-    // Warte bis DOM geladen ist
-    document.addEventListener('DOMContentLoaded', function() {
-        initCookieBanner();
-    });
+// Initialisiere sofort oder warte auf DOM
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCookieBanner);
+} else {
+    // DOM ist bereits geladen, führe direkt aus
+    initCookieBanner();
+}
 
     function initCookieBanner() {
         // PrÃ¼fe ob Consent bereits existiert
