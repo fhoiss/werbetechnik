@@ -265,6 +265,85 @@
 
 <div id="footer-placeholder"></div>
 
+<div id="cookie-banner">
+    <div class="cookie-container">
+        <div class="cookie-message">
+            <h3>?? Cookie-Einstellungen</h3>
+            <p>
+                Wir verwenden Cookies, um Ihnen ein optimales Website-Erlebnis zu bieten.
+                Dazu geh ren Cookies, die f r den Betrieb der Seite notwendig sind, sowie
+                optionale Cookies f r Analyse und Marketing.
+                <a href="datenschutz.html">Weitere Informationen</a>
+            </p>
+        </div>
+        <div class="cookie-buttons">
+            <button id="cookie-accept-all" class="cookie-btn cookie-btn-accept">
+                Alle akzeptieren
+            </button>
+            <button id="cookie-decline-all" class="cookie-btn cookie-btn-decline">
+                Nur notwendige
+            </button>
+            <button id="cookie-settings-open" class="cookie-btn cookie-btn-settings">
+                Einstellungen
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Cookie Modal -->
+<div id="cookie-modal">
+    <div class="cookie-modal-content">
+        <div class="cookie-modal-header">
+            <h3>Cookie-Einstellungen</h3>
+        </div>
+        <div class="cookie-modal-body">
+            <div class="cookie-option">
+                <div class="cookie-option-header">
+                    <span class="cookie-option-title">Notwendige Cookies</span>
+                    <label class="cookie-switch">
+                        <input type="checkbox" checked disabled>
+                        <span class="cookie-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-option-description">
+                    Diese Cookies sind f r die Grundfunktionen der Website erforderlich.
+                </p>
+            </div>
+            <div class="cookie-option">
+                <div class="cookie-option-header">
+                    <span class="cookie-option-title">Analyse-Cookies</span>
+                    <label class="cookie-switch">
+                        <input type="checkbox" id="cookie-toggle-analytics">
+                        <span class="cookie-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-option-description">
+                    Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren.
+                </p>
+            </div>
+            <div class="cookie-option">
+                <div class="cookie-option-header">
+                    <span class="cookie-option-title">Marketing-Cookies</span>
+                    <label class="cookie-switch">
+                        <input type="checkbox" id="cookie-toggle-marketing">
+                        <span class="cookie-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-option-description">
+                    Diese Cookies werden verwendet, um Ihnen personalisierte Werbung anzuzeigen.
+                </p>
+            </div>
+        </div>
+        <div class="cookie-modal-footer">
+            <button id="cookie-modal-close" class="cookie-btn cookie-btn-decline">
+                Abbrechen
+            </button>
+            <button id="cookie-save-settings" class="cookie-btn cookie-btn-accept">
+                Speichern
+            </button>
+        </div>
+    </div>
+</div>
     <script src="main.js"></script>
 </body>
 </html>
