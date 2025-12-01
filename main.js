@@ -4,144 +4,6 @@
 
 'use strict';
 
-// Mobile Navigation Toggle
-const initMobileNav = () => {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-
-    if (!navToggle || !navMenu) return;
-
-    navToggle.addEventListener('click', () => {
-        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-
-        navToggle.setAttribute('aria-expanded', !isExpanded);
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-};
-
-// Smooth Scrolling fÃ¼r Anker-Links
-const initSmoothScroll = () => {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-
-            // Ignoriere leere Hashes
-            if (href === '#') return;
-
-            e.preventDefault();
-            const target = document.querySelector(href);
-
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-
-                // SchlieÃŸe Mobile-MenÃ¼ falls offen
-                const navMenu = document.querySelector('.nav-menu');
-                const navToggle = document.querySelector('.nav-toggle');
-
-                if (navMenu && navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                    navToggle.classList.remove('active');
-                    navToggle.setAttribute('aria-expanded', 'false');
-                }
-            }
-        });
-    });
-};
-
-// Header Scroll-Effekt
-const initHeaderScroll = () => {
-    const header = document.querySelector('.site-header');
-    if (!header) return;
-
-    let lastScroll = 0;
-
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-
-        lastScroll = currentScroll;
-    });
-};
-
-// Aktiven Nav-Link beim Scrollen markieren
-const initActiveNavLink = () => {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    if (sections.length === 0 || navLinks.length === 0) return;
-
-    window.addEventListener('scroll', () => {
-        let current = '';
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-
-            if (window.pageYOffset >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('nav-link-active');
-
-            const href = link.getAttribute('href');
-            if (href === `#${current}`) {
-                link.classList.add('nav-link-active');
-            }
-        });
-    });
-};
-
-// Initialisierung beim DOM-Load
-const init = () => {
-    initMobileNav();
-	initDropdowns();
-    initSmoothScroll();
-    initHeaderScroll();
-    initActiveNavLink();
-
-    console.log('HoiÃŸ Werbetechnik - Website initialisiert');
-};
-// Dropdown Toggle fÃ¼r Mobile
-const initDropdowns = () => {
-    const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
-
-    dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', (e) => {
-            // Nur auf Mobile (wenn Burger-MenÃ¼ sichtbar)
-            if (window.innerWidth <= 992) {
-                e.preventDefault();
-                const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-
-                // SchlieÃŸe alle anderen Dropdowns
-                dropdownToggles.forEach(t => {
-                    if (t !== toggle) {
-                        t.setAttribute('aria-expanded', 'false');
-                    }
-                });
-
-                toggle.setAttribute('aria-expanded', !isExpanded);
-            }
-        });
-    });
-};
-
-// Start
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-} else {
-    init();
-}
 // ========================================
 // HEADER & FOOTER LADEN
 // ========================================
@@ -164,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => {
             console.error('Fehler beim Laden des Headers:', error);
             document.getElementById('header-placeholder').innerHTML =
-                '<header class="site-header"><div class="container"><p style="color: red; padding: 20px;">Header konnte nicht geladen werden. Bitte Seite neu laden oder lokalen Server verwenden.</p></div></header>';
+                '<header class="site-header"><div class="container"><p style="color: red; padding: 20px;">Header konnte nicht geladen werden.</p></div></header>';
         });
 
     // Footer laden
@@ -177,10 +39,29 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(data => {
             document.getElementById('footer-placeholder').innerHTML = data;
+
+            // â­ WICHTIG: Cookie-Banner NACH Footer-Laden initialisieren
+            setTimeout(() => {
+                if (typeof window.initCookieBanner === 'function') {
+                    console.log('ðŸª Initialisiere Cookie-Banner...');
+                    window.initCookieBanner();
+                } else {
+                    console.error('âŒ initCookieBanner Funktion nicht gefunden!');
+                }
+            }, 200);
         })
         .catch(error => {
             console.error('Fehler beim Laden des Footers:', error);
         });
+
+    // Initialisierung
+    initMobileNav();
+    initDropdowns();
+    initSmoothScroll();
+    initHeaderScroll();
+    initActiveNavLink();
+
+    console.log('âœ… HoiÃŸ Werbetechnik - Website initialisiert');
 });
 
 // ========================================
@@ -213,12 +94,10 @@ function initNavigation() {
     // Dropdown Toggle (Mobile)
     dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', (e) => {
-            // Nur auf Mobile preventDefault
             if (window.innerWidth <= 992) {
                 e.preventDefault();
                 const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
 
-                // Alle anderen Dropdowns schlieÃŸen
                 dropdownToggles.forEach(otherToggle => {
                     if (otherToggle !== toggle) {
                         otherToggle.setAttribute('aria-expanded', 'false');
@@ -234,49 +113,60 @@ function initNavigation() {
     let lastScroll = 0;
     const header = document.querySelector('.site-header');
 
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
+    if (header) {
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
 
-        if (currentScroll > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-
-        lastScroll = currentScroll;
-    });
-}
-
-// ========================================
-// AKTIVE SEITE HERVORHEBEN
-// ========================================
-
-function highlightActiveNavLink() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-link, .nav-dropdown-link');
-
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-
-        if (href === currentPage || href === './' + currentPage) {
-            link.classList.add('nav-link-active');
-
-            const parentDropdown = link.closest('.nav-dropdown');
-            if (parentDropdown) {
-                const parentToggle = parentDropdown.querySelector('.nav-dropdown-toggle');
-                if (parentToggle) {
-                    parentToggle.classList.add('nav-link-active');
-                }
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
-        }
-    });
+
+            lastScroll = currentScroll;
+        });
+    }
 }
 
-// ========================================
-// SMOOTH SCROLL FÃœR ANKER-LINKS
-// ========================================
+// Mobile Navigation Toggle
+const initMobileNav = () => {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
 
-document.addEventListener('DOMContentLoaded', () => {
+    if (!navToggle || !navMenu) return;
+
+    navToggle.addEventListener('click', () => {
+        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', !isExpanded);
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+};
+
+// Dropdown Toggle fÃ¼r Mobile
+const initDropdowns = () => {
+    const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
+
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+                dropdownToggles.forEach(t => {
+                    if (t !== toggle) {
+                        t.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                toggle.setAttribute('aria-expanded', !isExpanded);
+            }
+        });
+    });
+};
+
+// Smooth Scrolling fÃ¼r Anker-Links
+const initSmoothScroll = () => {
     setTimeout(() => {
         const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
@@ -310,43 +200,111 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }, 100);
-});
-/**
- * Cookie-Banner fÃƒÂ¼r HoiÃƒÅ¸ Werbetechnik
- * DSGVO-konform - Opt-in System
- */
+};
+
+// Header Scroll-Effekt
+const initHeaderScroll = () => {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+};
+
+// Aktiven Nav-Link beim Scrollen markieren
+const initActiveNavLink = () => {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    if (sections.length === 0 || navLinks.length === 0) return;
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+
+            if (window.pageYOffset >= sectionTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('nav-link-active');
+
+            const href = link.getAttribute('href');
+            if (href === `#${current}`) {
+                link.classList.add('nav-link-active');
+            }
+        });
+    });
+};
+
+// Aktive Seite hervorheben
+function highlightActiveNavLink() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-link, .nav-dropdown-link');
+
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+
+        if (href === currentPage || href === './' + currentPage) {
+            link.classList.add('nav-link-active');
+
+            const parentDropdown = link.closest('.nav-dropdown');
+            if (parentDropdown) {
+                const parentToggle = parentDropdown.querySelector('.nav-dropdown-toggle');
+                if (parentToggle) {
+                    parentToggle.classList.add('nav-link-active');
+                }
+            }
+        }
+    });
+}
+
+// ========================================
+// COOKIE-BANNER - DSGVO-KONFORM
+// ========================================
 
 (function() {
     'use strict';
 
     const COOKIE_NAME = 'hoiss_cookie_consent';
-    const COOKIE_DURATION = 365; // Tage
+    const COOKIE_DURATION = 365;
 
-    // Warte bis DOM geladen ist
-    document.addEventListener('DOMContentLoaded', function() {
-        initCookieBanner();
-    });
+    // â­ WICHTIG: Diese Funktion wird global verfÃ¼gbar gemacht
+    window.initCookieBanner = function() {
+        console.log('ðŸª Cookie-Banner Initialisierung gestartet...');
 
-    function initCookieBanner() {
-        // PrÃƒÂ¼fe ob Consent bereits existiert
         const consent = getCookieConsent();
 
         if (!consent) {
-            // Zeige Banner nach kurzer VerzÃƒÂ¶gerung
+            console.log('ðŸ“‹ Kein Cookie gefunden - zeige Banner');
             setTimeout(showBanner, 800);
         } else {
-            // Lade erlaubte Cookies
+            console.log('âœ… Cookie vorhanden - lade Einstellungen');
             loadCookies(consent);
         }
 
-        // Event Listener registrieren
+        // â­ Event Listener HIER registrieren (nachdem Footer geladen ist)
         setupEventListeners();
-    }
+    };
 
     function showBanner() {
         const banner = document.getElementById('cookie-banner');
         if (banner) {
             banner.classList.add('active');
+            console.log('âœ… Banner angezeigt');
+        } else {
+            console.error('âŒ Banner Element nicht gefunden!');
         }
     }
 
@@ -354,28 +312,39 @@ document.addEventListener('DOMContentLoaded', () => {
         const banner = document.getElementById('cookie-banner');
         if (banner) {
             banner.classList.remove('active');
+            console.log('âœ… Banner ausgeblendet');
         }
     }
 
     function showModal() {
+        console.log('ðŸ” showModal() aufgerufen');
         const modal = document.getElementById('cookie-modal');
         if (modal) {
             modal.classList.add('active');
+            console.log('âœ… Modal geÃ¶ffnet');
+        } else {
+            console.error('âŒ Modal Element nicht gefunden!');
         }
     }
 
     function hideModal() {
+        console.log('ðŸ” hideModal() aufgerufen');
         const modal = document.getElementById('cookie-modal');
         if (modal) {
             modal.classList.remove('active');
+            console.log('âœ… Modal geschlossen');
         }
     }
 
     function setupEventListeners() {
+        console.log('ðŸ”— Registriere Event Listener...');
+
         // Alle akzeptieren
         const acceptBtn = document.getElementById('cookie-accept-all');
         if (acceptBtn) {
+            console.log('âœ… Accept-Button gefunden');
             acceptBtn.addEventListener('click', function() {
+                console.log('ðŸ‘† Accept-Button geklickt');
                 const consent = {
                     necessary: true,
                     analytics: true,
@@ -386,12 +355,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 loadCookies(consent);
                 hideBanner();
             });
+        } else {
+            console.error('âŒ Accept-Button NICHT gefunden');
         }
 
         // Nur notwendige
         const declineBtn = document.getElementById('cookie-decline-all');
         if (declineBtn) {
+            console.log('âœ… Decline-Button gefunden');
             declineBtn.addEventListener('click', function() {
+                console.log('ðŸ‘† Decline-Button geklickt');
                 const consent = {
                     necessary: true,
                     analytics: false,
@@ -402,24 +375,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 loadCookies(consent);
                 hideBanner();
             });
+        } else {
+            console.error('âŒ Decline-Button NICHT gefunden');
         }
 
-        // Einstellungen ÃƒÂ¶ffnen
+        // Einstellungen Ã¶ffnen
         const settingsBtn = document.getElementById('cookie-settings-open');
         if (settingsBtn) {
-            settingsBtn.addEventListener('click', showModal);
+            console.log('âœ… Settings-Button gefunden');
+            settingsBtn.addEventListener('click', function(e) {
+                console.log('ðŸ‘† Settings-Button geklickt!');
+                e.preventDefault();
+                showModal();
+            });
+        } else {
+            console.error('âŒ Settings-Button NICHT gefunden');
         }
 
-        // Modal schlieÃƒÅ¸en
+        // Modal schlieÃŸen
         const closeBtn = document.getElementById('cookie-modal-close');
         if (closeBtn) {
-            closeBtn.addEventListener('click', hideModal);
+            console.log('âœ… Close-Button gefunden');
+            closeBtn.addEventListener('click', function() {
+                console.log('ðŸ‘† Close-Button geklickt');
+                hideModal();
+            });
+        } else {
+            console.error('âŒ Close-Button NICHT gefunden');
         }
 
         // Einstellungen speichern
         const saveBtn = document.getElementById('cookie-save-settings');
         if (saveBtn) {
+            console.log('âœ… Save-Button gefunden');
             saveBtn.addEventListener('click', function() {
+                console.log('ðŸ‘† Save-Button geklickt');
                 const analyticsCheckbox = document.getElementById('cookie-toggle-analytics');
                 const marketingCheckbox = document.getElementById('cookie-toggle-marketing');
 
@@ -435,7 +425,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 hideModal();
                 hideBanner();
             });
+        } else {
+            console.error('âŒ Save-Button NICHT gefunden');
         }
+
+        console.log('âœ… Event Listener Registrierung abgeschlossen');
     }
 
     function saveConsent(consent) {
@@ -447,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
                          '; expires=' + expiryDate.toUTCString() + 
                          '; path=/; SameSite=Lax';
 
-        console.log('Ã¢Å“â€¦ Cookie-Einwilligung gespeichert:', consent);
+        console.log('âœ… Cookie-Einwilligung gespeichert:', consent);
     }
 
     function getCookieConsent() {
@@ -471,51 +465,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadCookies(consent) {
-        console.log('Ã°Å¸â€œÅ  Lade Cookies basierend auf Einwilligung:', consent);
+        console.log('ðŸ“Š Lade Cookies basierend auf Einwilligung:', consent);
 
-        // Notwendige Cookies (immer geladen)
         loadNecessaryCookies();
 
-        // Analytics
         if (consent.analytics) {
             loadAnalyticsCookies();
         }
 
-        // Marketing
         if (consent.marketing) {
             loadMarketingCookies();
         }
     }
 
     function loadNecessaryCookies() {
-        console.log('Ã¢Å“â€œ Notwendige Cookies geladen');
-        // Hier werden technisch notwendige Cookies geladen
+        console.log('âœ“ Notwendige Cookies geladen');
     }
 
     function loadAnalyticsCookies() {
-        console.log('Ã¢Å“â€œ Analytics-Cookies geladen');
-
-        // Beispiel: Google Analytics
-        // Ersetzen Sie 'GA_MEASUREMENT_ID' mit Ihrer echten ID
-        /*
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
-
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID';
-        document.head.appendChild(script);
-        */
+        console.log('âœ“ Analytics-Cookies geladen');
+        // Hier Google Analytics Code einfÃ¼gen
     }
 
     function loadMarketingCookies() {
-        console.log('Ã¢Å“â€œ Marketing-Cookies geladen');
-        // Hier wÃƒÂ¼rden Marketing-Cookies geladen (z.B. Facebook Pixel)
+        console.log('âœ“ Marketing-Cookies geladen');
+        // Hier Marketing-Cookies Code einfÃ¼gen
     }
 
-    // Ãƒâ€“ffentliche API fÃƒÂ¼r Widerruf
     window.revokeCookieConsent = function() {
         document.cookie = COOKIE_NAME + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         location.reload();
