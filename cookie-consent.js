@@ -7,7 +7,7 @@
     'use strict';
 
     const COOKIE_NAME = 'hoiss_cookie_consent';
-    const COOKIE_DURATION = 365; // Tage
+    const COOKIE_DURATION = 180; // Tage
 
     // Warte bis DOM geladen ist
     document.addEventListener('DOMContentLoaded', function() {

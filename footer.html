@@ -59,3 +59,97 @@
         </div>
     </div>
 </footer>
+
+<div id="cookie-banner">
+    <div class="cookie-container">
+        <div class="cookie-message">
+    <h3>🍪 Cookie-Einstellungen</h3>
+    <p>Wir verwenden Cookies für den Betrieb der Website sowie für Analyse und Marketing.
+       Weitere Informationen finden Sie in unserer
+       <a href="datenschutz.html" style="color: #ef8006; text-decoration: underline; font-weight: 600;">Datenschutzerklärung</a>.
+    </p>
+</div>
+        <div class="cookie-buttons">
+            <button id="cookie-accept-all" class="btn">Alle akzeptieren</button>
+			<button id="cookie-decline-all" class="btn">Alle ablehnen</button>
+			<button id="cookie-settings-open" class="btn btn-text">Einstellungen</button>
+        </div>
+    </div>
+</div>
+
+<!-- Cookie Modal -->
+<div id="cookie-modal">
+    <div class="cookie-modal-content">
+        <div class="cookie-modal-header">
+            <h3>Cookie-Einstellungen</h3>
+        </div>
+        <div class="cookie-modal-body">
+            <div class="cookie-option">
+                <div class="cookie-option-header">
+                    <span class="cookie-option-title">Notwendige Cookies</span>
+                    <label class="cookie-switch">
+                        <input type="checkbox" checked disabled>
+                        <span class="cookie-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-option-description">
+                    Diese Cookies sind f r die Grundfunktionen der Website erforderlich.
+                </p>
+            </div>
+            <div class="cookie-option">
+    <div class="cookie-option-header">
+        <h4>Analyse-Cookies</h4>
+        <label class="cookie-switch">
+            <input type="checkbox" id="cookie-toggle-analytics">
+            <span class="cookie-slider"></span>
+        </label>
+    </div>
+    <p><strong>Zweck:</strong> Analyse des Nutzerverhaltens zur Verbesserung der Website.</p>
+    <p><strong>Dienste:</strong> Google Analytics (falls verwendet)</p>
+    <p><strong>Daten bermittlung:</strong> USA (Google LLC)</p>
+    <p><strong>Laufzeit:</strong> Bis zu 2 Jahre</p>
+    <p style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
+        <a href="datenschutz.html#analytics" style="color: #ef8006;">Mehr erfahren</a>
+    </p>
+</div>
+
+<div class="cookie-option">
+    <div class="cookie-option-header">
+        <h4>Marketing-Cookies</h4>
+        <label class="cookie-switch">
+            <input type="checkbox" id="cookie-toggle-marketing">
+            <span class="cookie-slider"></span>
+        </label>
+    </div>
+    <p><strong>Zweck:</strong> Personalisierte Werbung und Remarketing.</p>
+    <p><strong>Dienste:</strong> Facebook Pixel, Google Ads (falls verwendet)</p>
+    <p><strong>Daten bermittlung:</strong> USA (Meta, Google)</p>
+    <p><strong>Laufzeit:</strong> Bis zu 2 Jahre</p>
+    <p style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
+        <a href="datenschutz.html#marketing" style="color: #ef8006;">Mehr erfahren</a>
+    </p>
+</div>
+            </div>
+            <div class="cookie-option">
+                <div class="cookie-option-header">
+                    <span class="cookie-option-title">Marketing-Cookies</span>
+                    <label class="cookie-switch">
+                        <input type="checkbox" id="cookie-toggle-marketing">
+                        <span class="cookie-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-option-description">
+                    Diese Cookies werden verwendet, um Ihnen personalisierte Werbung anzuzeigen.
+                </p>
+            </div>
+        </div>
+        <div class="cookie-modal-footer">
+            <button id="cookie-modal-close" class="cookie-btn cookie-btn-decline">
+                Abbrechen
+            </button>
+            <button id="cookie-save-settings" class="cookie-btn cookie-btn-accept">
+                Speichern
+            </button>
+        </div>
+    </div>
+</div>

@@ -24,21 +24,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     // Footer laden
-    fetch('footer.html')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Footer konnte nicht geladen werden');
-            }
-            return response.text();
-        })
-        .then(data => {
-            document.getElementById('footer-placeholder').innerHTML = data;
-        })
-        .catch(error => {
-            console.error('Fehler beim Laden des Footers:', error);
-        });
-});
+fetch('footer.html')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Footer konnte nicht geladen werden');
+        }
+        return response.text();
+    })
+    .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
 
+        // Cookie-Banner Script NACH Footer-Load einbinden
+        loadCookieBanner();
+    })
+    .catch(error => {
+        console.error('Fehler beim Laden des Footers:', error);
+    });
+
+// Cookie-Banner laden
+function loadCookieBanner() {
+    const script = document.createElement('script');
+    script.src = 'cookie-consent.js';
+    document.body.appendChild(script);
+}
 // ========================================
 // NAVIGATION FUNKTIONALITÄT
 // ========================================
