@@ -11,75 +11,13 @@
     <link rel="icon" type="image/webp" href="img/Logo-Hoiß.webp">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
-
-     <!-- Header -->
-    <!-- Skip Link für Barrierefreiheit -->
+    <!-- Skip Link -->
     <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
-    <!-- HEADER & NAVIGATION -->
-    <header class="site-header">
-        <nav class="main-nav container" aria-label="Hauptnavigation">
+    <!-- Header wird hier geladen -->
+    <div id="header-placeholder"></div>
+    <!-- Restlicher Content bleibt gleich -->
 
-            <!-- Logo -->
-            <a href="/" class="logo-link" aria-label="Zur Startseite">
-                <img src="img/Header-Logo.png" alt="Hoiß Werbetechnik Logo" class="logo-img">
-            </a>
-
-            <!-- Mobile Toggle Button -->
-            <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
-                <span class="nav-toggle-bar"></span>
-                <span class="nav-toggle-bar"></span>
-                <span class="nav-toggle-bar"></span>
-            </button>
-
-            <!-- Navigation Menu -->
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="fahrzeugbeschriftung.html" class="nav-link">Fahrzeugbeschriftung</a>
-                </li>
-
-                <li class="nav-item nav-dropdown">
-                    <a href="#" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                        Außenwerbung
-                        <span class="dropdown-icon">▾</span>
-                    </a>
-                    <ul class="nav-dropdown-menu">
-                        <li><a href="schilder-leitsysteme.html" class="nav-dropdown-link">Schilder & Leitsysteme</a></li>
-                        <li><a href="banner-werbeplanen.html" class="nav-dropdown-link">Banner & Werbeplanen</a></li>
-                        <li><a href="grossformatdruck.html" class="nav-dropdown-link">Großformatdruck</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item nav-dropdown">
-                    <a href="#" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                        Glas & Fenster
-                        <span class="dropdown-icon">▾</span>
-                    </a>
-                    <ul class="nav-dropdown-menu">
-                        <li><a href="schaufensterbeschriftung.html" class="nav-dropdown-link">Schaufensterbeschriftung</a></li>
-                        <li><a href="glasdekor-sichtschutz.html" class="nav-dropdown-link">Glasdekor & Sichtschutz</a></li>
-                        <li><a href="sonnenschutzfolien.html" class="nav-dropdown-link">Sonnenschutzfolien</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a href="https://hoiss-stickerei.de/" class="nav-link" target="_blank" rel="noopener">
-                        Textilwerbung
-                        <span class="external-icon">↗</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="ueber-uns.html" class="nav-link">Über uns</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#kontakt" class="nav-link nav-link-cta">Kontakt</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
 
     <main id="main-content">
         <!-- Hero Section -->
@@ -113,8 +51,8 @@
 
                     <div style="background: var(--color-bg-white); padding: var(--spacing-lg); border-radius: var(--radius-lg); border-left: 4px solid var(--color-primary); box-shadow: var(--shadow-sm);">
                         <p style="margin: 0; line-height: 1.8;">
-                            <strong>Hoiß Beklebe & Werbetechnik</strong><br>
-                            Inhaberin: Gabriele Hoiß<br>
+                            <strong>Hoiß GmbH</strong><br>
+                            Geschäftsführung: Gabriele Hoiß<br>
                             Lochberg 12<br>
                             83135 Schechen<br><br>
                             <strong>Telefon:</strong> <a href="tel:+4880319003379" style="color: var(--color-primary);">+49 (0) 8031 900 33 79</a><br>
@@ -392,118 +330,9 @@
 
     </main>
 
-    <!-- Footer -->
-    <footer class="footer-section">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column footer-logo-column">
-                    <img src="https://www.werbetechnik-hoiss.de/wp-content/uploads/2019/01/Retina-Logo_Footer-300x114.png" alt="Hoiß Beklebe & Werbetechnik Logo" class="footer-logo">
-                </div>
-                <div class="footer-column footer-hours-column">
-                    <h3 class="footer-heading">Öffnungszeiten:</h3>
-                    <p class="footer-text">Mo – Fr: 8.00 – 17.00</p>
-                    <p class="footer-text">Fr: 8.00 – 12.00</p>
-                </div>
-                <div class="footer-column footer-contact-column">
-                    <p class="footer-company">Hoiß Beklebe & Werbetechnik</p>
-                    <p class="footer-text">Inhaberin: Gabriele Hoiß</p>
-                    <p class="footer-text">Lochberg 12</p>
-                    <p class="footer-text">83135 Schechen</p>
-                    <p class="footer-text footer-spacing-top">Tel: <a href="tel:+4880319003379">+49 (0) 8031 9003379</a></p>
-                    <p class="footer-text footer-spacing-top"><a href="mailto:info@werbetechnik-hoiss.de">info@werbetechnik-hoiss.de</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p class="footer-copyright">© 2025 Hoiß Werbetechnik. Alle Rechte vorbehalten.</p>
-                <div class="footer-links">
-                    <a href="impressum.html">Impressum</a>
-                    <span class="footer-divider">|</span>
-                    <a href="datenschutz.html" style="color: var(--color-primary); font-weight: 600;">Datenschutz</a>
-                    <span class="footer-divider">|</span>
-                    <a href="index.html#kontakt">Kontakt</a>
-                </div>
-            </div>
-        </div>
-<div id="cookie-banner">
-    <div class="cookie-container">
-        <div class="cookie-message">
-            <h3>🍪 Cookie-Einstellungen</h3>
-            <p>
-                Wir verwenden Cookies, um Ihnen ein optimales Website-Erlebnis zu bieten.
-                Dazu gehören Cookies, die für den Betrieb der Seite notwendig sind, sowie
-                optionale Cookies für Analyse und Marketing.
-                <a href="datenschutz.html">Weitere Informationen</a>
-            </p>
-        </div>
-        <div class="cookie-buttons">
-            <button id="cookie-accept-all" class="cookie-btn cookie-btn-accept">
-                Alle akzeptieren
-            </button>
-            <button id="cookie-decline-all" class="cookie-btn cookie-btn-decline">
-                Nur notwendige
-            </button>
-            <button id="cookie-settings-open" class="cookie-btn cookie-btn-settings">
-                Einstellungen
-            </button>
-        </div>
-    </div>
-</div>
+<div id="footer-placeholder"></div>
 
-<!-- Cookie Modal -->
-<div id="cookie-modal">
-    <div class="cookie-modal-content">
-        <div class="cookie-modal-header">
-            <h3>Cookie-Einstellungen</h3>
-        </div>
-        <div class="cookie-modal-body">
-            <div class="cookie-option">
-                <div class="cookie-option-header">
-                    <span class="cookie-option-title">Notwendige Cookies</span>
-                    <label class="cookie-switch">
-                        <input type="checkbox" checked disabled>
-                        <span class="cookie-slider"></span>
-                    </label>
-                </div>
-                <p class="cookie-option-description">
-                    Diese Cookies sind für die Grundfunktionen der Website erforderlich.
-                </p>
-            </div>
-            <div class="cookie-option">
-                <div class="cookie-option-header">
-                    <span class="cookie-option-title">Analyse-Cookies</span>
-                    <label class="cookie-switch">
-                        <input type="checkbox" id="cookie-toggle-analytics">
-                        <span class="cookie-slider"></span>
-                    </label>
-                </div>
-                <p class="cookie-option-description">
-                    Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren.
-                </p>
-            </div>
-            <div class="cookie-option">
-                <div class="cookie-option-header">
-                    <span class="cookie-option-title">Marketing-Cookies</span>
-                    <label class="cookie-switch">
-                        <input type="checkbox" id="cookie-toggle-marketing">
-                        <span class="cookie-slider"></span>
-                    </label>
-                </div>
-                <p class="cookie-option-description">
-                    Diese Cookies werden verwendet, um Ihnen personalisierte Werbung anzuzeigen.
-                </p>
-            </div>
-        </div>
-        <div class="cookie-modal-footer">
-            <button id="cookie-modal-close" class="cookie-btn cookie-btn-decline">
-                Abbrechen
-            </button>
-            <button id="cookie-save-settings" class="cookie-btn cookie-btn-accept">
-                Speichern
-            </button>
-        </div>
-    </div>
-</div>
     <script src="main.js"></script>
-    <script src="cookie-consent.js"></script>  <!-- NEU -->
+		
 </body>
 </html>
