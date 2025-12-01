@@ -20,7 +20,7 @@ const initMobileNav = () => {
     });
 };
 
-// Smooth Scrolling für Anker-Links
+// Smooth Scrolling fÃ¼r Anker-Links
 const initSmoothScroll = () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -38,7 +38,7 @@ const initSmoothScroll = () => {
                     block: 'start'
                 });
 
-                // Schließe Mobile-Menü falls offen
+                // SchlieÃŸe Mobile-MenÃ¼ falls offen
                 const navMenu = document.querySelector('.nav-menu');
                 const navToggle = document.querySelector('.nav-toggle');
 
@@ -110,20 +110,20 @@ const init = () => {
     initHeaderScroll();
     initActiveNavLink();
 
-    console.log('Hoiß Werbetechnik - Website initialisiert');
+    console.log('HoiÃŸ Werbetechnik - Website initialisiert');
 };
-// Dropdown Toggle für Mobile
+// Dropdown Toggle fÃ¼r Mobile
 const initDropdowns = () => {
     const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
 
     dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', (e) => {
-            // Nur auf Mobile (wenn Burger-Menü sichtbar)
+            // Nur auf Mobile (wenn Burger-MenÃ¼ sichtbar)
             if (window.innerWidth <= 992) {
                 e.preventDefault();
                 const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
 
-                // Schließe alle anderen Dropdowns
+                // SchlieÃŸe alle anderen Dropdowns
                 dropdownToggles.forEach(t => {
                     if (t !== toggle) {
                         t.setAttribute('aria-expanded', 'false');
@@ -168,7 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     // Footer laden
-// Footer laden
     fetch('footer.html')
         .then(response => {
             if (!response.ok) {
@@ -178,17 +177,14 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(data => {
             document.getElementById('footer-placeholder').innerHTML = data;
-
-            // Cookie-Banner NACH Footer-Laden initialisieren
-            setTimeout(() => {
-                initCookieBanner();
-            }, 100);
         })
         .catch(error => {
             console.error('Fehler beim Laden des Footers:', error);
         });
+});
+
 // ========================================
-// NAVIGATION FUNKTIONALITÄT
+// NAVIGATION FUNKTIONALITÃ„T
 // ========================================
 
 function initNavigation() {
@@ -204,7 +200,7 @@ function initNavigation() {
             navToggle.setAttribute('aria-expanded', isActive);
         });
 
-        // Menü schließen bei Klick außerhalb
+        // MenÃ¼ schlieÃŸen bei Klick auÃŸerhalb
         document.addEventListener('click', (e) => {
             if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
                 navMenu.classList.remove('active');
@@ -222,7 +218,7 @@ function initNavigation() {
                 e.preventDefault();
                 const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
 
-                // Alle anderen Dropdowns schließen
+                // Alle anderen Dropdowns schlieÃŸen
                 dropdownToggles.forEach(otherToggle => {
                     if (otherToggle !== toggle) {
                         otherToggle.setAttribute('aria-expanded', 'false');
@@ -277,7 +273,7 @@ function highlightActiveNavLink() {
 }
 
 // ========================================
-// SMOOTH SCROLL FÜR ANKER-LINKS
+// SMOOTH SCROLL FÃœR ANKER-LINKS
 // ========================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -316,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 100);
 });
 /**
- * Cookie-Banner fÃ¼r HoiÃŸ Werbetechnik
+ * Cookie-Banner fÃƒÂ¼r HoiÃƒÅ¸ Werbetechnik
  * DSGVO-konform - Opt-in System
  */
 
@@ -332,11 +328,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function initCookieBanner() {
-        // PrÃ¼fe ob Consent bereits existiert
+        // PrÃƒÂ¼fe ob Consent bereits existiert
         const consent = getCookieConsent();
 
         if (!consent) {
-            // Zeige Banner nach kurzer VerzÃ¶gerung
+            // Zeige Banner nach kurzer VerzÃƒÂ¶gerung
             setTimeout(showBanner, 800);
         } else {
             // Lade erlaubte Cookies
@@ -408,13 +404,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Einstellungen Ã¶ffnen
+        // Einstellungen ÃƒÂ¶ffnen
         const settingsBtn = document.getElementById('cookie-settings-open');
         if (settingsBtn) {
             settingsBtn.addEventListener('click', showModal);
         }
 
-        // Modal schlieÃŸen
+        // Modal schlieÃƒÅ¸en
         const closeBtn = document.getElementById('cookie-modal-close');
         if (closeBtn) {
             closeBtn.addEventListener('click', hideModal);
@@ -451,7 +447,7 @@ document.addEventListener('DOMContentLoaded', () => {
                          '; expires=' + expiryDate.toUTCString() + 
                          '; path=/; SameSite=Lax';
 
-        console.log('âœ… Cookie-Einwilligung gespeichert:', consent);
+        console.log('Ã¢Å“â€¦ Cookie-Einwilligung gespeichert:', consent);
     }
 
     function getCookieConsent() {
@@ -475,7 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadCookies(consent) {
-        console.log('ðŸ“Š Lade Cookies basierend auf Einwilligung:', consent);
+        console.log('Ã°Å¸â€œÅ  Lade Cookies basierend auf Einwilligung:', consent);
 
         // Notwendige Cookies (immer geladen)
         loadNecessaryCookies();
@@ -492,12 +488,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadNecessaryCookies() {
-        console.log('âœ“ Notwendige Cookies geladen');
+        console.log('Ã¢Å“â€œ Notwendige Cookies geladen');
         // Hier werden technisch notwendige Cookies geladen
     }
 
     function loadAnalyticsCookies() {
-        console.log('âœ“ Analytics-Cookies geladen');
+        console.log('Ã¢Å“â€œ Analytics-Cookies geladen');
 
         // Beispiel: Google Analytics
         // Ersetzen Sie 'GA_MEASUREMENT_ID' mit Ihrer echten ID
@@ -515,11 +511,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadMarketingCookies() {
-        console.log('âœ“ Marketing-Cookies geladen');
-        // Hier wÃ¼rden Marketing-Cookies geladen (z.B. Facebook Pixel)
+        console.log('Ã¢Å“â€œ Marketing-Cookies geladen');
+        // Hier wÃƒÂ¼rden Marketing-Cookies geladen (z.B. Facebook Pixel)
     }
 
-    // Ã–ffentliche API fÃ¼r Widerruf
+    // Ãƒâ€“ffentliche API fÃƒÂ¼r Widerruf
     window.revokeCookieConsent = function() {
         document.cookie = COOKIE_NAME + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         location.reload();
