@@ -498,3 +498,152 @@ function highlightActiveNavLink() {
     };
 
 })();
+
+// ========== SCHEMA MARKUP ==========
+
+document.addEventListener('DOMContentLoaded', function() {
+
+  // Organization Schema
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Hoiß Werbetechnik",
+    "alternateName": "Hoiß Beklebe & Werbetechnik",
+    "url": "https://www.werbetechnik-hoiss.de/",
+    "logo": "https://www.werbetechnik-hoiss.de/wp-content/uploads/2024/07/Hoiss_Werbetechnik_Gebaede-1.webp",
+    "description": "Professionelle Werbetechnik in Rosenheim - Fahrzeugbeschriftungen, Schilder, Glasbeschriftungen und Digitaldruck",
+    "sameAs": [
+      "https://www.facebook.com/hoiss.werbetechnik",
+      "https://www.instagram.com/hoiss.werbetechnik"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "telephone": "+49-8031-9003379",
+      "email": "info@werbetechnik-hoiss.de"
+    }
+  };
+
+  // LocalBusiness Schema
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Hoiß Werbetechnik",
+    "image": "https://www.werbetechnik-hoiss.de/wp-content/uploads/2024/07/Hoiss_Werbetechnik_Gebaede-1.webp",
+    "description": "Fahrzeugbeschriftungen, Schilder, Glasbeschriftungen und professionelle Werbetechnik in Rosenheim und Umgebung",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Lochberg 12",
+      "addressLocality": "Schechen",
+      "postalCode": "83135",
+      "addressCountry": "DE"
+    },
+    "telephone": "+49-8031-9003379",
+    "email": "info@werbetechnik-hoiss.de",
+    "url": "https://www.werbetechnik-hoiss.de/",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "priceRange": "€€€",
+    "areaServed": {
+      "@type": "State",
+      "name": "Bayern"
+    },
+    "sameAs": [
+      "https://www.facebook.com/hoiss.werbetechnik",
+      "https://www.instagram.com/hoiss.werbetechnik"
+    ]
+  };
+
+  // Service Schema
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Hoiß Werbetechnik",
+    "hasOfferingDescription": [
+      {
+        "@type": "Service",
+        "name": "Fahrzeugbeschriftung",
+        "description": "Professionelle Fahrzeugbeklebungen für Autos, LKW und Anhänger. Hochwertige Fahrzeugfolien als mobile Werbefläche – individuell gestaltet.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Hoiß Werbetechnik"
+        },
+        "areaServed": "DE"
+      },
+      {
+        "@type": "Service",
+        "name": "Glasbeschriftung",
+        "description": "Schaufensterbeschriftungen mit Glasdekorfolien für Sichtschutz und Design. Selbstklebende Folien in vielen Farben.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Hoiß Werbetechnik"
+        },
+        "areaServed": "DE"
+      },
+      {
+        "@type": "Service",
+        "name": "Schilder",
+        "description": "Hochwertige Schilder und Beschilderungssysteme für Fassaden. Individuelle Designs in robusten Materialien.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Hoiß Werbetechnik"
+        },
+        "areaServed": "DE"
+      }
+    ]
+  };
+
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Startseite",
+        "item": "https://www.werbetechnik-hoiss.de/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Fahrzeugbeschriftung",
+        "item": "https://www.werbetechnik-hoiss.de/fahrzeugbeschriftung.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Glasbeschriftung",
+        "item": "https://www.werbetechnik-hoiss.de/glasdekor-sichtschutz.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Schilder",
+        "item": "https://www.werbetechnik-hoiss.de/schilder-leitsysteme.html"
+      }
+    ]
+  };
+
+  // Function to add schema to page
+  function addSchema(schemaData) {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(schemaData);
+    document.head.appendChild(script);
+  }
+
+  // Add all schemas
+  addSchema(organizationSchema);
+  addSchema(localBusinessSchema);
+  addSchema(serviceSchema);
+  addSchema(breadcrumbSchema);
+});
+
+// ========== END SCHEMA MARKUP ==========

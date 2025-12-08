@@ -43,7 +43,7 @@
     --color-text-medium: #4a4a4a;
     --color-text-light: #6b6b6b;
     --color-bg-white: #ffffff;
-    --color-bg-light: #e7e8e9;
+    --color-bg-light: #f5f5f5;
     --color-border: #e0e0e0;
 
     /* Abstände */
@@ -991,6 +991,14 @@ a {
 .form-checkbox {
     margin-top: 3px;
     cursor: pointer;
+}
+.captcha-question {
+    background-color: #f0f0f0;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--color-primary);
 }
 /* ========================================
    FOOTER STYLING

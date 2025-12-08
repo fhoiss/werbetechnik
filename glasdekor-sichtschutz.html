@@ -23,7 +23,7 @@
             <img src="https://www.werbetechnik-hoiss.de/wp-content/uploads/2024/10/Fahrzeugbeschriftung-Rosenheim.jpg" alt="Schaufensterbeschriftung und Glasbeschriftung" class="hero-bg" loading="eager">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h1 class="hero-title">Professionelle;</h1>
+                <h1 class="hero-title">Professionelle</h1>
                 <h1 class="hero-title">Fenster- &amp; Glasbeschriftung</h1>
 <p class="hero-subtitle">Für Schaufenster, Büros und Praxen</p>
                 <a href="#kontakt" class="btn btn-primary">Jetzt kostenlose Beratung anfordern</a>
@@ -157,51 +157,62 @@
             </div>
         </section>
 
-        <!-- Ablauf - WEIß -->
-        <section class="services-section">
-            <div class="container">
-                <h2 class="section-heading" style="text-align: center;">Ablauf: Von der Planung bis zur Montage</h2>
+      <!-- Ablauf - WEIß -->
+<section class="services-section">
+    <div class="container">
+        <h2 class="section-heading" style="text-align: center;">Ablauf: Von der Planung bis zur Montage</h2>
 
-                <div class="about-features">
-                    <div class="feature-box">
-                        <div class="feature-icon">1</div>
-                        <div class="feature-content">
-                            <h4 class="feature-title">Kostenlose Vor-Ort-Beratung</h4>
-                            <p class="feature-text">Wir besichtigen Ihre Räumlichkeiten, nehmen Maß und besprechen Ihre Wünsche und Anforderungen. Sie erhalten eine erste Einschätzung zu Machbarkeit, Materialien und Kosten.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-box">
-                        <div class="feature-icon">2</div>
-                        <div class="feature-content">
-                            <h4 class="feature-title">Gestaltung &amp; Designvorschlag</h4>
-                            <p class="feature-text">Auf Basis Ihrer Vorgaben erstellen wir einen professionellen Designvorschlag. Sie erhalten eine Visualisierung, wie Ihre Beschriftung später aussehen wird.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-box">
-                        <div class="feature-icon">3</div>
-                        <div class="feature-content">
-                            <h4 class="feature-title">Produktion</h4>
-                            <p class="feature-text">Nach Ihrer Freigabe produzieren wir Ihre Fenster- oder Glasbeschriftung mit modernster Technik – ob Digitaldruck oder Folienplott.</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-box">
-                        <div class="feature-icon">4</div>
-                        <div class="feature-content">
-                            <h4 class="feature-title">Professionelle Montage</h4>
-                            <p class="feature-text">Unsere erfahrenen Monteure bringen die Folie blasenfrei und präzise an. Wir achten auf saubere Kanten und perfekte Ausrichtung.</p>
-                        </div>
-                    </div>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-lg); max-width: 1000px; margin: var(--spacing-lg) auto 0;">
+            <div class="feature-box">
+                <div class="feature-icon">1</div>
+                <div class="feature-content">
+                    <h4 class="feature-title">Kostenlose Vor-Ort-Beratung</h4>
+                    <p class="feature-text">Wir besichtigen Ihre Räumlichkeiten, nehmen Maß und besprechen Ihre Wünsche und Anforderungen. Sie erhalten eine erste Einschätzung zu Machbarkeit, Materialien und Kosten.</p>
                 </div>
             </div>
-        </section>
 
+            <div class="feature-box">
+                <div class="feature-icon">2</div>
+                <div class="feature-content">
+                    <h4 class="feature-title">Gestaltung &amp; Designvorschlag</h4>
+                    <p class="feature-text">Auf Basis Ihrer Vorgaben erstellen wir einen professionellen Designvorschlag. Sie erhalten eine Visualisierung, wie Ihre Beschriftung später aussehen wird.</p>
+                </div>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">3</div>
+                <div class="feature-content">
+                    <h4 class="feature-title">Produktion</h4>
+                    <p class="feature-text">Nach Ihrer Freigabe produzieren wir Ihre Fenster- oder Glasbeschriftung mit modernster Technik – ob Digitaldruck oder Folienplott.</p>
+                </div>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">4</div>
+                <div class="feature-content">
+                    <h4 class="feature-title">Professionelle Montage</h4>
+                    <p class="feature-text">Unsere erfahrenen Monteure bringen die Folie blasenfrei und präzise an. Wir achten auf saubere Kanten und perfekte Ausrichtung.</p>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            @media (max-width: 768px) {
+                .services-section > .container > div[style*="grid-template-columns: repeat(2, 1fr)"] {
+                    grid-template-columns: 1fr !important;
+                }
+
+                .services-section .feature-box[style*="grid-column: 1 / -1"] {
+                    max-width: 100% !important;
+                }
+            }
+        </style>
+    </div>
+</section>
 <!-- Kosten & Preise - GRAU -->
 <section class="about-section about-section-full">
     <div class="container">
-        <h2 class="section-heading" style="text-align: center;">Kosten & Preise für Glasbeschriftungen</h2>
+        <h2 class="section-heading" style="text-align: center;">Kosten &amp; Preise für Glasbeschriftungen</h2>
 
         <div class="about-text-full" style="text-align: center; max-width: 900px; margin: 0 auto var(--spacing-lg);">
             <p style="font-size: 1.1rem; color: var(--color-text-dark);">Die Kosten für eine Fenster- oder Glasbeschriftung hängen von verschiedenen Faktoren ab:</p>
@@ -236,7 +247,7 @@
 
             <div style="background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); text-align: center; border: 2px solid transparent; transition: all 0.3s ease;">
                 <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto var(--spacing-sm);">📍</div>
-                <h4 style="font-size: 1.05rem; font-weight: 600; color: var(--color-text-dark); margin-bottom: var(--spacing-xs);">Montagehöhe & -aufwand</h4>
+                <h4 style="font-size: 1.05rem; font-weight: 600; color: var(--color-text-dark); margin-bottom: var(--spacing-xs);">Montagehöhe &amp; -aufwand</h4>
                 <p style="font-size: 0.9rem; color: var(--color-text-medium); margin: 0;">Ebenerdig oder Gerüst</p>
             </div>
 
