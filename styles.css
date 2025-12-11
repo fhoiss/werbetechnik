@@ -72,6 +72,7 @@
     --shadow-md: 0 5px 20px rgba(239, 128, 6, 0.12);
     --shadow-lg: 0 15px 40px rgba(239, 128, 6, 0.18);
 }
+
 /* ========================================
    BASIC RESET & DEFAULTS
    ======================================== */
@@ -1013,7 +1014,7 @@ a {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 1.3fr 1fr 1fr 0.8fr; /* Ausgewogene Verteilung */
+    grid-template-columns: 1.3fr 1fr 1fr; /* Ausgewogene Verteilung */
     gap: var(--spacing-xl);
     margin-bottom: var(--spacing-lg);
     align-items: start; /* Alle Spalten beginnen oben */
