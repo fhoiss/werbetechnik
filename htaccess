@@ -1,0 +1,49 @@
+# UTF-8 Encoding
+AddDefaultCharset UTF-8
+
+# Fehlerseiten
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+ErrorDocument 403 /403.html
+
+# .htaccess selbst schützen
+<FilesMatch "^\.htaccess$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Browser-Caching für statische Dateien
+<FilesMatch "\.(jpg|jpeg|png|gif|ico|css|js|svg|woff|woff2|ttf|otf)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+# HTML-Dateien 1 Woche cachen
+<FilesMatch "\.html$">
+    Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+
+# Datenschutz & Impressum nicht cachen (sensitive Inhalte)
+<FilesMatch "(datenschutz|impressum)\.html$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+</FilesMatch>
+
+# Kontaktformular-Daten nicht cachen
+<FilesMatch "(kontakt|formulare)\.html$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+</FilesMatch>
+
+# GZIP-Kompression aktivieren
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Sicherheits-Header
+Header set X-Content-Type-Options "nosniff"
+Header set X-Frame-Options "SAMEORIGIN"
+
+# HTTPS erzwingen (optional - uncomment wenn SSL aktiv)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
