@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500 - Serverfehler | Hoiß Werbetechnik</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .error-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem;
+        }
+
+        .error-content {
+            background: white;
+            border-radius: 10px;
+            padding: 3rem 2rem;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .error-code {
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ef8006;
+            margin: 0;
+        }
+
+        .error-title {
+            font-size: 2rem;
+            color: #333;
+            margin: 1rem 0;
+        }
+
+        .error-message {
+            font-size: 1.1rem;
+            color: #666;
+            margin: 1.5rem 0;
+            line-height: 1.6;
+        }
+
+        .error-actions {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #ef8006;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #d96f04;
+        }
+
+        .btn-secondary {
+            background-color: #f0f0f0;
+            color: #333;
+            border: 2px solid #ef8006;
+        }
+
+        .btn-secondary:hover {
+            background-color: #efefef;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-content">
+            <h1 class="error-code">500</h1>
+            <h2 class="error-title">Serverfehler</h2>
+            <p class="error-message">
+                Es tut uns leid! Ein unerwarteter Fehler ist aufgetreten. 
+                Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.
+            </p>
+
+            <div class="error-actions">
+                <a href="/" class="btn btn-primary">Zurück zur Startseite</a>
+                <a href="mailto:info@werbetechnik-hoiss.de" class="btn btn-secondary">Kontakt</a>
+            </div>
+
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee; color: #999; font-size: 0.9rem;">
+                <p>Hoiß Werbetechnik<br>
+                Telefon: <a href="tel:+498031900337" style="color: #ef8006; text-decoration: none;">+49 (0) 8031 900 33 79</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

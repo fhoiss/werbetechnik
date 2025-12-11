@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Seite nicht gefunden - Hoiß Werbetechnik">
+    <title>404 - Seite nicht gefunden | Hoiß Werbetechnik</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .error-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .error-content {
+            max-width: 600px;
+        }
+
+        .error-code {
+            font-size: 7rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1;
+            margin: 0;
+        }
+
+        .error-title {
+            font-size: 2rem;
+            color: var(--color-text-dark);
+            margin: 1rem 0;
+            font-weight: 600;
+        }
+
+        .error-description {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            margin: 1.5rem 0;
+            line-height: 1.8;
+        }
+
+        .error-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2.5rem 0;
+        }
+
+        .error-btn {
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .error-btn-primary {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .error-btn-primary:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(239, 128, 6, 0.3);
+        }
+
+        .error-btn-secondary {
+            background: var(--color-bg-light);
+            color: var(--color-text-dark);
+            border: 2px solid var(--color-primary);
+        }
+
+        .error-btn-secondary:hover {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .error-emoji {
+            font-size: 5rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-container">
+            <div class="error-content">
+                <div class="error-emoji">🔍</div>
+                <h1 class="error-code">404</h1>
+                <h2 class="error-title">Seite nicht gefunden</h2>
+                <p class="error-description">
+                    Entschuldigung! Die Seite, die Sie suchen, existiert leider nicht mehr oder wurde verschoben. 
+                    Dies kann passieren, wenn ein Link veraltet ist oder Sie eine falsche URL eingegeben haben.
+                </p>
+                <div class="error-buttons">
+                    <a href="/" class="error-btn error-btn-primary">Zur Startseite</a>
+                    <a href="/kontakt" class="error-btn error-btn-secondary">Kontakt aufnehmen</a>
+                </div>
+
+                <h3 style="color: var(--color-text-dark); margin-top: 3rem; font-size: 1.1rem;">Suchen Sie nach etwas Bestimmtem?</h3>
+                <p style="color: var(--color-text-light); margin: 1rem 0;">
+                    <strong>Fahrzeugbeschriftung?</strong> → <a href="/fahrzeugbeschriftung.html" style="color: var(--color-primary); text-decoration: underline;">Zur Seite</a><br>
+                    <strong>Glasbeschriftung?</strong> → <a href="/glasdekor-sichtschutz.html" style="color: var(--color-primary); text-decoration: underline;">Zur Seite</a><br>
+                    <strong>Schaufensterbeschriftung?</strong> → <a href="/schaufensterbeschriftung.html" style="color: var(--color-primary); text-decoration: underline;">Zur Seite</a><br>
+                    <strong>Kontakt?</strong> → <a href="/kontakt" style="color: var(--color-primary); text-decoration: underline;">Kontakt</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
