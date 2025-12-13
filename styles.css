@@ -218,6 +218,10 @@ a {
     padding: 15px var(--spacing-md);
     min-height: 90px;
 }
+.main-nav ul {
+    list-style: none !important;
+    padding-left: 0;
+}
 
 .logo-link {
     display: flex;
