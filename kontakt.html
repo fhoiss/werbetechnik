@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kontaktieren Sie Hoiß Werbetechnik in Rosenheim – Für Fahrzeugbeschriftung, Schilder, Glasdekor und professionelle Werbetechnik. Kostenlose Vor-Ort-Beratung.">
+    <meta name="keywords" content="Kontakt, Hoiß Werbetechnik, Rosenheim, Anfrage, Beratung, Werbetechnik">
+    <title>Kontakt – Hoiß Werbetechnik Rosenheim | Kostenlose Beratung</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact.css">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kontakt – Hoiß Werbetechnik Rosenheim">
+    <meta property="og:description" content="Nehmen Sie Kontakt zu uns auf – Wir beraten Sie gerne zu Ihrem Werbetechnik-Projekt.">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+    
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        
+        <!-- Hero Section -->
+        <section class="hero-section hero-contact">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Kontakt</h1>
+                <p class="hero-subtitle">Wir freuen uns auf Ihre Anfrage – Kostenlose Beratung garantiert!</p>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-intro">
+                    <h2>Schreiben Sie uns</h2>
+                    <p>Haben Sie Fragen zu unseren Leistungen oder möchten Sie ein individuelles Angebot? Nutzen Sie unser Kontaktformular oder rufen Sie uns direkt an. Wir melden uns schnellstmöglich bei Ihnen!</p>
+                </div>
+                
+                <div class="contact-wrapper">
+                    <!-- Contact Form -->
+                    <div class="contact-form-container">
+                        <form class="contact-form" id="contactForm" action="#" method="post" enctype="multipart/form-data">
+                            
+                            <!-- Name -->
+                            <div class="form-group">
+                                <label for="name" class="form-label">
+                                    Name <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    class="form-input" 
+                                    required
+                                    placeholder="Ihr vollständiger Name"
+                                    aria-required="true">
+                            </div>
+                            
+                            <!-- Email -->
+                            <div class="form-group">
+                                <label for="email" class="form-label">
+                                    E-Mail <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    class="form-input" 
+                                    required
+                                    placeholder="ihre.email@beispiel.de"
+                                    aria-required="true">
+                            </div>
+                            
+                            <!-- Telefon (Optional) -->
+                            <div class="form-group">
+                                <label for="phone" class="form-label">
+                                    Telefon <span class="optional">(optional)</span>
+                                </label>
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    name="phone" 
+                                    class="form-input" 
+                                    placeholder="+49 123 456789">
+                            </div>
+                            
+                            <!-- Interesse -->
+                            <div class="form-group">
+                                <label for="interest" class="form-label">
+                                    Ich interessiere mich für <span class="required">*</span>
+                                </label>
+                                <select 
+                                    id="interest" 
+                                    name="interest" 
+                                    class="form-select" 
+                                    required
+                                    aria-required="true">
+                                    <option value="">Bitte wählen Sie...</option>
+                                    <option value="fahrzeugbeschriftung">Fahrzeugbeschriftung</option>
+                                    <option value="glasdekor">Glasdekor & Sichtschutz</option>
+                                    <option value="schilder">Schilder & Leitsysteme</option>
+                                    <option value="digitaldruck">Digitaldruck & Banner</option>
+                                    <option value="leuchtschrift">Leuchtschrift & Leuchtreklame</option>
+                                    <option value="messebau">Messebau & Displays</option>
+                                    <option value="beratung">Allgemeine Beratung</option>
+                                    <option value="sonstiges">Sonstiges</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Nachricht -->
+                            <div class="form-group">
+                                <label for="message" class="form-label">
+                                    Ihre Nachricht <span class="required">*</span>
+                                </label>
+                                <textarea 
+                                    id="message" 
+                                    name="message" 
+                                    class="form-textarea" 
+                                    rows="6" 
+                                    required
+                                    placeholder="Beschreiben Sie uns Ihr Projekt oder Ihre Anfrage..."
+                                    aria-required="true"></textarea>
+                            </div>
+                            
+                            <!-- File Upload -->
+                            <div class="form-group">
+                                <label for="file-upload" class="form-label">
+                                    Datei hochladen <span class="optional">(optional)</span>
+                                </label>
+                                <div class="file-upload-wrapper">
+                                    <input 
+                                        type="file" 
+                                        id="file-upload" 
+                                        name="file-upload" 
+                                        class="file-input"
+                                        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.ai,.eps"
+                                        aria-describedby="file-upload-help">
+                                    <label for="file-upload" class="file-upload-label">
+                                        <span class="file-upload-icon">📎</span>
+                                        <span class="file-upload-text">Datei auswählen</span>
+                                    </label>
+                                    <span class="file-name" id="file-name"></span>
+                                </div>
+                                <small id="file-upload-help" class="form-help">
+                                    Erlaubte Formate: PDF, DOC, JPG, PNG, AI, EPS (max. 10 MB)
+                                </small>
+                            </div>
+                            
+                            <!-- Datenschutz -->
+                            <div class="form-group form-checkbox-group">
+                                <label class="checkbox-label">
+                                    <input 
+                                        type="checkbox" 
+                                        id="privacy" 
+                                        name="privacy" 
+                                        class="form-checkbox" 
+                                        required
+                                        aria-required="true">
+                                    <span class="checkbox-text">
+                                        Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> zur Kenntnis genommen. Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und Zuordnung für eventuelle Rückfragen dauerhaft gespeichert werden. <span class="required">*</span>
+                                    </span>
+                                </label>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-submit">
+                                    Nachricht senden
+                                </button>
+                            </div>
+                            
+                            <!-- Required Note -->
+                            <p class="form-note">
+                                <span class="required">*</span> Pflichtfelder
+                            </p>
+                            
+                        </form>
+                        
+                        <!-- Success Message -->
+                        <div class="form-success" id="formSuccess" style="display: none;">
+                            <div class="success-icon">✓</div>
+                            <h3>Vielen Dank für Ihre Nachricht!</h3>
+                            <p>Wir haben Ihre Anfrage erhalten und melden uns schnellstmöglich bei Ihnen.</p>
+                        </div>
+                        
+                        <!-- Error Message -->
+                        <div class="form-error" id="formError" style="display: none;">
+                            <div class="error-icon">⚠</div>
+                            <h3>Ein Fehler ist aufgetreten</h3>
+                            <p>Bitte überprüfen Sie Ihre Eingaben oder versuchen Sie es später erneut.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div class="contact-info-container">
+                        <div class="contact-info-box">
+                            <h3>Kontaktdaten</h3>
+                            
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">📍</div>
+                                <div class="contact-info-content">
+                                    <strong>Adresse</strong>
+                                    <p>Lochberg 12<br>83135 Schechen</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">📞</div>
+                                <div class="contact-info-content">
+                                    <strong>Telefon</strong>
+                                    <p><a href="tel:+4980319003379">+49 8031 9003379</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">✉️</div>
+                                <div class="contact-info-content">
+                                    <strong>E-Mail</strong>
+                                    <p><a href="mailto:info@werbetechnik-hoiss.de">info@werbetechnik-hoiss.de</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">🕒</div>
+                                <div class="contact-info-content">
+                                    <strong>Öffnungszeiten</strong>
+                                    <p>Mo–Fr: 08:00–17:00 Uhr<br>Sa–So: Geschlossen</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-cta-box">
+                            <h4>Schnelle Hilfe?</h4>
+                            <p>Rufen Sie uns direkt an – wir beraten Sie gerne persönlich!</p>
+                            <a href="tel:+4980319003379" class="btn btn-secondary">
+                                📞 Jetzt anrufen
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+<!-- Google Maps Section -->
+<section class="map-section">
+    <div class="container">
+        <h2>So finden Sie uns</h2>
+        
+        <!-- Google Maps Consent (DSGVO-konform) -->
+        <div class="map-container" id="mapContainer">
+            <div class="map-consent" id="mapConsent">
+                <div class="map-consent-content">
+                    <div class="map-consent-icon">🗺️</div>
+                    <h3>Google Maps aktivieren</h3>
+                    <p>Um die Karte anzuzeigen, ist Ihre Zustimmung zur Nutzung von Google Maps erforderlich. Dabei können Daten an Google übertragen werden.</p>
+                    <button class="btn btn-primary" id="activateMap">
+                        Karte aktivieren
+                    </button>
+                    <p class="map-consent-note">
+                        <small>Mit dem Aktivieren akzeptieren Sie die <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Datenschutzerklärung von Google</a>.</small>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Google Maps Iframe (wird nach Zustimmung geladen) -->
+            <div class="map-iframe-wrapper" id="mapIframe" style="display: none;">
+                <!-- Wird per JavaScript eingebettet -->
+                
+                <!-- Widerruf-Button (neu!) -->
+                <button class="map-revoke-btn" id="revokeMap" title="Zustimmung widerrufen">
+                    ✕ Karte deaktivieren
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+        
+    </main>
+    
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Scripts -->
+    <script src="main.js"></script>
+    <script src="contact.js"></script>
+</body>
+</html>
