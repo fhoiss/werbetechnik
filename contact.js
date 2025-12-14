@@ -1,10 +1,12 @@
-   ========================================
+/* ========================================
    CONTACT PAGE - JAVASCRIPT
    ======================================== */
 
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('🔄 Contact Page wird initialisiert...');
+    
     initContactForm();
     initFileUpload();
     initGoogleMaps();
@@ -19,14 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function autoSelectInterest() {
     const interestSelect = document.getElementById('interest');
-    if (!interestSelect) return;
+    if (!interestSelect) {
+        console.warn('⚠️ Interest Select nicht gefunden');
+        return;
+    }
     
     // Prüfe URL-Parameter
     const urlParams = new URLSearchParams(window.location.search);
     const interestParam = urlParams.get('interesse');
     
     if (interestParam) {
-        // Setze Wert aus URL-Parameter
         interestSelect.value = interestParam;
         console.log(`✅ Interesse automatisch gesetzt: ${interestParam}`);
         return;
@@ -49,7 +53,6 @@ function autoSelectInterest() {
         'display': 'messebau'
     };
     
-    // Durchsuche Referrer nach Keywords
     for (const [keyword, value] of Object.entries(interestMapping)) {
         if (referrer.toLowerCase().includes(keyword)) {
             interestSelect.value = value;
@@ -65,9 +68,13 @@ function autoSelectInterest() {
 
 function initContactForm() {
     const form = document.getElementById('contactForm');
-    if (!form) return;
+    if (!form) {
+        console.warn('⚠️ Contact Form nicht gefunden');
+        return;
+    }
     
     form.addEventListener('submit', handleFormSubmit);
+    console.log('✅ Contact Form initialisiert');
 }
 
 async function handleFormSubmit(e) {
@@ -88,9 +95,6 @@ async function handleFormSubmit(e) {
     submitBtn.textContent = 'Wird gesendet...';
     
     try {
-        // Hier würde der tatsächliche Form-Submit erfolgen
-        // Beispiel: await fetch('/api/contact', { method: 'POST', body: formData });
-        
         // Simuliere erfolgreichen Submit (2 Sekunden)
         await new Promise(resolve => setTimeout(resolve, 2000));
         
@@ -99,6 +103,7 @@ async function handleFormSubmit(e) {
         
         // Formular zurücksetzen
         form.reset();
+        document.getElementById('file-name').textContent = '';
         
         // Scroll zur Success-Message
         const successElement = document.getElementById('formSuccess');
@@ -124,7 +129,6 @@ function validateForm(form) {
             isValid = false;
             field.style.borderColor = '#dc3545';
             
-            // Setze Border nach Eingabe zurück
             field.addEventListener('input', () => {
                 field.style.borderColor = '';
             }, { once: true });
@@ -175,14 +179,16 @@ function initFileUpload() {
     const fileInput = document.getElementById('file-upload');
     const fileNameDisplay = document.getElementById('file-name');
     
-    if (!fileInput || !fileNameDisplay) return;
+    if (!fileInput || !fileNameDisplay) {
+        console.warn('⚠️ File Upload Elemente nicht gefunden');
+        return;
+    }
     
     fileInput.addEventListener('change', (e) => {
         const file = e.target.files[0];
         
         if (file) {
-            // Prüfe Dateigröße (max. 10 MB)
-            const maxSize = 10 * 1024 * 1024; // 10 MB in Bytes
+            const maxSize = 10 * 1024 * 1024; // 10 MB
             
             if (file.size > maxSize) {
                 alert('Die Datei ist zu groß. Maximale Größe: 10 MB');
@@ -191,13 +197,14 @@ function initFileUpload() {
                 return;
             }
             
-            // Zeige Dateinamen
             fileNameDisplay.textContent = `📎 ${file.name} (${formatFileSize(file.size)})`;
             console.log(`✅ Datei ausgewählt: ${file.name}`);
         } else {
             fileNameDisplay.textContent = '';
         }
     });
+    
+    console.log('✅ File Upload initialisiert');
 }
 
 function formatFileSize(bytes) {
@@ -213,22 +220,47 @@ function formatFileSize(bytes) {
 // ========================================
 
 function initGoogleMaps() {
+    console.log('🗺️ Initialisiere Google Maps...');
+    
     const activateBtn = document.getElementById('activateMap');
+    const revokeBtn = document.getElementById('revokeMap');
     const mapConsent = document.getElementById('mapConsent');
     const mapIframe = document.getElementById('mapIframe');
     
-    if (!activateBtn || !mapConsent || !mapIframe) return;
+    console.log('Debug - Elemente gefunden:');
+    console.log('activateBtn:', activateBtn);
+    console.log('revokeBtn:', revokeBtn);
+    console.log('mapConsent:', mapConsent);
+    console.log('mapIframe:', mapIframe);
     
-    // Prüfe ob User bereits zugestimmt hat (Cookie)
+    if (!activateBtn || !mapConsent || !mapIframe) {
+        console.error('❌ Google Maps Elemente nicht gefunden!');
+        return;
+    }
+    
+    // Prüfe ob User bereits zugestimmt hat
     if (hasMapConsent()) {
+        console.log('✅ Zustimmung bereits vorhanden, lade Karte...');
         loadMap();
     }
     
     // Event Listener für Aktivierungs-Button
-    activateBtn.addEventListener('click', () => {
+    activateBtn.addEventListener('click', function() {
+        console.log('🖱️ Karte aktivieren Button geklickt');
         setMapConsent();
         loadMap();
     });
+    
+    // Event Listener für Widerruf-Button
+    if (revokeBtn) {
+        revokeBtn.addEventListener('click', function() {
+            console.log('🖱️ Karte deaktivieren Button geklickt');
+            revokeMapConsent();
+            unloadMap();
+        });
+    }
+    
+    console.log('✅ Google Maps initialisiert');
 }
 
 function hasMapConsent() {
@@ -240,110 +272,65 @@ function setMapConsent() {
     localStorage.setItem('hoiss_map_consent', 'true');
     console.log('✅ Google Maps Zustimmung gespeichert');
 }
-function loadMap() {
-    const mapConsent = document.getElementById('mapConsent');
-    const mapIframe = document.getElementById('mapIframe');
-    
-    if (!mapIframe) return;
-    
-    // Verstecke Consent-Box
-    if (mapConsent) {
-        mapConsent.style.display = 'none';
-    }
-    
-    // Dein exakter Google Maps Embed Code
-    const iframe = document.createElement('iframe');
-    iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3110.305729838538!2d12.091146676661012!3d47.898990067740726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47760350124a90a7%3A0xf04f0b08d5d9605e!2sHoi%C3%9F%20Beklebe%20%26%20Werbetechnik!5e1!3m2!1sde!2sde!4v1765642965214!5m2!1sde!2sde';
-    iframe.loading = 'lazy';
-    iframe.referrerPolicy = 'no-referrer-when-downgrade';
-    iframe.allowFullscreen = true;
-    iframe.title = 'Google Maps - Hoi� Werbetechnik Standort';
-    
-    // F�ge Iframe ein
-    mapIframe.innerHTML = '';
-    mapIframe.appendChild(iframe);
-    mapIframe.style.display = 'block';
-    
-    console.log('? Google Maps geladen');
-}
-// ========================================
-// GOOGLE MAPS - DSGVO-KONFORM (mit Widerruf)
-// ========================================
-
-function initGoogleMaps() {
-    const activateBtn = document.getElementById('activateMap');
-    const revokeBtn = document.getElementById('revokeMap');
-    const mapConsent = document.getElementById('mapConsent');
-    const mapIframe = document.getElementById('mapIframe');
-    
-    if (!activateBtn || !mapConsent || !mapIframe) return;
-    
-    // Pr�fe ob User bereits zugestimmt hat (localStorage)
-    if (hasMapConsent()) {
-        loadMap();
-    }
-    
-    // Event Listener f�r Aktivierungs-Button
-    activateBtn.addEventListener('click', () => {
-        setMapConsent();
-        loadMap();
-    });
-    
-    // Event Listener f�r Widerruf-Button (NEU!)
-    if (revokeBtn) {
-        revokeBtn.addEventListener('click', () => {
-            revokeMapConsent();
-            unloadMap();
-        });
-    }
-}
-
-function hasMapConsent() {
-    const consent = localStorage.getItem('hoiss_map_consent');
-    return consent === 'true';
-}
-
-function setMapConsent() {
-    localStorage.setItem('hoiss_map_consent', 'true');
-    console.log('? Google Maps Zustimmung gespeichert');
-}
 
 function revokeMapConsent() {
     localStorage.removeItem('hoiss_map_consent');
-    console.log('? Google Maps Zustimmung widerrufen');
+    console.log('❌ Google Maps Zustimmung widerrufen');
 }
 
 function loadMap() {
+    console.log('🔄 Lade Google Maps...');
+    
     const mapConsent = document.getElementById('mapConsent');
     const mapIframe = document.getElementById('mapIframe');
     
-    if (!mapIframe) return;
+    if (!mapIframe) {
+        console.error('❌ mapIframe Element nicht gefunden!');
+        return;
+    }
     
     // Verstecke Consent-Box
     if (mapConsent) {
         mapConsent.style.display = 'none';
+        console.log('✅ Consent-Box ausgeblendet');
     }
     
-    // Dein exakter Google Maps Embed Code
+    // Prüfe ob Iframe bereits existiert
+    const existingIframe = mapIframe.querySelector('iframe');
+    if (existingIframe) {
+        console.log('ℹ️ Karte bereits geladen');
+        mapIframe.style.display = 'block';
+        return;
+    }
+    
+    // Erstelle Iframe
     const iframe = document.createElement('iframe');
     iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3110.305729838538!2d12.091146676661012!3d47.898990067740726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47760350124a90a7%3A0xf04f0b08d5d9605e!2sHoi%C3%9F%20Beklebe%20%26%20Werbetechnik!5e1!3m2!1sde!2sde!4v1765642965214!5m2!1sde!2sde';
-    iframe.loading = 'lazy';
-    iframe.referrerPolicy = 'no-referrer-when-downgrade';
-    iframe.allowFullscreen = true;
-    iframe.title = 'Google Maps - Hoi� Werbetechnik Standort';
-    iframe.id = 'googleMapIframe';
+    iframe.setAttribute('loading', 'lazy');
+    iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('title', 'Google Maps - Hoiß Werbetechnik Standort');
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = 'none';
     
-    // F�ge Iframe ein
-    const existingIframe = mapIframe.querySelector('iframe');
-    if (!existingIframe) {
-        mapIframe.insertBefore(iframe, mapIframe.firstChild);
+    // Füge Iframe ein (vor dem Widerruf-Button)
+    const revokeBtn = mapIframe.querySelector('#revokeMap');
+    if (revokeBtn) {
+        mapIframe.insertBefore(iframe, revokeBtn);
+    } else {
+        mapIframe.appendChild(iframe);
     }
+    
+    // Zeige Map Container
     mapIframe.style.display = 'block';
     
-    console.log('? Google Maps geladen');
+    console.log('✅ Google Maps erfolgreich geladen!');
 }
 
 function unloadMap() {
+    console.log('🔄 Entferne Google Maps...');
+    
     const mapConsent = document.getElementById('mapConsent');
     const mapIframe = document.getElementById('mapIframe');
     
@@ -353,13 +340,15 @@ function unloadMap() {
     const iframe = mapIframe.querySelector('iframe');
     if (iframe) {
         iframe.remove();
+        console.log('✅ Iframe entfernt');
     }
     
     // Verstecke Map Container, zeige Consent wieder
     mapIframe.style.display = 'none';
     if (mapConsent) {
         mapConsent.style.display = 'block';
+        console.log('✅ Consent-Box wieder angezeigt');
     }
     
-    console.log('? Google Maps entfernt');
+    console.log('✅ Google Maps entfernt');
 }
