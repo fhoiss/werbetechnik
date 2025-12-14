@@ -131,56 +131,52 @@
                                     placeholder="Beschreiben Sie uns Ihr Projekt oder Ihre Anfrage..."
                                     aria-required="true"></textarea>
                             </div>
-                            
-<!-- File Upload -->
-<div class="form-group">
-    <label for="file-upload" class="form-label">
-        Dateien hochladen <span class="optional">(optional)</span>
-    </label>
-    <div class="file-upload-wrapper">
+							
+  
+ <!-- Datenschutz -->
+<div class="form-group form-checkbox-group">
+    <label class="checkbox-label">
         <input 
-            type="file" 
-            id="file-upload" 
-            name="file-upload" 
-            class="file-input"
-            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.ai,.eps"
-            multiple
-            aria-describedby="file-upload-help">
-        <label for="file-upload" class="file-upload-label">
-            <span class="file-upload-icon">📎</span>
-            <span class="file-upload-text">Dateien auswählen</span>
-        </label>
-    </div>
-    <small id="file-upload-help" class="form-help">
-        Erlaubte Formate: PDF, DOC, JPG, PNG, AI, EPS (max. 10 MB pro Datei)
-    </small>
-    
-    <!-- File Preview List -->
-    <div class="file-preview-list" id="filePreviewList"></div>
+            type="checkbox" 
+            id="privacy" 
+            name="privacy" 
+            class="form-checkbox" 
+            required
+            aria-required="true">
+        <span class="checkbox-text">
+            Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> zur Kenntnis genommen. Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und Zuordnung für eventuelle Rückfragen dauerhaft gespeichert werden. <span class="required">*</span>
+        </span>
+    </label>
 </div>
-                            
-                            <!-- Datenschutz -->
-                            <div class="form-group form-checkbox-group">
-                                <label class="checkbox-label">
-                                    <input 
-                                        type="checkbox" 
-                                        id="privacy" 
-                                        name="privacy" 
-                                        class="form-checkbox" 
-                                        required
-                                        aria-required="true">
-                                    <span class="checkbox-text">
-                                        Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> zur Kenntnis genommen. Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und Zuordnung für eventuelle Rückfragen dauerhaft gespeichert werden. <span class="required">*</span>
-                                    </span>
-                                </label>
-                            </div>
-                            
-                            <!-- Submit Button -->
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-submit">
-                                    Nachricht senden
-                                </button>
-                            </div>
+
+<!-- Sicherheitsfrage (NEU!) -->
+<div class="form-group">
+    <label for="math-answer" class="form-label">
+        Sicherheitsfrage <span class="required">*</span>
+    </label>
+    <div class="math-captcha">
+        <span class="math-question" id="mathQuestion">Wird geladen...</span>
+        <input 
+            type="number" 
+            id="math-answer" 
+            name="math-answer" 
+            class="form-input" 
+            required
+            placeholder="Ihre Antwort"
+            aria-required="true"
+            aria-describedby="math-help">
+    </div>
+    <small id="math-help" class="form-help">
+        Bitte lösen Sie die Rechenaufgabe zum Schutz vor Spam.
+    </small>
+</div>
+
+<!-- Submit Button -->
+<div class="form-group">
+    <button type="submit" class="btn btn-primary btn-submit">
+        Nachricht senden
+    </button>
+</div>
                             
                             <!-- Required Note -->
                             <p class="form-note">

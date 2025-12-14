@@ -1,24 +1,83 @@
 /* ========================================
    CONTACT PAGE - JAVASCRIPT
-   Hoiß Werbetechnik
+   Hoi� Werbetechnik
    ======================================== */
 
 'use strict';
 
-// Globale Variable für File Upload
-let selectedFiles = [];
+// Globale Variablen
+let mathAnswer = 0; // Korrekte Antwort der Matheaufgabe
 
 // Initialisierung beim Laden der Seite
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🔄 Contact Page wird initialisiert...');
+    console.log('?? Contact Page wird initialisiert...');
     
     initContactForm();
-    initFileUpload();
     initGoogleMaps();
     autoSelectInterest();
+    initMathCaptcha(); // NEU!
     
-    console.log('✅ Contact Page initialisiert');
+    console.log('? Contact Page initialisiert');
 });
+
+// ========================================
+// MATH CAPTCHA
+// ========================================
+
+function initMathCaptcha() {
+    generateMathQuestion();
+    console.log('? Math Captcha initialisiert');
+}
+
+function generateMathQuestion() {
+    const mathQuestionElement = document.getElementById('mathQuestion');
+    if (!mathQuestionElement) return;
+    
+    // Generiere zwei Zufallszahlen zwischen 1 und 20
+    const num1 = Math.floor(Math.random() * 20) + 1;
+    const num2 = Math.floor(Math.random() * 20) + 1;
+    
+    // W�hle zuf�llig eine Operation (+ oder -)
+    const operations = ['+', '-'];
+    const operation = operations[Math.floor(Math.random() * operations.length)];
+    
+    // Berechne korrekte Antwort
+    if (operation === '+') {
+        mathAnswer = num1 + num2;
+    } else {
+        mathAnswer = num1 - num2;
+    }
+    
+    // Zeige Frage an
+    mathQuestionElement.textContent = `${num1} ${operation} ${num2} = ?`;
+    
+    console.log(`?? Neue Matheaufgabe: ${num1} ${operation} ${num2} = ${mathAnswer}`);
+}
+
+function validateMathAnswer() {
+    const mathInput = document.getElementById('math-answer');
+    if (!mathInput) return true;
+    
+    const userAnswer = parseInt(mathInput.value);
+    
+    if (isNaN(userAnswer)) {
+        alert('Bitte beantworten Sie die Sicherheitsfrage.');
+        mathInput.focus();
+        return false;
+    }
+    
+    if (userAnswer !== mathAnswer) {
+        alert('Die Antwort auf die Rechenaufgabe ist leider falsch. Bitte versuchen Sie es erneut.');
+        mathInput.value = '';
+        mathInput.focus();
+        // Generiere neue Aufgabe
+        generateMathQuestion();
+        return false;
+    }
+    
+    console.log('? Matheaufgabe korrekt gel�st');
+    return true;
+}
 
 // ========================================
 // AUTO-SELECT INTERESSE BASIEREND AUF REFERRER
@@ -27,21 +86,21 @@ document.addEventListener('DOMContentLoaded', () => {
 function autoSelectInterest() {
     const interestSelect = document.getElementById('interest');
     if (!interestSelect) {
-        console.warn('⚠️ Interest Select nicht gefunden');
+        console.warn('?? Interest Select nicht gefunden');
         return;
     }
     
-    // Prüfe URL-Parameter
+    // Pr�fe URL-Parameter
     const urlParams = new URLSearchParams(window.location.search);
     const interestParam = urlParams.get('interesse');
     
     if (interestParam) {
         interestSelect.value = interestParam;
-        console.log(`✅ Interesse automatisch gesetzt: ${interestParam}`);
+        console.log(`? Interesse automatisch gesetzt: ${interestParam}`);
         return;
     }
     
-    // Fallback: Prüfe Referrer (vorherige Seite)
+    // Fallback: Pr�fe Referrer (vorherige Seite)
     const referrer = document.referrer;
     
     const interestMapping = {
@@ -61,7 +120,7 @@ function autoSelectInterest() {
     for (const [keyword, value] of Object.entries(interestMapping)) {
         if (referrer.toLowerCase().includes(keyword)) {
             interestSelect.value = value;
-            console.log(`✅ Interesse automatisch erkannt: ${value}`);
+            console.log(`? Interesse automatisch erkannt: ${value}`);
             break;
         }
     }
@@ -74,12 +133,12 @@ function autoSelectInterest() {
 function initContactForm() {
     const form = document.getElementById('contactForm');
     if (!form) {
-        console.warn('⚠️ Contact Form nicht gefunden');
+        console.warn('?? Contact Form nicht gefunden');
         return;
     }
     
     form.addEventListener('submit', handleFormSubmit);
-    console.log('✅ Contact Form initialisiert');
+    console.log('? Contact Form initialisiert');
 }
 
 async function handleFormSubmit(e) {
@@ -87,8 +146,12 @@ async function handleFormSubmit(e) {
     
     const form = e.target;
     
-    // Validierung
+    // Validierung (inkl. Math Captcha)
     if (!validateForm(form)) {
+        return;
+    }
+    
+    if (!validateMathAnswer()) {
         return;
     }
     
@@ -102,17 +165,9 @@ async function handleFormSubmit(e) {
         // FormData erstellen
         const formData = new FormData(form);
         
-        // Entferne das Standard-File-Input (wir nutzen unser Array)
-        formData.delete('file-upload');
+        console.log('?? Sende Formular...');
         
-        // Füge alle ausgewählten Dateien hinzu
-        selectedFiles.forEach((file, index) => {
-            formData.append(`files[${index}]`, file);
-        });
-        
-        console.log('📤 Sende Formular mit', selectedFiles.length, 'Datei(en)');
-        
-        // Hier würde der tatsächliche Submit erfolgen
+        // Hier w�rde der tats�chliche Submit erfolgen
         // Beispiel: await fetch('/api/contact', { method: 'POST', body: formData });
         
         // Simuliere erfolgreichen Submit (2 Sekunden)
@@ -121,10 +176,11 @@ async function handleFormSubmit(e) {
         // Zeige Success-Message
         showSuccess();
         
-        // Formular und Dateien zurücksetzen
+        // Formular zur�cksetzen
         form.reset();
-        selectedFiles = [];
-        updateFilePreview();
+        
+        // Neue Matheaufgabe generieren
+        generateMathQuestion();
         
         // Scroll zur Success-Message
         const successElement = document.getElementById('formSuccess');
@@ -146,6 +202,9 @@ function validateForm(form) {
     let isValid = true;
     
     requiredFields.forEach(field => {
+        // �berspringe Math-Answer (wird separat validiert)
+        if (field.id === 'math-answer') return;
+        
         if (!field.value.trim()) {
             isValid = false;
             field.style.borderColor = '#dc3545';
@@ -163,12 +222,12 @@ function validateForm(form) {
         if (!emailRegex.test(emailField.value)) {
             isValid = false;
             emailField.style.borderColor = '#dc3545';
-            alert('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+            alert('Bitte geben Sie eine g�ltige E-Mail-Adresse ein.');
         }
     }
     
     if (!isValid) {
-        alert('Bitte füllen Sie alle Pflichtfelder aus.');
+        alert('Bitte f�llen Sie alle Pflichtfelder aus.');
     }
     
     return isValid;
@@ -193,225 +252,45 @@ function showError() {
 }
 
 // ========================================
-// MULTI-FILE UPLOAD
-// ========================================
-
-function initFileUpload() {
-    const fileInput = document.getElementById('file-upload');
-    const filePreviewList = document.getElementById('filePreviewList');
-    
-    if (!fileInput || !filePreviewList) {
-        console.warn('⚠️ File Upload Elemente nicht gefunden');
-        return;
-    }
-    
-    fileInput.addEventListener('change', (e) => {
-        const files = Array.from(e.target.files);
-        
-        if (files.length === 0) return;
-        
-        // Validiere und füge Dateien hinzu
-        files.forEach(file => {
-            if (validateFile(file)) {
-                addFile(file);
-            }
-        });
-        
-        // Input zurücksetzen (erlaubt erneutes Hinzufügen gleicher Datei)
-        fileInput.value = '';
-        
-        // Aktualisiere Preview
-        updateFilePreview();
-    });
-    
-    console.log('✅ Multi-File Upload initialisiert');
-}
-
-function validateFile(file) {
-    const maxSize = 10 * 1024 * 1024; // 10 MB
-    
-    // Prüfe Dateigröße
-    if (file.size > maxSize) {
-        alert(`Die Datei "${file.name}" ist zu groß. Maximale Größe: 10 MB`);
-        return false;
-    }
-    
-    // Prüfe ob Datei bereits hinzugefügt wurde
-    const isDuplicate = selectedFiles.some(f => 
-        f.name === file.name && f.size === file.size
-    );
-    
-    if (isDuplicate) {
-        alert(`Die Datei "${file.name}" wurde bereits hinzugefügt.`);
-        return false;
-    }
-    
-    // Prüfe erlaubte Dateitypen
-    const allowedExtensions = ['.pdf', '.doc', '.docx', '.jpg', '.jpeg', '.png', '.ai', '.eps'];
-    const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
-    
-    if (!allowedExtensions.includes(fileExtension)) {
-        alert(`Der Dateityp "${fileExtension}" ist nicht erlaubt.`);
-        return false;
-    }
-    
-    return true;
-}
-
-function addFile(file) {
-    selectedFiles.push(file);
-    console.log(`✅ Datei hinzugefügt: ${file.name}`);
-}
-
-function removeFile(index) {
-    const removedFile = selectedFiles[index];
-    selectedFiles.splice(index, 1);
-    console.log(`❌ Datei entfernt: ${removedFile.name}`);
-    updateFilePreview();
-}
-
-function updateFilePreview() {
-    const filePreviewList = document.getElementById('filePreviewList');
-    if (!filePreviewList) return;
-    
-    // Leere die Liste
-    filePreviewList.innerHTML = '';
-    
-    // Zeige "Keine Dateien" wenn Array leer
-    if (selectedFiles.length === 0) {
-        filePreviewList.innerHTML = `
-            <div class="file-preview-empty">
-                Keine Dateien ausgewählt
-            </div>
-        `;
-        updateFileUploadLabel(0);
-        return;
-    }
-    
-    // Erstelle Preview für jede Datei
-    selectedFiles.forEach((file, index) => {
-        const fileItem = createFilePreviewItem(file, index);
-        filePreviewList.appendChild(fileItem);
-    });
-    
-    // Aktualisiere Upload-Label mit Dateianzahl
-    updateFileUploadLabel(selectedFiles.length);
-}
-
-function createFilePreviewItem(file, index) {
-    const item = document.createElement('div');
-    item.className = 'file-preview-item';
-    
-    const icon = getFileIcon(file.name);
-    
-    item.innerHTML = `
-        <div class="file-preview-info">
-            <div class="file-preview-icon">${icon}</div>
-            <div class="file-preview-details">
-                <div class="file-preview-name" title="${file.name}">
-                    ${file.name}
-                </div>
-                <div class="file-preview-size">
-                    ${formatFileSize(file.size)}
-                </div>
-            </div>
-        </div>
-        <button type="button" class="file-remove-btn" data-index="${index}" title="Datei entfernen">
-            ✕
-        </button>
-    `;
-    
-    // Event Listener für Löschen-Button
-    const removeBtn = item.querySelector('.file-remove-btn');
-    removeBtn.addEventListener('click', () => {
-        removeFile(index);
-    });
-    
-    return item;
-}
-
-function getFileIcon(filename) {
-    const extension = filename.split('.').pop().toLowerCase();
-    
-    const iconMap = {
-        'pdf': '📄',
-        'doc': '📝',
-        'docx': '📝',
-        'jpg': '🖼️',
-        'jpeg': '🖼️',
-        'png': '🖼️',
-        'ai': '🎨',
-        'eps': '🎨'
-    };
-    
-    return iconMap[extension] || '📎';
-}
-
-function updateFileUploadLabel(count) {
-    const labelText = document.querySelector('.file-upload-text');
-    if (!labelText) return;
-    
-    if (count === 0) {
-        labelText.innerHTML = 'Dateien auswählen';
-    } else {
-        labelText.innerHTML = `Weitere Dateien hinzufügen <span class="file-count-badge">${count}</span>`;
-    }
-}
-
-function formatFileSize(bytes) {
-    if (bytes === 0) return '0 Bytes';
-    const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
-}
-
-// ========================================
 // GOOGLE MAPS - DSGVO-KONFORM
 // ========================================
 
 function initGoogleMaps() {
-    console.log('🗺️ Initialisiere Google Maps...');
+    console.log('??? Initialisiere Google Maps...');
     
     const activateBtn = document.getElementById('activateMap');
     const revokeBtn = document.getElementById('revokeMap');
     const mapConsent = document.getElementById('mapConsent');
     const mapIframe = document.getElementById('mapIframe');
     
-    console.log('Debug - Elemente gefunden:');
-    console.log('activateBtn:', activateBtn);
-    console.log('revokeBtn:', revokeBtn);
-    console.log('mapConsent:', mapConsent);
-    console.log('mapIframe:', mapIframe);
-    
     if (!activateBtn || !mapConsent || !mapIframe) {
-        console.error('❌ Google Maps Elemente nicht gefunden!');
+        console.error('? Google Maps Elemente nicht gefunden!');
         return;
     }
     
-    // Prüfe ob User bereits zugestimmt hat
+    // Pr�fe ob User bereits zugestimmt hat
     if (hasMapConsent()) {
-        console.log('✅ Zustimmung bereits vorhanden, lade Karte...');
+        console.log('? Zustimmung bereits vorhanden, lade Karte...');
         loadMap();
     }
     
-    // Event Listener für Aktivierungs-Button
+    // Event Listener f�r Aktivierungs-Button
     activateBtn.addEventListener('click', function() {
-        console.log('🖱️ Karte aktivieren Button geklickt');
+        console.log('??? Karte aktivieren Button geklickt');
         setMapConsent();
         loadMap();
     });
     
-    // Event Listener für Widerruf-Button
+    // Event Listener f�r Widerruf-Button
     if (revokeBtn) {
         revokeBtn.addEventListener('click', function() {
-            console.log('🖱️ Karte deaktivieren Button geklickt');
+            console.log('??? Karte deaktivieren Button geklickt');
             revokeMapConsent();
             unloadMap();
         });
     }
     
-    console.log('✅ Google Maps initialisiert');
+    console.log('? Google Maps initialisiert');
 }
 
 function hasMapConsent() {
@@ -421,35 +300,35 @@ function hasMapConsent() {
 
 function setMapConsent() {
     localStorage.setItem('hoiss_map_consent', 'true');
-    console.log('✅ Google Maps Zustimmung gespeichert');
+    console.log('? Google Maps Zustimmung gespeichert');
 }
 
 function revokeMapConsent() {
     localStorage.removeItem('hoiss_map_consent');
-    console.log('❌ Google Maps Zustimmung widerrufen');
+    console.log('? Google Maps Zustimmung widerrufen');
 }
 
 function loadMap() {
-    console.log('🔄 Lade Google Maps...');
+    console.log('?? Lade Google Maps...');
     
     const mapConsent = document.getElementById('mapConsent');
     const mapIframe = document.getElementById('mapIframe');
     
     if (!mapIframe) {
-        console.error('❌ mapIframe Element nicht gefunden!');
+        console.error('? mapIframe Element nicht gefunden!');
         return;
     }
     
     // Verstecke Consent-Box
     if (mapConsent) {
         mapConsent.style.display = 'none';
-        console.log('✅ Consent-Box ausgeblendet');
+        console.log('? Consent-Box ausgeblendet');
     }
     
-    // Prüfe ob Iframe bereits existiert
+    // Pr�fe ob Iframe bereits existiert
     const existingIframe = mapIframe.querySelector('iframe');
     if (existingIframe) {
-        console.log('ℹ️ Karte bereits geladen');
+        console.log('?? Karte bereits geladen');
         mapIframe.style.display = 'block';
         return;
     }
@@ -460,12 +339,12 @@ function loadMap() {
     iframe.setAttribute('loading', 'lazy');
     iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
     iframe.setAttribute('allowfullscreen', '');
-    iframe.setAttribute('title', 'Google Maps - Hoiß Werbetechnik Standort');
+    iframe.setAttribute('title', 'Google Maps - Hoi� Werbetechnik Standort');
     iframe.style.width = '100%';
     iframe.style.height = '100%';
     iframe.style.border = 'none';
     
-    // Füge Iframe ein (vor dem Widerruf-Button)
+    // F�ge Iframe ein (vor dem Widerruf-Button)
     const revokeBtn = mapIframe.querySelector('#revokeMap');
     if (revokeBtn) {
         mapIframe.insertBefore(iframe, revokeBtn);
@@ -476,11 +355,11 @@ function loadMap() {
     // Zeige Map Container
     mapIframe.style.display = 'block';
     
-    console.log('✅ Google Maps erfolgreich geladen!');
+    console.log('? Google Maps erfolgreich geladen!');
 }
 
 function unloadMap() {
-    console.log('🔄 Entferne Google Maps...');
+    console.log('?? Entferne Google Maps...');
     
     const mapConsent = document.getElementById('mapConsent');
     const mapIframe = document.getElementById('mapIframe');
@@ -491,15 +370,15 @@ function unloadMap() {
     const iframe = mapIframe.querySelector('iframe');
     if (iframe) {
         iframe.remove();
-        console.log('✅ Iframe entfernt');
+        console.log('? Iframe entfernt');
     }
     
     // Verstecke Map Container, zeige Consent wieder
     mapIframe.style.display = 'none';
     if (mapConsent) {
         mapConsent.style.display = 'block';
-        console.log('✅ Consent-Box wieder angezeigt');
+        console.log('? Consent-Box wieder angezeigt');
     }
     
-    console.log('✅ Google Maps entfernt');
+    console.log('? Google Maps entfernt');
 }
