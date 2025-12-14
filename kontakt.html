@@ -8,7 +8,7 @@
     <title>Kontakt – Hoiß Werbetechnik Rosenheim | Kostenlose Beratung</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="icon" type="image/webp" href="img/Logo-Hoiß.webp">
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
@@ -132,29 +132,32 @@
                                     aria-required="true"></textarea>
                             </div>
                             
-                            <!-- File Upload -->
-                            <div class="form-group">
-                                <label for="file-upload" class="form-label">
-                                    Datei hochladen <span class="optional">(optional)</span>
-                                </label>
-                                <div class="file-upload-wrapper">
-                                    <input 
-                                        type="file" 
-                                        id="file-upload" 
-                                        name="file-upload" 
-                                        class="file-input"
-                                        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.ai,.eps"
-                                        aria-describedby="file-upload-help">
-                                    <label for="file-upload" class="file-upload-label">
-                                        <span class="file-upload-icon">📎</span>
-                                        <span class="file-upload-text">Datei auswählen</span>
-                                    </label>
-                                    <span class="file-name" id="file-name"></span>
-                                </div>
-                                <small id="file-upload-help" class="form-help">
-                                    Erlaubte Formate: PDF, DOC, JPG, PNG, AI, EPS (max. 10 MB)
-                                </small>
-                            </div>
+<!-- File Upload -->
+<div class="form-group">
+    <label for="file-upload" class="form-label">
+        Dateien hochladen <span class="optional">(optional)</span>
+    </label>
+    <div class="file-upload-wrapper">
+        <input 
+            type="file" 
+            id="file-upload" 
+            name="file-upload" 
+            class="file-input"
+            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.ai,.eps"
+            multiple
+            aria-describedby="file-upload-help">
+        <label for="file-upload" class="file-upload-label">
+            <span class="file-upload-icon">📎</span>
+            <span class="file-upload-text">Dateien auswählen</span>
+        </label>
+    </div>
+    <small id="file-upload-help" class="form-help">
+        Erlaubte Formate: PDF, DOC, JPG, PNG, AI, EPS (max. 10 MB pro Datei)
+    </small>
+    
+    <!-- File Preview List -->
+    <div class="file-preview-list" id="filePreviewList"></div>
+</div>
                             
                             <!-- Datenschutz -->
                             <div class="form-group form-checkbox-group">
