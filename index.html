@@ -9,6 +9,54 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="cookie-banner.css">
     <link rel="icon" type="image/webp" href="img/Logo-Hoiß.webp">
+    
+    <!-- Lightbox CSS direkt im Head -->
+    <style>
+        .gallery-img {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        
+        #myLightbox {
+            display: none;
+            position: fixed;
+            z-index: 999999;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.95);
+        }
+        
+        #myLightbox img {
+            margin: auto;
+            display: block;
+            width: auto;
+            max-width: 90%;
+            max-height: 85vh;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            color: #f1f1f1;
+            font-size: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1000000;
+        }
+        
+        .lightbox-close:hover {
+            color: #ef8006;
+        }
+    </style>
 </head>
 <body>
     <!-- Skip Link -->
@@ -49,6 +97,7 @@
                 <p style="text-align: center; color: var(--color-text-medium); max-width: 800px; margin: 0 auto var(--spacing-xl);">
                     Alles aus einer Hand – von der Planung bis zur Umsetzung
                 </p>
+
                 <div class="services-grid">
                     <article class="service-card">
                         <a href="/fahrzeugbeschriftung.html">
@@ -63,7 +112,7 @@
 
                     <article class="service-card">
                         <a href="/schilder-leitsysteme.html">
-                            <img src="img/Schild-Aicherpark-Rosenheim.webp" alt="Schilder & Leitsysteme - hochwertige Firmenschilder aus Aluverbund" class="service-image" loading="lazy" width="400" height="300">
+                            <img src="img/aluverbund-firmenschild-fassade.webp" alt="Schilder & Leitsysteme - hochwertige Firmenschilder aus Aluverbund" class="service-image" loading="lazy" width="400" height="300">
                         </a>
                         <div class="service-content">
                             <h3 class="service-title">Schilder & Leitsysteme</h3>
@@ -74,7 +123,7 @@
 
                     <article class="service-card">
                         <a href="/schaufensterbeschriftung.html">
-                            <img src="img/Schaufensterbeschriftung-Touristinfo-Rosenheim.webp" alt="Schaufensterbeschriftung - professionelle Beschriftung für Einzelhandel und Gewerbe" class="service-image" loading="lazy" width="400" height="300">
+                            <img src="img/schaufensterbeschriftung-einzelhandel-modern.webp" alt="Schaufensterbeschriftung - professionelle Beschriftung für Einzelhandel und Gewerbe" class="service-image" loading="lazy" width="400" height="300">
                         </a>
                         <div class="service-content">
                             <h3 class="service-title">Schaufensterbeschriftung</h3>
@@ -85,7 +134,7 @@
 
                     <article class="service-card">
                         <a href="/glasdekor-sichtschutz.html">
-                            <img src="img/Sichtschutzfolien.webp" alt="Glasdekor & Sichtschutz - Milchglasfolie und Dekorfolie für Büros" class="service-image" loading="lazy" width="400" height="300">
+                            <img src="img/glasdekor-buero-sichtschutz-milchglas.webp" alt="Glasdekor & Sichtschutz - Milchglasfolie und Dekorfolie für Büros" class="service-image" loading="lazy" width="400" height="300">
                         </a>
                         <div class="service-content">
                             <h3 class="service-title">Glasdekor & Sichtschutz</h3>
@@ -96,18 +145,18 @@
 
                     <article class="service-card">
                         <a href="/banner-grossformat.html">
-                            <img src="img/Bauzaunbanner-AB-Parkett.webp" alt="Banner & Großformatdruck - wetterfeste PVC-Banner für Fassaden" class="service-image" loading="lazy" width="400" height="300">
+                            <img src="img/pvc-banner-fassade-grossformat.webp" alt="Banner & Großformatdruck - wetterfeste PVC-Banner für Fassaden" class="service-image" loading="lazy" width="400" height="300">
                         </a>
                         <div class="service-content">
                             <h3 class="service-title">Banner & Großformatdruck</h3>
-                            <p class="service-description">Wetterfeste PVC-, Mesh- und Textilbanner für Fassaden, Bauzäune, Gerüste und Messen.</p>
+                            <p class="service-description">Wetterfeste PVC-, Mesh- und Textilbanner für Fassaden, Bauzäune, Gerüste und Messen. Bis 160 cm Breite.</p>
                             <a href="/banner-grossformat.html" class="btn btn-secondary">Mehr erfahren</a>
                         </div>
                     </article>
 
                     <article class="service-card">
                         <a href="/cardesigner.html">
-                            <img src="img/CarSigner.webp" alt="Car Designer - Online Fahrzeugbeschriftung selbst gestalten" class="service-image" loading="lazy" width="400" height="300">
+                            <img src="img/car-designer-konfigurator-online.webp" alt="Car Designer - Online Fahrzeugbeschriftung selbst gestalten" class="service-image" loading="lazy" width="400" height="300">
                         </a>
                         <div class="service-content">
                             <h3 class="service-title">Car Designer</h3>
@@ -218,76 +267,35 @@
             </div>
         </section>
 
-<!-- Referenzen Gallery - GRAU -->
-<section class="gallery-section" style="background: var(--color-bg-light);">
-    <div class="container">
-        <h2 class="section-heading gallery-heading-left">Erfolgreiche Projekte – Einblicke in unsere Arbeit</h2>
-        <p class="gallery-intro gallery-intro-left">Überzeugen Sie sich von der Qualität unserer Werbetechnik</p>
+        <!-- Referenzen Gallery - GRAU -->
+        <section class="gallery-section" style="background: var(--color-bg-light);">
+            <div class="container">
+                <h2 class="section-heading gallery-heading-left">Erfolgreiche Projekte – Einblicke in unsere Arbeit</h2>
+                <p class="gallery-intro gallery-intro-left">Überzeugen Sie sich von der Qualität unserer Werbetechnik</p>
 
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="img/Fahrzeugbeschriftung-Kosumi-Rosenheim.webp" 
-                     alt="PKW Fahrzeugbeschriftung Kosumi Rosenheim" 
-                     class="gallery-img" 
-                     loading="lazy" 
-                     width="400" 
-                     height="300"
-                     onclick="openLightbox(this)"
-                     style="cursor: pointer;">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="img/Fahrzeugbeschriftung-Kosumi-Rosenheim.webp" alt="PKW Fahrzeugbeschriftung Kosumi Rosenheim" class="gallery-img" loading="lazy" width="400" height="300" onclick="openLightbox(this.src, this.alt)">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/LKW-Beschriftung-Tegernseer-Faren-Manufaktur.webp" alt="LKW-Beschriftung Tegernseer Faren Manufaktur" class="gallery-img" loading="lazy" width="400" height="300" onclick="openLightbox(this.src, this.alt)">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Aluverbundschild-Weber-Schechen.webp" alt="Firmenschild Aluverbund an Fassade" class="gallery-img" loading="lazy" width="400" height="300" onclick="openLightbox(this.src, this.alt)">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/glasbeschriftung-eingangsbereich.webp" alt="Moderne Schaufensterbeschriftung" class="gallery-img" loading="lazy" width="400" height="300" onclick="openLightbox(this.src, this.alt)">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Bellgradt-Rosenheim-Glasdekor-Sichtschutz-und-Folienplott.webp" alt="Glasdekor und Sichtschutz im Büro" class="gallery-img" loading="lazy" width="400" height="300" onclick="openLightbox(this.src, this.alt)">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/Bauzaunbanner-Baumschule-Fauerbach.webp" alt="PVC-Banner Großformatdruck" class="gallery-img" loading="lazy" width="400" height="300" onclick="openLightbox(this.src, this.alt)">
+                    </div>
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="img/LKW-Beschriftung-Tegernseer-Faren-Manufaktur.webp" 
-                     alt="LKW-Beschriftung Tegernseer Faren Manufaktur" 
-                     class="gallery-img" 
-                     loading="lazy" 
-                     width="400" 
-                     height="300"
-                     onclick="openLightbox(this)"
-                     style="cursor: pointer;">
-            </div>
-            <div class="gallery-item">
-                <img src="img/Aluverbundschild-Weber-Schechen.webp" 
-                     alt="Firmenschild Aluverbund an Fassade" 
-                     class="gallery-img" 
-                     loading="lazy" 
-                     width="400" 
-                     height="300"
-                     onclick="openLightbox(this)"
-                     style="cursor: pointer;">
-            </div>
-            <div class="gallery-item">
-                <img src="img/glasbeschriftung-eingangsbereich.webp" 
-                     alt="Moderne Schaufensterbeschriftung" 
-                     class="gallery-img" 
-                     loading="lazy" 
-                     width="400" 
-                     height="300"
-                     onclick="openLightbox(this)"
-                     style="cursor: pointer;">
-            </div>
-            <div class="gallery-item">
-                <img src="img/Bellgradt-Rosenheim-Glasdekor-Sichtschutz-und-Folienplott.webp" 
-                     alt="Glasdekor und Sichtschutz im Büro" 
-                     class="gallery-img" 
-                     loading="lazy" 
-                     width="400" 
-                     height="300"
-                     onclick="openLightbox(this)"
-                     style="cursor: pointer;">
-            </div>
-            <div class="gallery-item">
-                <img src="img/Bauzaunbanner-Baumschule-Fauerbach.webp" 
-                     alt="PVC-Banner Großformatdruck" 
-                     class="gallery-img" 
-                     loading="lazy" 
-                     width="400" 
-                     height="300"
-                     onclick="openLightbox(this)"
-                     style="cursor: pointer;">
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
+
         <!-- CTA Section - ORANGE -->
         <section class="gallery-section" style="background: var(--color-primary);">
             <div class="container">
@@ -302,42 +310,30 @@
 
     <div id="footer-placeholder"></div>
 
-    <!-- Lightbox Modal -->
-    <div id="imageLightbox" class="image-lightbox">
+    <!-- LIGHTBOX Modal -->
+    <div id="myLightbox" onclick="closeLightbox()">
         <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-        <img class="lightbox-image" id="lightboxImage" alt="">
-        <div class="lightbox-caption" id="lightboxCaption"></div>
+        <img id="lightboxImg" src="" alt="">
     </div>
 
-    <script src="main.js"></script>
-
-    <!-- Lightbox Script -->
+    <!-- LIGHTBOX JavaScript - MUSS VOR main.js stehen! -->
     <script>
-        function openLightbox(imgElement) {
-            const lightbox = document.getElementById('imageLightbox');
-            const lightboxImg = document.getElementById('lightboxImage');
-            const caption = document.getElementById('lightboxCaption');
-            
-            lightbox.style.display = 'flex';
-            lightboxImg.src = imgElement.src;
-            caption.textContent = imgElement.alt;
+        function openLightbox(src, alt) {
+            var lightbox = document.getElementById('myLightbox');
+            var img = document.getElementById('lightboxImg');
+            img.src = src;
+            img.alt = alt;
+            lightbox.style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
 
         function closeLightbox() {
-            const lightbox = document.getElementById('imageLightbox');
+            var lightbox = document.getElementById('myLightbox');
             lightbox.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
 
-        // Schließen beim Klick außerhalb des Bildes
-        document.getElementById('imageLightbox')?.addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeLightbox();
-            }
-        });
-
-        // Schließen mit ESC-Taste
+        // ESC zum Schließen
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeLightbox();
@@ -345,9 +341,40 @@
         });
     </script>
 
+    <script src="main.js"></script>
+
     <!-- Schema Markup -->
     <script type="application/ld+json">
-    ...
-
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Hoiß Werbetechnik",
+        "description": "Professionelle Werbetechnik in Schechen bei Rosenheim: Fahrzeugbeschriftung, Schilder, Schaufensterbeschriftung, Glasdekor, Banner und Großformatdruck",
+        "url": "https://deine-domain.de",
+        "telephone": "+49 8031 12345",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Deine Straße 123",
+            "addressLocality": "Schechen",
+            "addressRegion": "Bayern",
+            "postalCode": "83501",
+            "addressCountry": "DE"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "47.8582",
+            "longitude": "12.1247"
+        },
+        "openingHours": [
+            "Mo-Do 08:00-12:00,13:00-17:00",
+            "Fr 08:00-12:00,13:00-15:00"
+        ],
+        "priceRange": "$$",
+        "areaServed": {
+            "@type": "City",
+            "name": "Rosenheim"
+        }
+    }
+    </script>
 </body>
 </html>
