@@ -218,7 +218,6 @@
             </div>
         </section>
 
-        <!-- Referenzen Gallery - GRAU -->
 <!-- Referenzen Gallery - GRAU -->
 <section class="gallery-section" style="background: var(--color-bg-light);">
     <div class="container">
@@ -227,38 +226,128 @@
 
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="img/Fahrzeugbeschriftung-Kosumi-Rosenheim.webp" alt="Professionelle PKW-Fahrzeugbeschriftung für Kosumi in Rosenheim - Teilfolierung in Firmenfarben" class="gallery-img" loading="lazy" width="400" height="300" onclick="openLightbox(this)">
+                <img src="img/Fahrzeugbeschriftung-Kosumi-Rosenheim.webp" 
+                     alt="PKW Fahrzeugbeschriftung Kosumi Rosenheim" 
+                     class="gallery-img" 
+                     loading="lazy" 
+                     width="400" 
+                     height="300"
+                     onclick="openLightbox(this)"
+                     style="cursor: pointer;">
             </div>
             <div class="gallery-item">
-                <img src="img/LKW-Beschriftung-Tegernseer-Faren-Manufaktur.webp" alt="LKW-Vollbeschriftung für Tegernseer Faren Manufaktur - großflächige Fahrzeugwerbung mit Digitaldruck" class="gallery-img" loading="lazy" width="400" height="300" onclick="openLightbox(this)">
+                <img src="img/LKW-Beschriftung-Tegernseer-Faren-Manufaktur.webp" 
+                     alt="LKW-Beschriftung Tegernseer Faren Manufaktur" 
+                     class="gallery-img" 
+                     loading="lazy" 
+                     width="400" 
+                     height="300"
+                     onclick="openLightbox(this)"
+                     style="cursor: pointer;">
             </div>
             <div class="gallery-item">
-                <img src="img/Aluverbundschild-Weber-Schechen.webp" alt="Hochwertiges Aluverbund-Firmenschild für Weber in Schechen - folienkaschiert und wetterfest" class="gallery-img" loading="lazy" width="400" height="300" onclick="openLightbox(this)">
+                <img src="img/Aluverbundschild-Weber-Schechen.webp" 
+                     alt="Firmenschild Aluverbund an Fassade" 
+                     class="gallery-img" 
+                     loading="lazy" 
+                     width="400" 
+                     height="300"
+                     onclick="openLightbox(this)"
+                     style="cursor: pointer;">
             </div>
             <div class="gallery-item">
-                <img src="img/glasbeschriftung-eingangsbereich.webp" alt="Moderne Glasbeschriftung im Eingangsbereich - Schaufensterbeschriftung mit Logo und Firmenname" class="gallery-img" loading="lazy" width="400" height="300" onclick="openLightbox(this)">
+                <img src="img/glasbeschriftung-eingangsbereich.webp" 
+                     alt="Moderne Schaufensterbeschriftung" 
+                     class="gallery-img" 
+                     loading="lazy" 
+                     width="400" 
+                     height="300"
+                     onclick="openLightbox(this)"
+                     style="cursor: pointer;">
             </div>
             <div class="gallery-item">
-                <img src="img/Bellgradt-Rosenheim-Glasdekor-Sichtschutz-und-Folienplott.webp" alt="Glasdekor und Sichtschutzfolie für Bellgradt Rosenheim - Milchglasfolie mit Corporate Design" class="gallery-img" loading="lazy" width="400" height="300" onclick="openLightbox(this)">
+                <img src="img/Bellgradt-Rosenheim-Glasdekor-Sichtschutz-und-Folienplott.webp" 
+                     alt="Glasdekor und Sichtschutz im Büro" 
+                     class="gallery-img" 
+                     loading="lazy" 
+                     width="400" 
+                     height="300"
+                     onclick="openLightbox(this)"
+                     style="cursor: pointer;">
             </div>
             <div class="gallery-item">
-                <img src="img/Bauzaunbanner-Baumschule-Fauerbach.webp" alt="Wetterfestes Bauzaunbanner für Baumschule Fauerbach - PVC-Banner im Großformatdruck" class="gallery-img" loading="lazy" width="400" height="300" onclick="openLightbox(this)">
+                <img src="img/Bauzaunbanner-Baumschule-Fauerbach.webp" 
+                     alt="PVC-Banner Großformatdruck" 
+                     class="gallery-img" 
+                     loading="lazy" 
+                     width="400" 
+                     height="300"
+                     onclick="openLightbox(this)"
+                     style="cursor: pointer;">
             </div>
         </div>
     </div>
 </section>
-
-<!-- Lightbox Modal -->
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <span class="lightbox-close">&times;</span>
-    <img class="lightbox-content" id="lightbox-img" alt="">
-    <div class="lightbox-caption" id="lightbox-caption"></div>
-</div>
+        <!-- CTA Section - ORANGE -->
+        <section class="gallery-section" style="background: var(--color-primary);">
+            <div class="container">
+                <div class="cta-content" style="text-align: center;">
+                    <h2 style="color: var(--color-bg-white); margin-bottom: var(--spacing-md);" class="cta-title">Lassen Sie uns Ihre Marke zum Leben erwecken!</h2>
+                    <p style="color: var(--color-bg-white); margin-bottom: var(--spacing-md);" class="cta-text">Sie haben eine Vision – wir haben die Expertise, sie Wirklichkeit werden zu lassen. Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch.</p>
+                    <a href="/kontakt.html" class="btn btn-primary btn-large">Jetzt kostenlos beraten lassen</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <div id="footer-placeholder"></div>
 
+    <!-- Lightbox Modal -->
+    <div id="imageLightbox" class="image-lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-image" id="lightboxImage" alt="">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
     <script src="main.js"></script>
+
+    <!-- Lightbox Script -->
+    <script>
+        function openLightbox(imgElement) {
+            const lightbox = document.getElementById('imageLightbox');
+            const lightboxImg = document.getElementById('lightboxImage');
+            const caption = document.getElementById('lightboxCaption');
+            
+            lightbox.style.display = 'flex';
+            lightboxImg.src = imgElement.src;
+            caption.textContent = imgElement.alt;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('imageLightbox');
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Schließen beim Klick außerhalb des Bildes
+        document.getElementById('imageLightbox')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Schließen mit ESC-Taste
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    ...
 
 </body>
 </html>
