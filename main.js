@@ -647,3 +647,32 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ========== END SCHEMA MARKUP ==========
+
+// Lightbox Funktionalität
+function openLightbox(img) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const caption = document.getElementById('lightbox-caption');
+
+    lightbox.style.display = 'block';
+    lightboxImg.src = img.src;
+    caption.innerHTML = img.alt;
+
+    // Prevent body scroll when lightbox is open
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.style.display = 'none';
+
+    // Re-enable body scroll
+    document.body.style.overflow = 'auto';
+}
+
+// Close lightbox with ESC key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeLightbox();
+    }
+});
