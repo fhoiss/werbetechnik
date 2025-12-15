@@ -760,6 +760,20 @@ a {
     flex-shrink: 0;
 }
 
+.feature-icon-svg {
+    width: 60px;
+    height: 60px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+
+
 .feature-title {
     font-size: 1.1rem;
     font-weight: 600;
@@ -1997,4 +2011,53 @@ a {
 
 .nav-dropdown-toggle[aria-expanded="false"] {
     color: var(--color-text-dark);
+}
+	
+/* ========================================
+   LIGHTBOX - AM ENDE DER DATEI!
+   ======================================== */
+
+.gallery-img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+}
+
+#myLightbox {
+    display: none;
+    position: fixed;
+    z-index: 999999 !important;  /* !important falls andere z-index Regeln existieren */
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.95);
+}
+
+#myLightbox img {
+    margin: auto;
+    display: block;
+    width: auto;
+    max-width: 90%;
+    max-height: 85vh;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    color: #f1f1f1;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000000 !important;
+}
+
+.lightbox-close:hover {
+    color: #ef8006;
 }

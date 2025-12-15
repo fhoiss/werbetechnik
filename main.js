@@ -647,3 +647,34 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ========== END SCHEMA MARKUP ==========
+
+// ... Ihr bestehender Code ...
+
+// LIGHTBOX FUNKTIONEN - GLOBAL (nicht in DOMContentLoaded!)
+// Diese müssen AUSSERHALB von allen Event-Listenern stehen!
+
+window.openLightbox = function(src, alt) {
+    var lightbox = document.getElementById('myLightbox');
+    var img = document.getElementById('lightboxImg');
+    if (lightbox && img) {
+        img.src = src;
+        img.alt = alt;
+        lightbox.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+window.closeLightbox = function() {
+    var lightbox = document.getElementById('myLightbox');
+    if (lightbox) {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// ESC zum Schließen
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        window.closeLightbox();
+    }
+});
