@@ -1,0 +1,224 @@
+{
+  "redirects": [
+    {
+      "source": "/scheibentoenung",
+      "destination": "/fahrzeugbeschriftung.html",
+      "permanent": true
+    },
+    {
+      "source": "/scheibentoenung/",
+      "destination": "/fahrzeugbeschriftung.html",
+      "permanent": true
+    },
+    {
+      "source": "/Beschriftungen",
+      "destination": "/fahrzeugbeschriftung.html",
+      "permanent": true
+    },
+    {
+      "source": "/Beschriftungen/",
+      "destination": "/fahrzeugbeschriftung.html",
+      "permanent": true
+    },
+    {
+      "source": "/beschriftungen",
+      "destination": "/fahrzeugbeschriftung.html",
+      "permanent": true
+    },
+    {
+      "source": "/beschriftungen/",
+      "destination": "/fahrzeugbeschriftung.html",
+      "permanent": true
+    },
+    {
+      "source": "/beklebungen-einsatzfahrzeug",
+      "destination": "/fahrzeugbeschriftung.html",
+      "permanent": true
+    },
+    {
+      "source": "/beklebungen-einsatzfahrzeug/",
+      "destination": "/fahrzeugbeschriftung.html",
+      "permanent": true
+    },
+    {
+      "source": "/fahrzeugbeschriftung",
+      "destination": "/fahrzeugbeschriftung.html",
+      "permanent": true
+    },
+    {
+      "source": "/fahrzeugbeschriftung/",
+      "destination": "/fahrzeugbeschriftung.html",
+      "permanent": true
+    },
+    {
+      "source": "/impressum",
+      "destination": "/impressum.html",
+      "permanent": true
+    },
+    {
+      "source": "/impressum/",
+      "destination": "/impressum.html",
+      "permanent": true
+    },
+    {
+      "source": "/datenschutz",
+      "destination": "/datenschutz.html",
+      "permanent": true
+    },
+    {
+      "source": "/datenschutz/",
+      "destination": "/datenschutz.html",
+      "permanent": true
+    },
+    {
+      "source": "/info/URL_Datenschutzerkl%C3%A4rung",
+      "destination": "/datenschutz.html",
+      "permanent": true
+    },
+    {
+      "source": "/URL_Datenschutzerkl%C3%A4rung",
+      "destination": "/datenschutz.html",
+      "permanent": true
+    },
+    {
+      "source": "/werbeartikel",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/werbeartikel/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/referenzen",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/referenzen/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/info",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/info/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/textilwerbung",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/textilwerbung/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/Textilwerbung",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/Textilwerbung/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/werbetechnik",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/werbetechnik/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/praesentationssysteme",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/praesentationssysteme/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/offset-digitaldruck",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/offset-digitaldruck/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/Leuchtwerbung",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/Leuchtwerbung/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/schilder_alt",
+      "destination": "/schilder-leitsysteme.html",
+      "permanent": true
+    },
+    {
+      "source": "/schilder_alt/",
+      "destination": "/schilder-leitsysteme.html",
+      "permanent": true
+    },
+    {
+      "source": "/schilder-platten",
+      "destination": "/schilder-leitsysteme.html",
+      "permanent": true
+    },
+    {
+      "source": "/schilder-platten/",
+      "destination": "/schilder-leitsysteme.html",
+      "permanent": true
+    },
+    {
+      "source": "/banner-fahnen",
+      "destination": "/banner-grossformat.html",
+      "permanent": true
+    },
+    {
+      "source": "/banner-fahnen/",
+      "destination": "/banner-grossformat.html",
+      "permanent": true
+    },
+    {
+      "source": "/fenster-glasbeschriftungen",
+      "destination": "/schaufensterbeschriftung.html",
+      "permanent": true
+    },
+    {
+      "source": "/fenster-glasbeschriftungen/",
+      "destination": "/schaufensterbeschriftung.html",
+      "permanent": true
+    },
+    {
+      "source": "/cardesigner",
+      "destination": "/cardesigner.html",
+      "permanent": true
+    },
+    {
+      "source": "/cardesigner/",
+      "destination": "/cardesigner.html",
+      "permanent": true
+    }
+  ]
+}
