@@ -11,9 +11,6 @@
       "destination": "https://www.werbetechnik-hoiss.de/:path*",
       "permanent": true
     },
-
-{
-  "redirects": [
     {
       "source": "/scheibentoenung",
       "destination": "/fahrzeugbeschriftung.html",
@@ -235,5 +232,4 @@
       "permanent": true
     }
   ]
-
 }
