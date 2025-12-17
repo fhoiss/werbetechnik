@@ -1,4 +1,42 @@
 {
+  "rewrites": [
+    {
+      "source": "/fahrzeugbeschriftung",
+      "destination": "/fahrzeugbeschriftung.html"
+    },
+    {
+      "source": "/glasdekor-sichtschutz",
+      "destination": "/glasdekor-sichtschutz.html"
+    },
+    {
+      "source": "/schaufensterbeschriftung",
+      "destination": "/schaufensterbeschriftung.html"
+    },
+    {
+      "source": "/schilder-leitsysteme",
+      "destination": "/schilder-leitsysteme.html"
+    },
+    {
+      "source": "/banner-grossformat",
+      "destination": "/banner-grossformat.html"
+    },
+    {
+      "source": "/cardesigner",
+      "destination": "/cardesigner.html"
+    },
+    {
+      "source": "/kontakt",
+      "destination": "/kontakt.html"
+    },
+    {
+      "source": "/impressum",
+      "destination": "/impressum.html"
+    },
+    {
+      "source": "/datenschutz",
+      "destination": "/datenschutz.html"
+    }
+  ],
   "redirects": [
     {
       "source": "/:path*",
@@ -12,83 +50,103 @@
       "permanent": true
     },
     {
+      "source": "/fahrzeugbeschriftung.html",
+      "destination": "/fahrzeugbeschriftung",
+      "permanent": true
+    },
+    {
+      "source": "/glasdekor-sichtschutz.html",
+      "destination": "/glasdekor-sichtschutz",
+      "permanent": true
+    },
+    {
+      "source": "/schaufensterbeschriftung.html",
+      "destination": "/schaufensterbeschriftung",
+      "permanent": true
+    },
+    {
+      "source": "/schilder-leitsysteme.html",
+      "destination": "/schilder-leitsysteme",
+      "permanent": true
+    },
+    {
+      "source": "/banner-grossformat.html",
+      "destination": "/banner-grossformat",
+      "permanent": true
+    },
+    {
+      "source": "/cardesigner.html",
+      "destination": "/cardesigner",
+      "permanent": true
+    },
+    {
+      "source": "/kontakt.html",
+      "destination": "/kontakt",
+      "permanent": true
+    },
+    {
+      "source": "/impressum.html",
+      "destination": "/impressum",
+      "permanent": true
+    },
+    {
+      "source": "/datenschutz.html",
+      "destination": "/datenschutz",
+      "permanent": true
+    },
+    {
       "source": "/scheibentoenung",
-      "destination": "/fahrzeugbeschriftung.html",
+      "destination": "/fahrzeugbeschriftung",
       "permanent": true
     },
     {
       "source": "/scheibentoenung/",
-      "destination": "/fahrzeugbeschriftung.html",
+      "destination": "/fahrzeugbeschriftung",
       "permanent": true
     },
     {
       "source": "/Beschriftungen",
-      "destination": "/glasdekor-sichtschutz.html",
+      "destination": "/glasdekor-sichtschutz",
       "permanent": true
     },
     {
       "source": "/Beschriftungen/",
-      "destination": "/glasdekor-sichtschutz.html",
+      "destination": "/glasdekor-sichtschutz",
       "permanent": true
     },
     {
       "source": "/beschriftungen",
-      "destination": "/glasdekor-sichtschutz.html",
+      "destination": "/glasdekor-sichtschutz",
       "permanent": true
     },
     {
       "source": "/beschriftungen/",
-      "destination": "/glasdekor-sichtschutz.html",
+      "destination": "/glasdekor-sichtschutz",
       "permanent": true
     },
     {
       "source": "/beklebungen-einsatzfahrzeug",
-      "destination": "/fahrzeugbeschriftung.html",
+      "destination": "/fahrzeugbeschriftung",
       "permanent": true
     },
     {
       "source": "/beklebungen-einsatzfahrzeug/",
-      "destination": "/fahrzeugbeschriftung.html",
-      "permanent": true
-    },
-    {
-      "source": "/fahrzeugbeschriftung",
-      "destination": "/fahrzeugbeschriftung.html",
+      "destination": "/fahrzeugbeschriftung",
       "permanent": true
     },
     {
       "source": "/fahrzeugbeschriftung/",
-      "destination": "/fahrzeugbeschriftung.html",
-      "permanent": true
-    },
-    {
-      "source": "/impressum",
-      "destination": "/impressum.html",
-      "permanent": true
-    },
-    {
-      "source": "/impressum/",
-      "destination": "/impressum.html",
-      "permanent": true
-    },
-    {
-      "source": "/datenschutz",
-      "destination": "/datenschutz.html",
-      "permanent": true
-    },
-    {
-      "source": "/datenschutz/",
-      "destination": "/datenschutz.html",
+      "destination": "/fahrzeugbeschriftung",
       "permanent": true
     },
     {
       "source": "/info/URL_Datenschutzerkl%C3%A4rung",
-      "destination": "/datenschutz.html",
+      "destination": "/datenschutz",
       "permanent": true
     },
     {
       "source": "/URL_Datenschutzerkl%C3%A4rung",
-      "destination": "/datenschutz.html",
+      "destination": "/datenschutz",
       "permanent": true
     },
     {
@@ -161,24 +219,24 @@
       "destination": "/",
       "permanent": true
     },
-{
-  "source": "/digitaldruck",
-  "destination": "/banner-grossformat.html",
-  "permanent": true
-},
-{
-  "source": "/digitaldruck/",
-  "destination": "/banner-grossformat.html",
-  "permanent": true
-},
+    {
+      "source": "/digitaldruck",
+      "destination": "/banner-grossformat",
+      "permanent": true
+    },
+    {
+      "source": "/digitaldruck/",
+      "destination": "/banner-grossformat",
+      "permanent": true
+    },
     {
       "source": "/offset-digitaldruck",
-      "destination": "/banner-grossformat.html",
+      "destination": "/banner-grossformat",
       "permanent": true
     },
     {
       "source": "/offset-digitaldruck/",
-      "destination": "/banner-grossformat.html",
+      "destination": "/banner-grossformat",
       "permanent": true
     },
     {
@@ -193,62 +251,47 @@
     },
     {
       "source": "/schilder_alt",
-      "destination": "/schilder-leitsysteme.html",
+      "destination": "/schilder-leitsysteme",
       "permanent": true
     },
     {
       "source": "/schilder_alt/",
-      "destination": "/schilder-leitsysteme.html",
+      "destination": "/schilder-leitsysteme",
       "permanent": true
     },
     {
       "source": "/schilder-platten",
-      "destination": "/schilder-leitsysteme.html",
+      "destination": "/schilder-leitsysteme",
       "permanent": true
     },
     {
       "source": "/schilder-platten/",
-      "destination": "/schilder-leitsysteme.html",
+      "destination": "/schilder-leitsysteme",
       "permanent": true
     },
     {
       "source": "/banner-fahnen",
-      "destination": "/banner-grossformat.html",
+      "destination": "/banner-grossformat",
       "permanent": true
     },
     {
       "source": "/banner-fahnen/",
-      "destination": "/banner-grossformat.html",
+      "destination": "/banner-grossformat",
       "permanent": true
     },
     {
       "source": "/fenster-glasbeschriftungen",
-      "destination": "/schaufensterbeschriftung.html",
+      "destination": "/schaufensterbeschriftung",
       "permanent": true
     },
     {
       "source": "/fenster-glasbeschriftungen/",
-      "destination": "/schaufensterbeschriftung.html",
+      "destination": "/schaufensterbeschriftung",
       "permanent": true
     },
-    {
-      "source": "/cardesigner",
-      "destination": "/cardesigner.html",
-      "permanent": true
-    },
-{
-  "source": "/kontakt",
-  "destination": "/kontakt.html",
-  "permanent": true
-},
-{
-  "source": "/kontakt/",
-  "destination": "/kontakt.html",
-  "permanent": true
-},
     {
       "source": "/cardesigner/",
-      "destination": "/cardesigner.html",
+      "destination": "/cardesigner",
       "permanent": true
     }
   ]
