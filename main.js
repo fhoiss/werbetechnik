@@ -250,13 +250,7 @@ const initActiveNavLink = () => {
 
 // Aktive Seite hervorheben
 function highlightActiveNavLink() {
-    let currentPage = window.location.pathname.split('/').pop() || '';
-
-    // Normalisiere Startseite auf Root
-    if (currentPage === '' || currentPage === 'index.html' || currentPage === 'index.php' || currentPage === 'index') {
-        currentPage = '/';
-    }
-
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-link, .nav-dropdown-link');
 
     navLinks.forEach(link => {
@@ -948,11 +942,10 @@ document.addEventListener('DOMContentLoaded', function() {
     addSchema(faqSchemaSchaufenster);
   }
 
-  	// Image Schema nur auf Startseite
-	if (currentPath === '/') {
-    addSchema(imageObjectSchema);
+	// Image Schema nur auf Startseite
+	if (currentPath === '/' || currentPath === '/index.html') {
+    	addSchema(imageObjectSchema);
 	}
-  }
 
   console.log('✅ Schema.org Markups erfolgreich geladen (Clean URLs + UTF-8)');
 });
