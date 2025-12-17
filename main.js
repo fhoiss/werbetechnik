@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initActiveNavLink();
 
-    console.log('✅ Hoi  Werbetechnik - Website initialisiert');
+    console.log('✅ Hoiß Werbetechnik - Website initialisiert');
 });
 
 // ========================================
@@ -499,253 +499,252 @@ function highlightActiveNavLink() {
 
 })();
 
-// ========== SCHEMA MARKUP (Aktualisiert 17.12.2025 - Clean URLs) ==========
+// ========== SCHEMA MARKUP (Aktualisiert 17.12.2025 - Clean URLs + UTF-8) ==========
 
 document.addEventListener('DOMContentLoaded', function() {
 
-// ===== 1. ORGANIZATION SCHEMA (KORRIGIERT) =====
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Hoi  Werbetechnik",
-  "alternateName": "Hoi  Beklebe & Werbetechnik",
-  "legalName": "Hoi  Werbetechnik GmbH",
-  "url": "https://www.werbetechnik-hoiss.de/",
-  "logo": "https://www.werbetechnik-hoiss.de/img/Logo-Hoiss.webp",
-  "image": "https://www.werbetechnik-hoiss.de/img/Hoiss_Werbetechnik_Gebaeude.webp",
-  "description": "Professionelle Werbetechnik in Rosenheim - Fahrzeugbeschriftungen, Schilder, Glasbeschriftungen, Digitaldruck und Gro formatdruck. Von der Beratung bis zur Montage.",
-  "slogan": "Werbetechnik, die wirkt",
-  "foundingDate": "2018",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Lochberg 12",
-    "addressLocality": "Schechen",
-    "postalCode": "83135",
-    "addressRegion": "Bayern",
-    "addressCountry": "DE"
-  },
-  // ❌ "geo" ENTFERNT - nicht gültig für Organization!
-  "contactPoint": [
-    {
-      "@type": "ContactPoint",
-      "contactType": "Kundenservice",
-      "telephone": "+49-8031-9003379",
-      "email": "info@werbetechnik-hoiss.de",
-      "availableLanguage": ["German"],
-      "areaServed": "DE"
+  // ===== 1. ORGANIZATION SCHEMA =====
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Hoiß Werbetechnik",
+    "alternateName": "Hoiß Beklebe & Werbetechnik",
+    "legalName": "Hoiß Werbetechnik GmbH",
+    "url": "https://www.werbetechnik-hoiss.de/",
+    "logo": "https://www.werbetechnik-hoiss.de/img/Logo-Hoiss.webp",
+    "image": "https://www.werbetechnik-hoiss.de/img/Hoiss_Werbetechnik_Gebaeude.webp",
+    "description": "Professionelle Werbetechnik in Rosenheim - Fahrzeugbeschriftungen, Schilder, Glasbeschriftungen, Digitaldruck und Großformatdruck. Von der Beratung bis zur Montage.",
+    "slogan": "Werbetechnik, die wirkt",
+    "foundingDate": "2018",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Lochberg 12",
+      "addressLocality": "Schechen",
+      "postalCode": "83135",
+      "addressRegion": "Bayern",
+      "addressCountry": "DE"
     },
-    {
-      "@type": "ContactPoint",
-      "contactType": "Angebot & Beratung",
-      "telephone": "+49-8031-9003379",
-      "email": "info@werbetechnik-hoiss.de",
-      "availableLanguage": ["German"]
-    }
-  ],
-  "sameAs": [
-    "https://www.facebook.com/WerbetechnikHoiss",
-    "https://www.instagram.com/hoiss.werbetechnik"
-  ]
-};
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "Kundenservice",
+        "telephone": "+49-8031-9003379",
+        "email": "info@werbetechnik-hoiss.de",
+        "availableLanguage": ["German"],
+        "areaServed": "DE"
+      },
+      {
+        "@type": "ContactPoint",
+        "contactType": "Angebot & Beratung",
+        "telephone": "+49-8031-9003379",
+        "email": "info@werbetechnik-hoiss.de",
+        "availableLanguage": ["German"]
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/WerbetechnikHoiss",
+      "https://www.instagram.com/hoiss.werbetechnik"
+    ]
+  };
 
-// ===== 2. LOCAL BUSINESS SCHEMA (mit @id) =====
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://www.werbetechnik-hoiss.de/#localbusiness",
-  "name": "Hoi  Werbetechnik",
-  "image": [
-    "https://www.werbetechnik-hoiss.de/img/Fahrzeugbeschriftung-Kosumi-Rosenheim.webp",
-    "https://www.werbetechnik-hoiss.de/img/Schild-Aicherpark-Rosenheim.webp",
-    "https://www.werbetechnik-hoiss.de/img/Glasdekor-Sichtschutz.webp"
-  ],
-  "url": "https://www.werbetechnik-hoiss.de/",
-  "description": "Ihre Full-Service-Agentur f r Werbetechnik in Rosenheim. Fahrzeugbeschriftungen, Schilder, Glasbeschriftungen, Digitaldruck, Banner und Gro formatdruck   alles aus einer Hand.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Lochberg 12",
-    "addressLocality": "Schechen",
-    "postalCode": "83135",
-    "addressRegion": "Bayern",
-    "addressCountry": "DE"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 47.8292,
-    "longitude": 12.1472
-  },
-  "telephone": "+49-8031-9003379",
-  "email": "info@werbetechnik-hoiss.de",
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-      "opens": "08:00",
-      "closes": "12:00"
+  // ===== 2. LOCAL BUSINESS SCHEMA =====
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.werbetechnik-hoiss.de/#localbusiness",
+    "name": "Hoiß Werbetechnik",
+    "image": [
+      "https://www.werbetechnik-hoiss.de/img/Fahrzeugbeschriftung-Kosumi-Rosenheim.webp",
+      "https://www.werbetechnik-hoiss.de/img/Schild-Aicherpark-Rosenheim.webp",
+      "https://www.werbetechnik-hoiss.de/img/Glasdekor-Sichtschutz.webp"
+    ],
+    "url": "https://www.werbetechnik-hoiss.de/",
+    "description": "Ihre Full-Service-Agentur für Werbetechnik in Rosenheim. Fahrzeugbeschriftungen, Schilder, Glasbeschriftungen, Digitaldruck, Banner und Großformatdruck – alles aus einer Hand.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Lochberg 12",
+      "addressLocality": "Schechen",
+      "postalCode": "83135",
+      "addressRegion": "Bayern",
+      "addressCountry": "DE"
     },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-      "opens": "13:00",
-      "closes": "17:00"
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 47.8292,
+      "longitude": 12.1472
     },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Friday",
-      "opens": "08:00",
-      "closes": "12:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Friday",
-      "opens": "13:00",
-      "closes": "15:00"
-    }
-  ],                                    // ? KOMMA HIER!
-  "priceRange": " -   ",
-  "areaServed": [
-    {
-      "@type": "City",
-      "name": "Rosenheim",
-      "containedIn": {
-        "@type": "State",
-        "name": "Bayern"
+    "telephone": "+49-8031-9003379",
+    "email": "info@werbetechnik-hoiss.de",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+        "opens": "08:00",
+        "closes": "12:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+        "opens": "13:00",
+        "closes": "17:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Friday",
+        "opens": "08:00",
+        "closes": "12:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Friday",
+        "opens": "13:00",
+        "closes": "15:00"
       }
-    },
-    {
-      "@type": "City",
-      "name": "Schechen"
-    },
-    {
-      "@type": "City",
-      "name": "Bad Aibling"
-    },
-    {
-      "@type": "City",
-      "name": "M nchen"
-    }
-  ],
-  "hasMap": "https://www.google.com/maps/place/Lochberg+12,+83135+Schechen",
-  "sameAs": [
-    "https://www.facebook.com/werbetechnikhoiss",
-    "https://www.instagram.com/hoiss.werbetechnik"
-  ]
-};
+    ],
+    "priceRange": "€-€€€",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Rosenheim",
+        "containedIn": {
+          "@type": "State",
+          "name": "Bayern"
+        }
+      },
+      {
+        "@type": "City",
+        "name": "Schechen"
+      },
+      {
+        "@type": "City",
+        "name": "Bad Aibling"
+      },
+      {
+        "@type": "City",
+        "name": "München"
+      }
+    ],
+    "hasMap": "https://www.google.com/maps/place/Lochberg+12,+83135+Schechen",
+    "sameAs": [
+      "https://www.facebook.com/werbetechnikhoiss",
+      "https://www.instagram.com/hoiss.werbetechnik"
+    ]
+  };
 
-// ===== 3. SERVICE SCHEMA (KORRIGIERT - mit @id Referenz) =====
-const serviceSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Hoi  Werbetechnik",
-  "url": "https://www.werbetechnik-hoiss.de/",
-  "@id": "https://www.werbetechnik-hoiss.de/#professionalservice",
-  "makesOffer": [
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Fahrzeugbeschriftung",
-        "description": "Professionelle Fahrzeugbeklebungen f r PKW, LKW, Transporter und Anhänger. Hochwertige Fahrzeugfolien als mobile Werbefläche – individuell gestaltet mit Digitaldruck oder Plotterfolien.",
-        "serviceType": "Fahrzeugfolierung",
-        "provider": {
-          "@id": "https://www.werbetechnik-hoiss.de/#localbusiness"  // ✅ Referenz statt volles Objekt
-        },
-        "areaServed": {
-          "@type": "State",
-          "name": "Bayern"
-        },
-        "url": "https://www.werbetechnik-hoiss.de/fahrzeugbeschriftung"
+  // ===== 3. SERVICE SCHEMA =====
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Hoiß Werbetechnik",
+    "url": "https://www.werbetechnik-hoiss.de/",
+    "@id": "https://www.werbetechnik-hoiss.de/#professionalservice",
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Fahrzeugbeschriftung",
+          "description": "Professionelle Fahrzeugbeklebungen für PKW, LKW, Transporter und Anhänger. Hochwertige Fahrzeugfolien als mobile Werbefläche – individuell gestaltet mit Digitaldruck oder Plotterfolien.",
+          "serviceType": "Fahrzeugfolierung",
+          "provider": {
+            "@id": "https://www.werbetechnik-hoiss.de/#localbusiness"
+          },
+          "areaServed": {
+            "@type": "State",
+            "name": "Bayern"
+          },
+          "url": "https://www.werbetechnik-hoiss.de/fahrzeugbeschriftung"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Glasdekorfolien & Sichtschutz",
+          "description": "Glasdekorfolien für Fenster, Türen und Glasflächen. Perfekt für Sichtschutz, Sonnenschutz und dekorative Gestaltung. In vielen Farben und Designs erhältlich.",
+          "serviceType": "Glasbeschriftung",
+          "provider": {
+            "@id": "https://www.werbetechnik-hoiss.de/#localbusiness"
+          },
+          "areaServed": {
+            "@type": "State",
+            "name": "Bayern"
+          },
+          "url": "https://www.werbetechnik-hoiss.de/glasdekor-sichtschutz"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Schaufensterbeschriftung",
+          "description": "Professionelle Schaufensterbeschriftungen für Geschäfte, Praxen und Büros. Von einfachen Öffnungszeiten bis zu aufwendigen Glasgestaltungen.",
+          "serviceType": "Schaufensterbeschriftung",
+          "provider": {
+            "@id": "https://www.werbetechnik-hoiss.de/#localbusiness"
+          },
+          "areaServed": {
+            "@type": "State",
+            "name": "Bayern"
+          },
+          "url": "https://www.werbetechnik-hoiss.de/schaufensterbeschriftung"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Aluverbundschilder & Schilder",
+          "description": "Hochwertige Schilder für Fassaden, Firmen und Leitsysteme. Aluverbund, Dibond, Acrylglas – robust und wetterfest in individuellen Designs.",
+          "serviceType": "Beschilderung",
+          "provider": {
+            "@id": "https://www.werbetechnik-hoiss.de/#localbusiness"
+          },
+          "areaServed": {
+            "@type": "State",
+            "name": "Bayern"
+          },
+          "url": "https://www.werbetechnik-hoiss.de/schilder-leitsysteme"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Banner & Großformatdruck",
+          "description": "PVC-Banner, Mesh-Banner, Textilbanner und Bauzaunbanner für Events, Baustellen und Werbezwecke. Wetterfest und UV-beständig.",
+          "serviceType": "Großformatdruck",
+          "provider": {
+            "@id": "https://www.werbetechnik-hoiss.de/#localbusiness"
+          },
+          "areaServed": {
+            "@type": "State",
+            "name": "Bayern"
+          },
+          "url": "https://www.werbetechnik-hoiss.de/banner-grossformat"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Car Designer Tool",
+          "description": "Online-Tool zur selbstständigen Gestaltung Ihrer Fahrzeugbeschriftung. Einfach, intuitiv und mit Live-Vorschau.",
+          "serviceType": "Design-Tool",
+          "provider": {
+            "@id": "https://www.werbetechnik-hoiss.de/#localbusiness"
+          },
+          "url": "https://www.werbetechnik-hoiss.de/cardesigner"
+        }
       }
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Glasdekorfolien & Sichtschutz",
-        "description": "Glasdekorfolien f r Fenster, T ren und Glasflächen. Perfekt f r Sichtschutz, Sonnenschutz und dekorative Gestaltung. In vielen Farben und Designs erhältlich.",
-        "serviceType": "Glasbeschriftung",
-        "provider": {
-          "@id": "https://www.werbetechnik-hoiss.de/#localbusiness"  // ✅ Referenz
-        },
-        "areaServed": {
-          "@type": "State",
-          "name": "Bayern"
-        },
-        "url": "https://www.werbetechnik-hoiss.de/glasdekor-sichtschutz"
-      }
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Schaufensterbeschriftung",
-        "description": "Professionelle Schaufensterbeschriftungen f r Geschäfte, Praxen und B ros. Von einfachen Öffnungszeiten bis zu aufwendigen Glasgestaltungen.",
-        "serviceType": "Schaufensterbeschriftung",
-        "provider": {
-          "@id": "https://www.werbetechnik-hoiss.de/#localbusiness"  // ✅ Referenz
-        },
-        "areaServed": {
-          "@type": "State",
-          "name": "Bayern"
-        },
-        "url": "https://www.werbetechnik-hoiss.de/schaufensterbeschriftung"
-      }
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Aluverbundschilder & Schilder",
-        "description": "Hochwertige Schilder f r Fassaden, Firmen und Leitsysteme. Aluverbund, Dibond, Acrylglas – robust und wetterfest in individuellen Designs.",
-        "serviceType": "Beschilderung",
-        "provider": {
-          "@id": "https://www.werbetechnik-hoiss.de/#localbusiness"  // ✅ Referenz
-        },
-        "areaServed": {
-          "@type": "State",
-          "name": "Bayern"
-        },
-        "url": "https://www.werbetechnik-hoiss.de/schilder-leitsysteme"
-      }
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Banner & Gro formatdruck",
-        "description": "PVC-Banner, Mesh-Banner, Textilbanner und Bauzaunbanner f r Events, Baustellen und Werbezwecke. Wetterfest und UV-beständig.",
-        "serviceType": "Gro formatdruck",
-        "provider": {
-          "@id": "https://www.werbetechnik-hoiss.de/#localbusiness"  // ✅ Referenz
-        },
-        "areaServed": {
-          "@type": "State",
-          "name": "Bayern"
-        },
-        "url": "https://www.werbetechnik-hoiss.de/banner-grossformat"
-      }
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Car Designer Tool",
-        "description": "Online-Tool zur selbstständigen Gestaltung Ihrer Fahrzeugbeschriftung. Einfach, intuitiv und mit Live-Vorschau.",
-        "serviceType": "Design-Tool",
-        "provider": {
-          "@id": "https://www.werbetechnik-hoiss.de/#localbusiness"  // ✅ Referenz
-        },
-        "url": "https://www.werbetechnik-hoiss.de/cardesigner"
-      }
-    }
-  ]
-};
-	
-  // ===== 4. WEBSITE SCHEMA mit SearchAction =====
+    ]
+  };
+
+  // ===== 4. WEBSITE SCHEMA =====
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Hoi  Werbetechnik",
+    "name": "Hoiß Werbetechnik",
     "url": "https://www.werbetechnik-hoiss.de/",
     "potentialAction": {
       "@type": "SearchAction",
@@ -757,11 +756,11 @@ const serviceSchema = {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Hoi  Werbetechnik"
+      "name": "Hoiß Werbetechnik"
     }
   };
 
-  // ===== 5. FAQ SCHEMA (Glasdekor-Seite) =====
+  // ===== 5. FAQ SCHEMA (Glasdekor) =====
   const faqSchemaGlasdekor = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -779,7 +778,7 @@ const serviceSchema = {
         "name": "Wie lange hält eine Glasdekorfolie?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Hochwertige Glasdekorfolien halten bei fachgerechter Montage und Pflege 5-8 Jahre, je nach Beanspruchung und Witterungseinfl ssen."
+          "text": "Hochwertige Glasdekorfolien halten bei fachgerechter Montage und Pflege 5-8 Jahre, je nach Beanspruchung und Witterungseinflüssen."
         }
       },
       {
@@ -787,31 +786,31 @@ const serviceSchema = {
         "name": "Kann ich Glasdekorfolien wieder entfernen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ja, Glasdekorfolien sind grundsätzlich r ckstandsfrei entfernbar. Mit der richtigen Technik und etwas Wärme lassen sie sich problemlos ablösen."
+          "text": "Ja, Glasdekorfolien sind grundsätzlich rückstandsfrei entfernbar. Mit der richtigen Technik und etwas Wärme lassen sie sich problemlos ablösen."
         }
       },
       {
         "@type": "Question",
-        "name": "Eignen sich Glasdekorfolien auch f r Au enverglasungen?",
+        "name": "Eignen sich Glasdekorfolien auch für Außenverglasungen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ja, spezielle Glasdekorfolien sind UV- und witterungsbeständig und eignen sich auch f r Au enverglasungen."
+          "text": "Ja, spezielle Glasdekorfolien sind UV- und witterungsbeständig und eignen sich auch für Außenverglasungen."
         }
       }
     ]
   };
 
-  // ===== 6. FAQ SCHEMA (Schaufenster-Seite) =====
+  // ===== 6. FAQ SCHEMA (Schaufenster) =====
   const faqSchemaSchaufenster = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Welche Materialien eignen sich f r Schaufensterbeschriftungen?",
+        "name": "Welche Materialien eignen sich für Schaufensterbeschriftungen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "F r Schaufensterbeschriftungen eignen sich selbstklebende Folien (transluzent oder opak), Glasdekorfolien und bedruckte Digitaldruckfolien."
+          "text": "Für Schaufensterbeschriftungen eignen sich selbstklebende Folien (transluzent oder opak), Glasdekorfolien und bedruckte Digitaldruckfolien."
         }
       },
       {
@@ -827,13 +826,13 @@ const serviceSchema = {
         "name": "Kann ich meine Schaufensterbeschriftung selbst anbringen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Kleinere Beschriftungen können Sie selbst anbringen. F r gr  ere Flächen und perfekte Ergebnisse empfehlen wir unseren Montageservice."
+          "text": "Kleinere Beschriftungen können Sie selbst anbringen. Für größere Flächen und perfekte Ergebnisse empfehlen wir unseren Montageservice."
         }
       }
     ]
   };
 
-  // ===== 7. BREADCRUMB SCHEMA (Dynamisch für jede Seite - Clean URLs) =====
+  // ===== 7. BREADCRUMB SCHEMA =====
   function getBreadcrumbSchema() {
     const path = window.location.pathname;
     const breadcrumbs = {
@@ -849,7 +848,6 @@ const serviceSchema = {
       ]
     };
 
-    // Dynamische Breadcrumb-Generierung basierend auf URL (Clean URLs)
     const pageMap = {
       "/fahrzeugbeschriftung": {
         name: "Fahrzeugbeschriftung",
@@ -868,7 +866,7 @@ const serviceSchema = {
         position: 2
       },
       "/banner-grossformat": {
-        name: "Banner & Gro format",
+        name: "Banner & Großformat",
         position: 2
       },
       "/cardesigner": {
@@ -905,26 +903,16 @@ const serviceSchema = {
     return breadcrumbs;
   }
 
-  // ===== 8. IMAGE OBJECT SCHEMA (Hauptbilder) =====
+  // ===== 8. IMAGE OBJECT SCHEMA =====
   const imageObjectSchema = {
     "@context": "https://schema.org",
     "@type": "ImageObject",
     "contentUrl": "https://www.werbetechnik-hoiss.de/img/Dr-Klein-Traunstein.webp",
-    "description": "Professionelle Fahrzeugbeschriftung in Rosenheim - Hoi  Werbetechnik",
+    "description": "Professionelle Fahrzeugbeschriftung in Rosenheim - Hoiß Werbetechnik",
     "name": "Fahrzeugbeschriftung Rosenheim",
     "creator": {
       "@type": "Organization",
-      "name": "Hoi  Werbetechnik"
-    }
-  };
-
-  const reviewSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "18"
+      "name": "Hoiß Werbetechnik"
     }
   };
 
@@ -937,7 +925,6 @@ const serviceSchema = {
   }
 
   // ===== SCHEMAS HINZUFÜGEN =====
-  // Basis-Schemas (auf allen Seiten)
   addSchema(organizationSchema);
   addSchema(localBusinessSchema);
   addSchema(serviceSchema);
@@ -960,7 +947,7 @@ const serviceSchema = {
     addSchema(imageObjectSchema);
   }
 
-  console.log('✅ Schema.org Markups erfolgreich geladen (Clean URLs)');
+  console.log('✅ Schema.org Markups erfolgreich geladen (Clean URLs + UTF-8)');
 });
 
 // ========== END SCHEMA MARKUP ==========
@@ -988,7 +975,7 @@ window.closeLightbox = function() {
     }
 }
 
-// ESC zum Schlieen
+// ESC zum Schließen
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         window.closeLightbox();
