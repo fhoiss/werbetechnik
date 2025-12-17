@@ -552,15 +552,15 @@ const organizationSchema = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://www.werbetechnik-hoiss.de/#localbusiness",  // âœ… NEU!
-  "name": "HoiÃŸ Werbetechnik",
+  "@id": "https://www.werbetechnik-hoiss.de/#localbusiness",
+  "name": "Hoiß Werbetechnik",
   "image": [
     "https://www.werbetechnik-hoiss.de/img/Fahrzeugbeschriftung-Kosumi-Rosenheim.webp",
     "https://www.werbetechnik-hoiss.de/img/Schild-Aicherpark-Rosenheim.webp",
     "https://www.werbetechnik-hoiss.de/img/Glasdekor-Sichtschutz.webp"
   ],
   "url": "https://www.werbetechnik-hoiss.de/",
-  "description": "Ihre Full-Service-Agentur fÃ¼r Werbetechnik in Rosenheim. Fahrzeugbeschriftungen, Schilder, Glasbeschriftungen, Digitaldruck, Banner und GroÃŸformatdruck â€“ alles aus einer Hand.",
+  "description": "Ihre Full-Service-Agentur für Werbetechnik in Rosenheim. Fahrzeugbeschriftungen, Schilder, Glasbeschriftungen, Digitaldruck, Banner und Großformatdruck – alles aus einer Hand.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Lochberg 12",
@@ -577,28 +577,32 @@ const localBusinessSchema = {
   "telephone": "+49-8031-9003379",
   "email": "info@werbetechnik-hoiss.de",
   "openingHoursSpecification": [
-  {
-    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-    "opens": "08:00",
-    "closes": "12:00"
-  },
-  {
-    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-    "opens": "13:00",
-    "closes": "17:00"
-  },
-  {
-    "dayOfWeek": "Friday",
-    "opens": "08:00",
-    "closes": "12:00"
-  },
-  {
-    "dayOfWeek": "Friday",
-    "opens": "13:00",
-    "closes": "15:00"
-  }
-]
-  "priceRange": "â‚¬-â‚¬â‚¬â‚¬",
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+      "opens": "08:00",
+      "closes": "12:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+      "opens": "13:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Friday",
+      "opens": "08:00",
+      "closes": "12:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Friday",
+      "opens": "13:00",
+      "closes": "15:00"
+    }
+  ],                                    // ? KOMMA HIER!
+  "priceRange": "€-€€€",
   "areaServed": [
     {
       "@type": "City",
@@ -618,7 +622,7 @@ const localBusinessSchema = {
     },
     {
       "@type": "City",
-      "name": "MÃ¼nchen"
+      "name": "München"
     }
   ],
   "hasMap": "https://www.google.com/maps/place/Lochberg+12,+83135+Schechen",
