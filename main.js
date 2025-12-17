@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initActiveNavLink();
 
-    console.log('✅ Hoiß Werbetechnik - Website initialisiert');
+    console.log('✅ Hoi� Werbetechnik - Website initialisiert');
 });
 
 // ========================================
@@ -507,13 +507,13 @@ document.addEventListener('DOMContentLoaded', function() {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Hoiß Werbetechnik",
-  "alternateName": "Hoiß Beklebe & Werbetechnik",
-  "legalName": "Hoiß Werbetechnik GmbH",
+  "name": "Hoi� Werbetechnik",
+  "alternateName": "Hoi� Beklebe & Werbetechnik",
+  "legalName": "Hoi� Werbetechnik GmbH",
   "url": "https://www.werbetechnik-hoiss.de/",
   "logo": "https://www.werbetechnik-hoiss.de/img/Logo-Hoiss.webp",
   "image": "https://www.werbetechnik-hoiss.de/img/Hoiss_Werbetechnik_Gebaeude.webp",
-  "description": "Professionelle Werbetechnik in Rosenheim - Fahrzeugbeschriftungen, Schilder, Glasbeschriftungen, Digitaldruck und Großformatdruck. Von der Beratung bis zur Montage.",
+  "description": "Professionelle Werbetechnik in Rosenheim - Fahrzeugbeschriftungen, Schilder, Glasbeschriftungen, Digitaldruck und Gro�formatdruck. Von der Beratung bis zur Montage.",
   "slogan": "Werbetechnik, die wirkt",
   "foundingDate": "2018",
   "address": {
@@ -636,7 +636,7 @@ const localBusinessSchema = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "Hoiß Werbetechnik",
+  "name": "Hoi� Werbetechnik",
   "url": "https://www.werbetechnik-hoiss.de/",
   "@id": "https://www.werbetechnik-hoiss.de/#professionalservice",
   "makesOffer": [
@@ -645,7 +645,7 @@ const serviceSchema = {
       "itemOffered": {
         "@type": "Service",
         "name": "Fahrzeugbeschriftung",
-        "description": "Professionelle Fahrzeugbeklebungen für PKW, LKW, Transporter und Anhänger. Hochwertige Fahrzeugfolien als mobile Werbefläche – individuell gestaltet mit Digitaldruck oder Plotterfolien.",
+        "description": "Professionelle Fahrzeugbeklebungen f�r PKW, LKW, Transporter und Anhänger. Hochwertige Fahrzeugfolien als mobile Werbefläche – individuell gestaltet mit Digitaldruck oder Plotterfolien.",
         "serviceType": "Fahrzeugfolierung",
         "provider": {
           "@id": "https://www.werbetechnik-hoiss.de/#localbusiness"  // ✅ Referenz statt volles Objekt
@@ -662,7 +662,7 @@ const serviceSchema = {
       "itemOffered": {
         "@type": "Service",
         "name": "Glasdekorfolien & Sichtschutz",
-        "description": "Glasdekorfolien für Fenster, Türen und Glasflächen. Perfekt für Sichtschutz, Sonnenschutz und dekorative Gestaltung. In vielen Farben und Designs erhältlich.",
+        "description": "Glasdekorfolien f�r Fenster, T�ren und Glasflächen. Perfekt f�r Sichtschutz, Sonnenschutz und dekorative Gestaltung. In vielen Farben und Designs erhältlich.",
         "serviceType": "Glasbeschriftung",
         "provider": {
           "@id": "https://www.werbetechnik-hoiss.de/#localbusiness"  // ✅ Referenz
@@ -679,7 +679,7 @@ const serviceSchema = {
       "itemOffered": {
         "@type": "Service",
         "name": "Schaufensterbeschriftung",
-        "description": "Professionelle Schaufensterbeschriftungen für Geschäfte, Praxen und Büros. Von einfachen Öffnungszeiten bis zu aufwendigen Glasgestaltungen.",
+        "description": "Professionelle Schaufensterbeschriftungen f�r Geschäfte, Praxen und B�ros. Von einfachen Öffnungszeiten bis zu aufwendigen Glasgestaltungen.",
         "serviceType": "Schaufensterbeschriftung",
         "provider": {
           "@id": "https://www.werbetechnik-hoiss.de/#localbusiness"  // ✅ Referenz
@@ -696,7 +696,7 @@ const serviceSchema = {
       "itemOffered": {
         "@type": "Service",
         "name": "Aluverbundschilder & Schilder",
-        "description": "Hochwertige Schilder für Fassaden, Firmen und Leitsysteme. Aluverbund, Dibond, Acrylglas – robust und wetterfest in individuellen Designs.",
+        "description": "Hochwertige Schilder f�r Fassaden, Firmen und Leitsysteme. Aluverbund, Dibond, Acrylglas – robust und wetterfest in individuellen Designs.",
         "serviceType": "Beschilderung",
         "provider": {
           "@id": "https://www.werbetechnik-hoiss.de/#localbusiness"  // ✅ Referenz
@@ -712,9 +712,9 @@ const serviceSchema = {
       "@type": "Offer",
       "itemOffered": {
         "@type": "Service",
-        "name": "Banner & Großformatdruck",
-        "description": "PVC-Banner, Mesh-Banner, Textilbanner und Bauzaunbanner für Events, Baustellen und Werbezwecke. Wetterfest und UV-beständig.",
-        "serviceType": "Großformatdruck",
+        "name": "Banner & Gro�formatdruck",
+        "description": "PVC-Banner, Mesh-Banner, Textilbanner und Bauzaunbanner f�r Events, Baustellen und Werbezwecke. Wetterfest und UV-beständig.",
+        "serviceType": "Gro�formatdruck",
         "provider": {
           "@id": "https://www.werbetechnik-hoiss.de/#localbusiness"  // ✅ Referenz
         },
@@ -745,7 +745,7 @@ const serviceSchema = {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Hoiß Werbetechnik",
+    "name": "Hoi� Werbetechnik",
     "url": "https://www.werbetechnik-hoiss.de/",
     "potentialAction": {
       "@type": "SearchAction",
@@ -757,7 +757,7 @@ const serviceSchema = {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Hoiß Werbetechnik"
+      "name": "Hoi� Werbetechnik"
     }
   };
 
@@ -779,7 +779,7 @@ const serviceSchema = {
         "name": "Wie lange hält eine Glasdekorfolie?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Hochwertige Glasdekorfolien halten bei fachgerechter Montage und Pflege 5-8 Jahre, je nach Beanspruchung und Witterungseinflüssen."
+          "text": "Hochwertige Glasdekorfolien halten bei fachgerechter Montage und Pflege 5-8 Jahre, je nach Beanspruchung und Witterungseinfl�ssen."
         }
       },
       {
@@ -787,15 +787,15 @@ const serviceSchema = {
         "name": "Kann ich Glasdekorfolien wieder entfernen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ja, Glasdekorfolien sind grundsätzlich rückstandsfrei entfernbar. Mit der richtigen Technik und etwas Wärme lassen sie sich problemlos ablösen."
+          "text": "Ja, Glasdekorfolien sind grundsätzlich r�ckstandsfrei entfernbar. Mit der richtigen Technik und etwas Wärme lassen sie sich problemlos ablösen."
         }
       },
       {
         "@type": "Question",
-        "name": "Eignen sich Glasdekorfolien auch für Außenverglasungen?",
+        "name": "Eignen sich Glasdekorfolien auch f�r Au�enverglasungen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ja, spezielle Glasdekorfolien sind UV- und witterungsbeständig und eignen sich auch für Außenverglasungen."
+          "text": "Ja, spezielle Glasdekorfolien sind UV- und witterungsbeständig und eignen sich auch f�r Au�enverglasungen."
         }
       }
     ]
@@ -808,10 +808,10 @@ const serviceSchema = {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Welche Materialien eignen sich für Schaufensterbeschriftungen?",
+        "name": "Welche Materialien eignen sich f�r Schaufensterbeschriftungen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Für Schaufensterbeschriftungen eignen sich selbstklebende Folien (transluzent oder opak), Glasdekorfolien und bedruckte Digitaldruckfolien."
+          "text": "F�r Schaufensterbeschriftungen eignen sich selbstklebende Folien (transluzent oder opak), Glasdekorfolien und bedruckte Digitaldruckfolien."
         }
       },
       {
@@ -827,7 +827,7 @@ const serviceSchema = {
         "name": "Kann ich meine Schaufensterbeschriftung selbst anbringen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Kleinere Beschriftungen können Sie selbst anbringen. Für größere Flächen und perfekte Ergebnisse empfehlen wir unseren Montageservice."
+          "text": "Kleinere Beschriftungen können Sie selbst anbringen. F�r gr��ere Flächen und perfekte Ergebnisse empfehlen wir unseren Montageservice."
         }
       }
     ]
@@ -868,7 +868,7 @@ const serviceSchema = {
         position: 2
       },
       "/banner-grossformat": {
-        name: "Banner & Großformat",
+        name: "Banner & Gro�format",
         position: 2
       },
       "/cardesigner": {
@@ -910,11 +910,11 @@ const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "ImageObject",
     "contentUrl": "https://www.werbetechnik-hoiss.de/img/Dr-Klein-Traunstein.webp",
-    "description": "Professionelle Fahrzeugbeschriftung in Rosenheim - Hoiß Werbetechnik",
+    "description": "Professionelle Fahrzeugbeschriftung in Rosenheim - Hoi� Werbetechnik",
     "name": "Fahrzeugbeschriftung Rosenheim",
     "creator": {
       "@type": "Organization",
-      "name": "Hoiß Werbetechnik"
+      "name": "Hoi� Werbetechnik"
     }
   };
 
@@ -988,7 +988,7 @@ window.closeLightbox = function() {
     }
 }
 
-// ESC zum Schließen
+// ESC zum Schlieen
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         window.closeLightbox();
