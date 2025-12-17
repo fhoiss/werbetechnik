@@ -23,22 +23,22 @@
     },
     {
       "source": "/Beschriftungen",
-      "destination": "/fahrzeugbeschriftung.html",
+      "destination": "/glasdekor-sichtschutz.html",
       "permanent": true
     },
     {
       "source": "/Beschriftungen/",
-      "destination": "/fahrzeugbeschriftung.html",
+      "destination": "/glasdekor-sichtschutz.html",
       "permanent": true
     },
     {
       "source": "/beschriftungen",
-      "destination": "/fahrzeugbeschriftung.html",
+      "destination": "/glasdekor-sichtschutz.html",
       "permanent": true
     },
     {
       "source": "/beschriftungen/",
-      "destination": "/fahrzeugbeschriftung.html",
+      "destination": "/glasdekor-sichtschutz.html",
       "permanent": true
     },
     {
@@ -161,14 +161,24 @@
       "destination": "/",
       "permanent": true
     },
+{
+  "source": "/digitaldruck",
+  "destination": "/banner-grossformat.html",
+  "permanent": true
+},
+{
+  "source": "/digitaldruck/",
+  "destination": "/banner-grossformat.html",
+  "permanent": true
+},
     {
       "source": "/offset-digitaldruck",
-      "destination": "/",
+      "destination": "/banner-grossformat.html",
       "permanent": true
     },
     {
       "source": "/offset-digitaldruck/",
-      "destination": "/",
+      "destination": "/banner-grossformat.html",
       "permanent": true
     },
     {
@@ -226,6 +236,16 @@
       "destination": "/cardesigner.html",
       "permanent": true
     },
+{
+  "source": "/kontakt",
+  "destination": "/kontakt.html",
+  "permanent": true
+},
+{
+  "source": "/kontakt/",
+  "destination": "/kontakt.html",
+  "permanent": true
+},
     {
       "source": "/cardesigner/",
       "destination": "/cardesigner.html",
