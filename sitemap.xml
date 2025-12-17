@@ -1,71 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <!-- Startseite -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- STARTSEITE -->
   <url>
     <loc>https://www.werbetechnik-hoiss.de/</loc>
-    <lastmod>2025-12-17</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Hauptdienstleistungen -->
+  <!-- HAUPTLEISTUNGEN -->
   <url>
     <loc>https://www.werbetechnik-hoiss.de/fahrzeugbeschriftung</loc>
-    <lastmod>2025-12-17</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2024-12-17</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.werbetechnik-hoiss.de/glasdekor-sichtschutz</loc>
-    <lastmod>2025-12-17</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2024-12-17</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.werbetechnik-hoiss.de/schaufensterbeschriftung</loc>
-    <lastmod>2025-12-17</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2024-12-17</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.werbetechnik-hoiss.de/schilder-leitsysteme</loc>
-    <lastmod>2025-12-17</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2024-12-17</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.werbetechnik-hoiss.de/banner-grossformat</loc>
-    <lastmod>2025-12-17</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2024-12-17</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Tools & Services -->
+  <!-- TOOLS & SERVICES -->
   <url>
     <loc>https://www.werbetechnik-hoiss.de/cardesigner</loc>
-    <lastmod>2025-12-17</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2024-12-17</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Unternehmensseiten -->
+  <!-- UNTERNEHMEN -->
   <url>
     <loc>https://www.werbetechnik-hoiss.de/ueber-uns</loc>
-    <lastmod>2025-12-17</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.werbetechnik-hoiss.de/kontakt</loc>
-    <lastmod>2025-12-17</lastmod>
+    <lastmod>2024-12-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- RECHTLICHES (WICHTIG: Indexiert für DSGVO-Konformität!) -->
+  <url>
+    <loc>https://www.werbetechnik-hoiss.de/impressum</loc>
+    <lastmod>2024-12-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://www.werbetechnik-hoiss.de/datenschutz</loc>
+    <lastmod>2024-12-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>

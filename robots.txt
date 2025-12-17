@@ -1,39 +1,67 @@
+# ================================================
 # robots.txt für www.werbetechnik-hoiss.de
-# Letzte Aktualisierung: Dezember 2024
+# Letzte Aktualisierung: 17. Dezember 2024
+# ================================================
 
 # Hauptregel für alle Crawler
 User-agent: *
 Allow: /
 
-# Seiten von der Indexierung ausschließen
-Disallow: /impressum.html
-Disallow: /datenschutz.html
-Disallow: /404.html
-Disallow: /500.html
+# ================================================
+# WICHTIGE SEITEN - ERLAUBT FÜR INDEXIERUNG
+# ================================================
+# Impressum und Datenschutz MÜSSEN indexierbar sein (DSGVO!)
+Allow: /impressum
+Allow: /datenschutz
 
-# Verzeichnisse ausschließen (falls vorhanden)
+# ================================================
+# SEITEN VON DER INDEXIERUNG AUSSCHLIESSEN
+# ================================================
+# Fehlerseiten
+Disallow: /404
+Disallow: /500
+Disallow: /error
+
+# Technische Seiten
+Disallow: /header.html
+Disallow: /footer.html
+
+# ================================================
+# VERZEICHNISSE AUSSCHLIESSEN
+# ================================================
 Disallow: /admin/
 Disallow: /backup/
 Disallow: /temp/
 Disallow: /tmp/
 Disallow: /_notes/
 Disallow: /cgi-bin/
+Disallow: /private/
+Disallow: /test/
 
-# Bestimmte Dateitypen ausschließen
-Disallow: /*.pdf$
-Disallow: /*.doc$
-Disallow: /*.docx$
-Disallow: /*.xls$
-Disallow: /*.xlsx$
-Disallow: /*.zip$
+# ================================================
+# DATEITYPEN AUSSCHLIESSEN
+# ================================================
+# Dokumente (sollten nicht indexiert werden)
+Disallow: /*.pdf
+Disallow: /*.doc
+Disallow: /*.docx
+Disallow: /*.xls
+Disallow: /*.xlsx
+Disallow: /*.ppt
+Disallow: /*.pptx
+Disallow: /*.zip
+Disallow: /*.rar
+Disallow: /*.tar
+Disallow: /*.gz
 
-# CSS und JavaScript erlauben (wichtig für Google Rendering)
-Allow: /styles.css
-Allow: /main.js
+# ================================================
+# RESSOURCEN EXPLIZIT ERLAUBEN
+# ================================================
+# CSS und JavaScript (wichtig für Google Rendering)
 Allow: /*.css
 Allow: /*.js
 
-# Bilder erlauben (wichtig für Google Bildersuche)
+# Bilder (wichtig für Google Bildersuche)
 Allow: /img/
 Allow: /*.jpg
 Allow: /*.jpeg
@@ -41,57 +69,32 @@ Allow: /*.png
 Allow: /*.webp
 Allow: /*.svg
 Allow: /*.gif
+Allow: /*.ico
 
-# Sitemap-Verweise (erstelle diese Dateien später)
+# Schriftarten
+Allow: /*.woff
+Allow: /*.woff2
+Allow: /*.ttf
+Allow: /*.eot
+
+# ================================================
+# SITEMAPS
+# ================================================
 Sitemap: https://www.werbetechnik-hoiss.de/sitemap.xml
 Sitemap: https://www.werbetechnik-hoiss.de/sitemap-images.xml
 
-# Spezielle Regeln für einzelne Bots (optional)
+# ================================================
+# SPEZIELLE CRAWLER-REGELN (OPTIONAL)
+# ================================================
 
-# Google Bot - volle Erlaubnis
-User-agent: Googlebot
-Allow: /
+# GPTBot (OpenAI) - Optional blockieren
+# User-agent: GPTBot
+# Disallow: /
 
-# Google Bilder Bot - alle Bilder erlauben
-User-agent: Googlebot-Image
-Allow: /img/
+# CCBot (Common Crawl) - Optional blockieren
+# User-agent: CCBot
+# Disallow: /
 
-# Bing Bot - volle Erlaubnis
-User-agent: Bingbot
-Allow: /
-
-# Schlechte Bots blockieren (Spam, Scraper)
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
-User-agent: MJ12bot
-Disallow: /
-
-User-agent: DotBot
-Disallow: /
-
-User-agent: BLEXBot
-Disallow: /
-
-# ChatGPT/KI-Crawler (optional - wenn du nicht willst, dass deine Inhalte für KI-Training genutzt werden)
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-User-agent: Claude-Web
-Disallow: /
-
-# Crawl-Delay für aggressive Crawler (optional)
-User-agent: *
-Crawl-delay: 10
+# Crawl-Delay für langsame Server (optional)
+# User-agent: *
+# Crawl-delay: 10
