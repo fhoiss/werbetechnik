@@ -250,7 +250,13 @@ const initActiveNavLink = () => {
 
 // Aktive Seite hervorheben
 function highlightActiveNavLink() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    let currentPage = window.location.pathname.split('/').pop() || '';
+
+    // Normalisiere Startseite auf Root
+    if (currentPage === '' || currentPage === 'index.html' || currentPage === 'index.php' || currentPage === 'index') {
+        currentPage = '/';
+    }
+
     const navLinks = document.querySelectorAll('.nav-link, .nav-dropdown-link');
 
     navLinks.forEach(link => {
@@ -258,13 +264,13 @@ function highlightActiveNavLink() {
 
         if (href === currentPage || href === './' + currentPage) {
             link.classList.add('nav-link-active');
+        }
 
-            const parentDropdown = link.closest('.nav-dropdown');
-            if (parentDropdown) {
-                const parentToggle = parentDropdown.querySelector('.nav-dropdown-toggle');
-                if (parentToggle) {
-                    parentToggle.classList.add('nav-link-active');
-                }
+        const parentDropdown = link.closest('.nav-dropdown');
+        if (parentDropdown) {
+            const parentToggle = parentDropdown.querySelector('.nav-dropdown-toggle');
+            if (parentToggle) {
+                parentToggle.classList.add('nav-link-active');
             }
         }
     });
@@ -942,9 +948,10 @@ document.addEventListener('DOMContentLoaded', function() {
     addSchema(faqSchemaSchaufenster);
   }
 
-  // Image Schema nur auf Startseite
-  if (currentPath === '/' || currentPath === '/index.html') {
+  	// Image Schema nur auf Startseite
+	if (currentPath === '/') {
     addSchema(imageObjectSchema);
+	}
   }
 
   console.log('✅ Schema.org Markups erfolgreich geladen (Clean URLs + UTF-8)');
