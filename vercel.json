@@ -38,7 +38,7 @@
     },
 	      {
       "source": "/ueber-uns",
-      "destination": "/uber-uns.html"
+      "destination": "/ueber-uns.html"
     }
   ],
   "redirects": [
