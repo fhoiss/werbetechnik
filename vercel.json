@@ -35,6 +35,10 @@
     {
       "source": "/datenschutz",
       "destination": "/datenschutz.html"
+    },
+	      {
+      "source": "/ueber-uns",
+      "destination": "/uber-uns.html"
     }
   ],
   "redirects": [
@@ -47,6 +51,11 @@
         }
       ],
       "destination": "https://www.werbetechnik-hoiss.de/:path*",
+      "permanent": true
+    },
+	    {
+      "source": "/ueber-uns.html",
+      "destination": "/ueber-uns",
       "permanent": true
     },
     {
