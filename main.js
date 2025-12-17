@@ -40,13 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             document.getElementById('footer-placeholder').innerHTML = data;
 
-            // â­ WICHTIG: Cookie-Banner NACH Footer-Laden initialisieren
+            // ⭐ WICHTIG: Cookie-Banner NACH Footer-Laden initialisieren
             setTimeout(() => {
                 if (typeof window.initCookieBanner === 'function') {
-                    console.log('ðŸª Initialisiere Cookie-Banner...');
+                    console.log('🍪 Initialisiere Cookie-Banner...');
                     window.initCookieBanner();
                 } else {
-                    console.error('âŒ initCookieBanner Funktion nicht gefunden!');
+                    console.error('❌ initCookieBanner Funktion nicht gefunden!');
                 }
             }, 200);
         })
@@ -61,11 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initActiveNavLink();
 
-    console.log('âœ… HoiÃŸ Werbetechnik - Website initialisiert');
+    console.log('✅ Hoiß Werbetechnik - Website initialisiert');
 });
 
 // ========================================
-// NAVIGATION FUNKTIONALITÃ„T
+// NAVIGATION FUNKTIONALITÄT
 // ========================================
 
 function initNavigation() {
@@ -81,7 +81,7 @@ function initNavigation() {
             navToggle.setAttribute('aria-expanded', isActive);
         });
 
-        // MenÃ¼ schlieÃŸen bei Klick auÃŸerhalb
+        // Menü schließen bei Klick außerhalb
         document.addEventListener('click', (e) => {
             if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
                 navMenu.classList.remove('active');
@@ -143,7 +143,7 @@ const initMobileNav = () => {
     });
 };
 
-// Dropdown Toggle fÃ¼r Mobile
+// Dropdown Toggle für Mobile
 const initDropdowns = () => {
     const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
 
@@ -165,7 +165,7 @@ const initDropdowns = () => {
     });
 };
 
-// Smooth Scrolling fÃ¼r Anker-Links
+// Smooth Scrolling für Anker-Links
 const initSmoothScroll = () => {
     setTimeout(() => {
         const anchorLinks = document.querySelectorAll('a[href^="#"]');
@@ -280,21 +280,21 @@ function highlightActiveNavLink() {
     const COOKIE_NAME = 'hoiss_cookie_consent';
     const COOKIE_DURATION = 365;
 
-    // â­ WICHTIG: Diese Funktion wird global verfÃ¼gbar gemacht
+    // ⭐ WICHTIG: Diese Funktion wird global verfügbar gemacht
     window.initCookieBanner = function() {
-        console.log('ðŸª Cookie-Banner Initialisierung gestartet...');
+        console.log('🍪 Cookie-Banner Initialisierung gestartet...');
 
         const consent = getCookieConsent();
 
         if (!consent) {
-            console.log('ðŸ“‹ Kein Cookie gefunden - zeige Banner');
+            console.log('📋 Kein Cookie gefunden - zeige Banner');
             setTimeout(showBanner, 800);
         } else {
-            console.log('âœ… Cookie vorhanden - lade Einstellungen');
+            console.log('✅ Cookie vorhanden - lade Einstellungen');
             loadCookies(consent);
         }
 
-        // â­ Event Listener HIER registrieren (nachdem Footer geladen ist)
+        // ⭐ Event Listener HIER registrieren (nachdem Footer geladen ist)
         setupEventListeners();
     };
 
@@ -302,9 +302,9 @@ function highlightActiveNavLink() {
         const banner = document.getElementById('cookie-banner');
         if (banner) {
             banner.classList.add('active');
-            console.log('âœ… Banner angezeigt');
+            console.log('✅ Banner angezeigt');
         } else {
-            console.error('âŒ Banner Element nicht gefunden!');
+            console.error('❌ Banner Element nicht gefunden!');
         }
     }
 
@@ -312,39 +312,39 @@ function highlightActiveNavLink() {
         const banner = document.getElementById('cookie-banner');
         if (banner) {
             banner.classList.remove('active');
-            console.log('âœ… Banner ausgeblendet');
+            console.log('✅ Banner ausgeblendet');
         }
     }
 
     function showModal() {
-        console.log('ðŸ” showModal() aufgerufen');
+        console.log('🔍 showModal() aufgerufen');
         const modal = document.getElementById('cookie-modal');
         if (modal) {
             modal.classList.add('active');
-            console.log('âœ… Modal geÃ¶ffnet');
+            console.log('✅ Modal geöffnet');
         } else {
-            console.error('âŒ Modal Element nicht gefunden!');
+            console.error('❌ Modal Element nicht gefunden!');
         }
     }
 
     function hideModal() {
-        console.log('ðŸ” hideModal() aufgerufen');
+        console.log('🔍 hideModal() aufgerufen');
         const modal = document.getElementById('cookie-modal');
         if (modal) {
             modal.classList.remove('active');
-            console.log('âœ… Modal geschlossen');
+            console.log('✅ Modal geschlossen');
         }
     }
 
     function setupEventListeners() {
-        console.log('ðŸ”— Registriere Event Listener...');
+        console.log('🔗 Registriere Event Listener...');
 
         // Alle akzeptieren
         const acceptBtn = document.getElementById('cookie-accept-all');
         if (acceptBtn) {
-            console.log('âœ… Accept-Button gefunden');
+            console.log('✅ Accept-Button gefunden');
             acceptBtn.addEventListener('click', function() {
-                console.log('ðŸ‘† Accept-Button geklickt');
+                console.log('👆 Accept-Button geklickt');
                 const consent = {
                     necessary: true,
                     analytics: true,
@@ -356,15 +356,15 @@ function highlightActiveNavLink() {
                 hideBanner();
             });
         } else {
-            console.error('âŒ Accept-Button NICHT gefunden');
+            console.error('❌ Accept-Button NICHT gefunden');
         }
 
         // Nur notwendige
         const declineBtn = document.getElementById('cookie-decline-all');
         if (declineBtn) {
-            console.log('âœ… Decline-Button gefunden');
+            console.log('✅ Decline-Button gefunden');
             declineBtn.addEventListener('click', function() {
-                console.log('ðŸ‘† Decline-Button geklickt');
+                console.log('👆 Decline-Button geklickt');
                 const consent = {
                     necessary: true,
                     analytics: false,
@@ -376,40 +376,40 @@ function highlightActiveNavLink() {
                 hideBanner();
             });
         } else {
-            console.error('âŒ Decline-Button NICHT gefunden');
+            console.error('❌ Decline-Button NICHT gefunden');
         }
 
-        // Einstellungen Ã¶ffnen
+        // Einstellungen öffnen
         const settingsBtn = document.getElementById('cookie-settings-open');
         if (settingsBtn) {
-            console.log('âœ… Settings-Button gefunden');
+            console.log('✅ Settings-Button gefunden');
             settingsBtn.addEventListener('click', function(e) {
-                console.log('ðŸ‘† Settings-Button geklickt!');
+                console.log('👆 Settings-Button geklickt!');
                 e.preventDefault();
                 showModal();
             });
         } else {
-            console.error('âŒ Settings-Button NICHT gefunden');
+            console.error('❌ Settings-Button NICHT gefunden');
         }
 
-        // Modal schlieÃŸen
+        // Modal schließen
         const closeBtn = document.getElementById('cookie-modal-close');
         if (closeBtn) {
-            console.log('âœ… Close-Button gefunden');
+            console.log('✅ Close-Button gefunden');
             closeBtn.addEventListener('click', function() {
-                console.log('ðŸ‘† Close-Button geklickt');
+                console.log('👆 Close-Button geklickt');
                 hideModal();
             });
         } else {
-            console.error('âŒ Close-Button NICHT gefunden');
+            console.error('❌ Close-Button NICHT gefunden');
         }
 
         // Einstellungen speichern
         const saveBtn = document.getElementById('cookie-save-settings');
         if (saveBtn) {
-            console.log('âœ… Save-Button gefunden');
+            console.log('✅ Save-Button gefunden');
             saveBtn.addEventListener('click', function() {
-                console.log('ðŸ‘† Save-Button geklickt');
+                console.log('👆 Save-Button geklickt');
                 const analyticsCheckbox = document.getElementById('cookie-toggle-analytics');
                 const marketingCheckbox = document.getElementById('cookie-toggle-marketing');
 
@@ -426,10 +426,10 @@ function highlightActiveNavLink() {
                 hideBanner();
             });
         } else {
-            console.error('âŒ Save-Button NICHT gefunden');
+            console.error('❌ Save-Button NICHT gefunden');
         }
 
-        console.log('âœ… Event Listener Registrierung abgeschlossen');
+        console.log('✅ Event Listener Registrierung abgeschlossen');
     }
 
     function saveConsent(consent) {
@@ -441,7 +441,7 @@ function highlightActiveNavLink() {
                          '; expires=' + expiryDate.toUTCString() + 
                          '; path=/; SameSite=Lax';
 
-        console.log('âœ… Cookie-Einwilligung gespeichert:', consent);
+        console.log('✅ Cookie-Einwilligung gespeichert:', consent);
     }
 
     function getCookieConsent() {
@@ -465,7 +465,7 @@ function highlightActiveNavLink() {
     }
 
     function loadCookies(consent) {
-        console.log('ðŸ“Š Lade Cookies basierend auf Einwilligung:', consent);
+        console.log('📊 Lade Cookies basierend auf Einwilligung:', consent);
 
         loadNecessaryCookies();
 
@@ -479,17 +479,17 @@ function highlightActiveNavLink() {
     }
 
     function loadNecessaryCookies() {
-        console.log('âœ“ Notwendige Cookies geladen');
+        console.log('✔ Notwendige Cookies geladen');
     }
 
     function loadAnalyticsCookies() {
-        console.log('âœ“ Analytics-Cookies geladen');
-        // Hier Google Analytics Code einfÃ¼gen
+        console.log('✔ Analytics-Cookies geladen');
+        // Hier Google Analytics Code einfügen
     }
 
     function loadMarketingCookies() {
-        console.log('âœ“ Marketing-Cookies geladen');
-        // Hier Marketing-Cookies Code einfÃ¼gen
+        console.log('✔ Marketing-Cookies geladen');
+        // Hier Marketing-Cookies Code einfügen
     }
 
     window.revokeCookieConsent = function() {
@@ -499,7 +499,7 @@ function highlightActiveNavLink() {
 
 })();
 
-// ========== SCHEMA MARKUP (Überarbeitet 16.12.2025) ==========
+// ========== SCHEMA MARKUP (Aktualisiert 17.12.2025 - Clean URLs) ==========
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -634,7 +634,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ]
   };
 
-  // ===== 3. SERVICE SCHEMA (Korrekt strukturiert) =====
+  // ===== 3. SERVICE SCHEMA (Clean URLs) =====
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -656,7 +656,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "@type": "State",
             "name": "Bayern"
           },
-          "url": "https://www.werbetechnik-hoiss.de/fahrzeugbeschriftung.html"
+          "url": "https://www.werbetechnik-hoiss.de/fahrzeugbeschriftung"
         }
       },
       {
@@ -674,7 +674,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "@type": "State",
             "name": "Bayern"
           },
-          "url": "https://www.werbetechnik-hoiss.de/glasdekor-sichtschutz.html"
+          "url": "https://www.werbetechnik-hoiss.de/glasdekor-sichtschutz"
         }
       },
       {
@@ -692,7 +692,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "@type": "State",
             "name": "Bayern"
           },
-          "url": "https://www.werbetechnik-hoiss.de/schaufensterbeschriftung.html"
+          "url": "https://www.werbetechnik-hoiss.de/schaufensterbeschriftung"
         }
       },
       {
@@ -710,7 +710,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "@type": "State",
             "name": "Bayern"
           },
-          "url": "https://www.werbetechnik-hoiss.de/schilder-leitsysteme.html"
+          "url": "https://www.werbetechnik-hoiss.de/schilder-leitsysteme"
         }
       },
       {
@@ -728,7 +728,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "@type": "State",
             "name": "Bayern"
           },
-          "url": "https://www.werbetechnik-hoiss.de/banner-grossformat.html"
+          "url": "https://www.werbetechnik-hoiss.de/banner-grossformat"
         }
       },
       {
@@ -742,7 +742,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "@type": "LocalBusiness",
             "name": "Hoiß Werbetechnik"
           },
-          "url": "https://www.werbetechnik-hoiss.de/cardesigner.html"
+          "url": "https://www.werbetechnik-hoiss.de/cardesigner"
         }
       }
     ]
@@ -840,7 +840,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ]
   };
 
-  // ===== 7. BREADCRUMB SCHEMA (Dynamisch für jede Seite) =====
+  // ===== 7. BREADCRUMB SCHEMA (Dynamisch für jede Seite - Clean URLs) =====
   function getBreadcrumbSchema() {
     const path = window.location.pathname;
     const breadcrumbs = {
@@ -856,41 +856,45 @@ document.addEventListener('DOMContentLoaded', function() {
       ]
     };
 
-    // Dynamische Breadcrumb-Generierung basierend auf URL
+    // Dynamische Breadcrumb-Generierung basierend auf URL (Clean URLs)
     const pageMap = {
-      "/fahrzeugbeschriftung.html": {
+      "/fahrzeugbeschriftung": {
         name: "Fahrzeugbeschriftung",
         position: 2
       },
-      "/glasdekor-sichtschutz.html": {
+      "/glasdekor-sichtschutz": {
         name: "Glasdekor & Sichtschutz",
         position: 2
       },
-      "/schaufensterbeschriftung.html": {
+      "/schaufensterbeschriftung": {
         name: "Schaufensterbeschriftung",
         position: 2
       },
-      "/schilder-leitsysteme.html": {
+      "/schilder-leitsysteme": {
         name: "Schilder & Leitsysteme",
         position: 2
       },
-      "/banner-grossformat.html": {
+      "/banner-grossformat": {
         name: "Banner & Großformat",
         position: 2
       },
-      "/cardesigner.html": {
+      "/cardesigner": {
         name: "Car Designer",
         position: 2
       },
-      "/kontakt.html": {
+      "/ueber-uns": {
+        name: "Über uns",
+        position: 2
+      },
+      "/kontakt": {
         name: "Kontakt",
         position: 2
       },
-      "/impressum.html": {
+      "/impressum": {
         name: "Impressum",
         position: 2
       },
-      "/datenschutz.html": {
+      "/datenschutz": {
         name: "Datenschutz",
         position: 2
       }
@@ -921,15 +925,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 
-const reviewSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "18"
-  }
-};
+  const reviewSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "18"
+    }
+  };
+
   // ===== HILFSFUNKTION: Schema zum Head hinzufügen =====
   function addSchema(schemaData) {
     const script = document.createElement('script');
@@ -962,13 +967,11 @@ const reviewSchema = {
     addSchema(imageObjectSchema);
   }
 
-  console.log('✅ Schema.org Markups erfolgreich geladen');
+  console.log('✅ Schema.org Markups erfolgreich geladen (Clean URLs)');
 });
 
 // ========== END SCHEMA MARKUP ==========
 
-
-// ... Ihr bestehender Code ...
 
 // LIGHTBOX FUNKTIONEN - GLOBAL (nicht in DOMContentLoaded!)
 // Diese müssen AUSSERHALB von allen Event-Listenern stehen!
@@ -997,5 +1000,4 @@ document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         window.closeLightbox();
     }
-
 });
