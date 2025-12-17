@@ -1,4 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Startseite -->
+  <url>
+    <loc>https://www.werbetechnik-hoiss.de/</loc>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Logo-Hoiß.webp</image:loc>
+      <image:title>Hoiß Werbetechnik Logo</image:title>
+      <image:caption>Hoiß Werbetechnik - Ihr Partner für professionelle Werbetechnik in Rosenheim</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Fahrzeugbeschriftung -->
+  <url>
+    <loc>https://www.werbetechnik-hoiss.de/fahrzeugbeschriftung</loc>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Fahrzeugbeschriftung-Saringer-Bad-Aibling.webp</image:loc>
+      <image:title>Fahrzeugbeschriftung Saringer Bad Aibling</image:title>
+      <image:caption>Professionelle Fahrzeugbeschriftung für Saringer in Bad Aibling</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Fahrzeugbeschriftung-Kosumi-Rosenheim.webp</image:loc>
+      <image:title>Fahrzeugbeschriftung Kosumi Rosenheim</image:title>
+      <image:caption>Fahrzeugfolierung Kosumi Rosenheim</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/LKW-Beschriftung-Tegernseer-Faren-Manufaktur.webp</image:loc>
+      <image:title>LKW Beschriftung Tegernseer Faren Manufaktur</image:title>
+      <image:caption>LKW-Vollfolierung für Tegernseer Faren Manufaktur</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Biathlon-USA-Fahrzeug-Teilfolierung.webp</image:loc>
+      <image:title>Biathlon USA Fahrzeug Teilfolierung</image:title>
+      <image:caption>Sportliche Fahrzeugbeschriftung für Biathlon USA Team</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Stanglmayer-Kolbermoor-Lkw-Beschriftung.webp</image:loc>
+      <image:title>Stanglmayer Kolbermoor LKW Beschriftung</image:title>
+      <image:caption>LKW-Beschriftung für Stanglmayer aus Kolbermoor</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Ballon-Anhaenger-Vollfolierung.webp</image:loc>
+      <image:title>Ballon Anhänger Vollfolierung</image:title>
+      <image:caption>Vollfolierung eines Anhängers mit Ballonmotiv</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Fahrzeugbeschriftung-Karpf.webp</image:loc>
+      <image:title>Fahrzeugbeschriftung Karpf</image:title>
+      <image:caption>Professionelle Fahrzeugbeschriftung für Karpf</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Fahrzeugbeschriftung-Viterma-Erding.webp</image:loc>
+      <image:title>Fahrzeugbeschriftung Viterma Erding</image:title>
+      <image:caption>Fahrzeugfolierung für Viterma Erding</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Glasdekor & Sichtschutz -->
+  <url>
+    <loc>https://www.werbetechnik-hoiss.de/glasdekor-sichtschutz</loc>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Glasdekor-Sichtschutz.webp</image:loc>
+      <image:title>Glasdekorfolie Sichtschutz</image:title>
+      <image:caption>Moderne Sichtschutzfolien für Büro und Praxis - DSGVO-konform</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Sichtschutz-Buero-DSGVO.webp</image:loc>
+      <image:title>Sichtschutz Büro DSGVO</image:title>
+      <image:caption>DSGVO-konformer Sichtschutz für Büroräume</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Schaufensterbeschriftung -->
+  <url>
+    <loc>https://www.werbetechnik-hoiss.de/schaufensterbeschriftung</loc>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Schaufensterbeschriftung-Rosenheim.webp</image:loc>
+      <image:title>Schaufensterbeschriftung Rosenheim</image:title>
+      <image:caption>Professionelle Schaufensterbeschriftung für Geschäfte in Rosenheim</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Fensterfolie-Werbung.webp</image:loc>
+      <image:title>Fensterfolie Werbung</image:title>
+      <image:caption>Werbefolien für Schaufenster - auffällig und professionell</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Schilder & Leitsysteme -->
+  <url>
+    <loc>https://www.werbetechnik-hoiss.de/schilder-leitsysteme</loc>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Aluverbundschild-Weber-Schechen.webp</image:loc>
+      <image:title>Aluverbundschild Weber Schechen</image:title>
+      <image:caption>Hochwertiges Firmenschild aus Aluverbund für Weber in Schechen</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Schild-Aicherpark-Rosenheim.webp</image:loc>
+      <image:title>Schild Aicherpark Rosenheim</image:title>
+      <image:caption>Professionelles Leitsystem für Aicherpark Rosenheim</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Firmenschild-Aluverbund.webp</image:loc>
+      <image:title>Firmenschild Aluverbund</image:title>
+      <image:caption>Wetterfestes Firmenschild aus hochwertigem Aluverbund</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Banner & Großformat -->
+  <url>
+    <loc>https://www.werbetechnik-hoiss.de/banner-grossformat</loc>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Bauzaunbanner-Baumschule-Fauerbach.webp</image:loc>
+      <image:title>Bauzaunbanner Baumschule Fauerbach</image:title>
+      <image:caption>Großformat Bauzaunbanner für Baumschule Fauerbach</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/PVC-Banner-Werbung.webp</image:loc>
+      <image:title>PVC Banner Werbung</image:title>
+      <image:caption>Wetterfeste PVC-Banner für Außenwerbung</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Mesh-Banner-Gross.webp</image:loc>
+      <image:title>Mesh Banner Groß</image:title>
+      <image:caption>Windurchlässige Mesh-Banner im Großformat</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Car Designer -->
+  <url>
+    <loc>https://www.werbetechnik-hoiss.de/cardesigner</loc>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Car-Designer-Tool.webp</image:loc>
+      <image:title>Car Designer Tool</image:title>
+      <image:caption>Online Tool zur Gestaltung Ihrer Fahrzeugbeschriftung</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Über Uns -->
+  <url>
+    <loc>https://www.werbetechnik-hoiss.de/ueber-uns</loc>
+    <image:image>
+      <image:loc>https://www.werbetechnik-hoiss.de/img/Team-Hoiss-Werbetechnik.webp</image:loc>
+      <image:title>Team Hoiß Werbetechnik</image:title>
+      <image:caption>Das Team von Hoiß Werbetechnik in Schechen bei Rosenheim</image:caption>
+    </image:image>
+  </url>
+
 </urlset>
