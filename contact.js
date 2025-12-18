@@ -162,19 +162,29 @@ async function handleFormSubmit(e) {
     submitBtn.textContent = 'Wird gesendet...';
     
     try {
-        // FormData erstellen
-        const formData = new FormData(form);
-        
-        console.log('?? Sende Formular...');
-        
-        // Hier würde der tatsächliche Submit erfolgen
-        // Beispiel: await fetch('/api/contact', { method: 'POST', body: formData });
-        
-        // Simuliere erfolgreichen Submit (2 Sekunden)
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        
-        // Zeige Success-Message
-        showSuccess();
+    // FormData erstellen
+    const formData = new FormData(form);
+
+    console.log('?? Sende Formular...');
+
+    // Strato PHP-Backend - DSGVO-konform
+    const response = await fetch('https://forms.werbetechnik-hoiss.de/send-contact.php', {
+        method: 'POST',
+        body: formData
+    });
+
+    if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Fehler beim Senden der Nachricht');
+    }
+
+    const result = await response.json();
+    if (!result.success) {
+        throw new Error(result.error || 'Fehler beim Senden');
+    }
+
+    // Zeige Success-Message
+    showSuccess();
         
         // Formular zurücksetzen
         form.reset();
