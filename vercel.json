@@ -69,17 +69,17 @@
       "permanent": true
     },
 {
-      "source": "/fahrzeugbeschriftung/amp",
+      "source": "/fahrzeugbeschriftung/amp/",
       "destination": "/fahrzeugbeschriftung",
       "permanent": true
     },
     {
-      "source": "/textilwerbung/amp",
+      "source": "/textilwerbung/amp/",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/beschriftungen/amp",
+      "source": "/beschriftungen/amp/",
       "destination": "/glasdekor-sichtschutz",
       "permanent": true
     }
