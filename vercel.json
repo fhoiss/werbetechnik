@@ -68,6 +68,21 @@
       "destination": "/glasdekor-sichtschutz",
       "permanent": true
     },
+{
+      "source": "/fahrzeugbeschriftung/amp/:path*",
+      "destination": "/fahrzeugbeschriftung/",
+      "permanent": true
+    },
+    {
+      "source": "/textilwerbung/amp/:path*",
+      "destination": "/textilwerbung/",
+      "permanent": true
+    },
+    {
+      "source": "/beschriftungen/amp/:path*",
+      "destination": "/beschriftungen/",
+      "permanent": true
+    },
     {
       "source": "/schaufensterbeschriftung.html",
       "destination": "/schaufensterbeschriftung",
