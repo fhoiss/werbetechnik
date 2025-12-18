@@ -75,12 +75,12 @@
     },
     {
       "source": "/textilwerbung/amp/:path*",
-      "destination": "/textilwerbung/",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/beschriftungen/amp/:path*",
-      "destination": "/beschriftungen/",
+      "destination": "/glasdekor-sichtschutz/",
       "permanent": true
     },
     {
