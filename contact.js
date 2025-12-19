@@ -1,6 +1,6 @@
 /* ========================================
    CONTACT PAGE - JAVASCRIPT
-   Hoiß Werbetechnik
+   HoiÃŸ Werbetechnik
    ======================================== */
 
 'use strict';
@@ -37,7 +37,7 @@ function generateMathQuestion() {
     const num1 = Math.floor(Math.random() * 20) + 1;
     const num2 = Math.floor(Math.random() * 20) + 1;
     
-    // Wähle zufällig eine Operation (+ oder -)
+    // WÃ¤hle zufÃ¤llig eine Operation (+ oder -)
     const operations = ['+', '-'];
     const operation = operations[Math.floor(Math.random() * operations.length)];
     
@@ -75,7 +75,7 @@ function validateMathAnswer() {
         return false;
     }
     
-    console.log('? Matheaufgabe korrekt gelöst');
+    console.log('? Matheaufgabe korrekt gelÃ¶st');
     return true;
 }
 
@@ -90,7 +90,7 @@ function autoSelectInterest() {
         return;
     }
     
-    // Prüfe URL-Parameter
+    // PrÃ¼fe URL-Parameter
     const urlParams = new URLSearchParams(window.location.search);
     const interestParam = urlParams.get('interesse');
     
@@ -100,7 +100,7 @@ function autoSelectInterest() {
         return;
     }
     
-    // Fallback: Prüfe Referrer (vorherige Seite)
+    // Fallback: PrÃ¼fe Referrer (vorherige Seite)
     const referrer = document.referrer;
     
     const interestMapping = {
@@ -168,7 +168,7 @@ async function handleFormSubmit(e) {
     console.log('?? Sende Formular...');
 
     // Strato PHP-Backend - DSGVO-konform
-    const response = await fetch('https://forms.werbetechnik-hoiss.de/send-contact.php', {
+    const response = await fetch('http://forms.werbetechnik-hoiss.de/send-contact.php', {
         method: 'POST',
         body: formData
     });
@@ -186,7 +186,7 @@ async function handleFormSubmit(e) {
     // Zeige Success-Message
     showSuccess();
         
-        // Formular zurücksetzen
+        // Formular zurÃ¼cksetzen
         form.reset();
         
         // Neue Matheaufgabe generieren
@@ -212,7 +212,7 @@ function validateForm(form) {
     let isValid = true;
     
     requiredFields.forEach(field => {
-        // Überspringe Math-Answer (wird separat validiert)
+        // Ãœberspringe Math-Answer (wird separat validiert)
         if (field.id === 'math-answer') return;
         
         if (!field.value.trim()) {
@@ -232,12 +232,12 @@ function validateForm(form) {
         if (!emailRegex.test(emailField.value)) {
             isValid = false;
             emailField.style.borderColor = '#dc3545';
-            alert('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+            alert('Bitte geben Sie eine gÃ¼ltige E-Mail-Adresse ein.');
         }
     }
     
     if (!isValid) {
-        alert('Bitte füllen Sie alle Pflichtfelder aus.');
+        alert('Bitte fÃ¼llen Sie alle Pflichtfelder aus.');
     }
     
     return isValid;
@@ -278,20 +278,20 @@ function initGoogleMaps() {
         return;
     }
     
-    // Prüfe ob User bereits zugestimmt hat
+    // PrÃ¼fe ob User bereits zugestimmt hat
     if (hasMapConsent()) {
         console.log('? Zustimmung bereits vorhanden, lade Karte...');
         loadMap();
     }
     
-    // Event Listener für Aktivierungs-Button
+    // Event Listener fÃ¼r Aktivierungs-Button
     activateBtn.addEventListener('click', function() {
         console.log('??? Karte aktivieren Button geklickt');
         setMapConsent();
         loadMap();
     });
     
-    // Event Listener für Widerruf-Button
+    // Event Listener fÃ¼r Widerruf-Button
     if (revokeBtn) {
         revokeBtn.addEventListener('click', function() {
             console.log('??? Karte deaktivieren Button geklickt');
@@ -335,7 +335,7 @@ function loadMap() {
         console.log('? Consent-Box ausgeblendet');
     }
     
-    // Prüfe ob Iframe bereits existiert
+    // PrÃ¼fe ob Iframe bereits existiert
     const existingIframe = mapIframe.querySelector('iframe');
     if (existingIframe) {
         console.log('?? Karte bereits geladen');
@@ -349,12 +349,12 @@ function loadMap() {
     iframe.setAttribute('loading', 'lazy');
     iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
     iframe.setAttribute('allowfullscreen', '');
-    iframe.setAttribute('title', 'Google Maps - Hoiß Werbetechnik Standort');
+    iframe.setAttribute('title', 'Google Maps - HoiÃŸ Werbetechnik Standort');
     iframe.style.width = '100%';
     iframe.style.height = '100%';
     iframe.style.border = 'none';
     
-    // Füge Iframe ein (vor dem Widerruf-Button)
+    // FÃ¼ge Iframe ein (vor dem Widerruf-Button)
     const revokeBtn = mapIframe.querySelector('#revokeMap');
     if (revokeBtn) {
         mapIframe.insertBefore(iframe, revokeBtn);
@@ -391,4 +391,5 @@ function unloadMap() {
     }
     
     console.log('? Google Maps entfernt');
+
 }
