@@ -168,7 +168,7 @@ async function handleFormSubmit(e) {
     console.log('?? Sende Formular...');
 
     // Strato PHP-Backend - DSGVO-konform
-    const response = await fetch('http://forms.werbetechnik-hoiss.de/send-contact.php', {
+    const response = await fetch('https://forms.werbetechnik-hoiss.de/send-contact.php', {
         method: 'POST',
         body: formData
     });
@@ -393,3 +393,4 @@ function unloadMap() {
     console.log('? Google Maps entfernt');
 
 }
+
