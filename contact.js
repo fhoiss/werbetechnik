@@ -1,6 +1,6 @@
 /* ========================================
    CONTACT PAGE - JAVASCRIPT
-   HoiÃŸ Werbetechnik
+   Hoiß Werbetechnik
    ======================================== */
 
 'use strict';
@@ -37,7 +37,7 @@ function generateMathQuestion() {
     const num1 = Math.floor(Math.random() * 20) + 1;
     const num2 = Math.floor(Math.random() * 20) + 1;
     
-    // WÃ¤hle zufÃ¤llig eine Operation (+ oder -)
+    // Wähle zufällig eine Operation (+ oder -)
     const operations = ['+', '-'];
     const operation = operations[Math.floor(Math.random() * operations.length)];
     
@@ -75,7 +75,7 @@ function validateMathAnswer() {
         return false;
     }
     
-    console.log('? Matheaufgabe korrekt gelÃ¶st');
+    console.log('? Matheaufgabe korrekt gelöst');
     return true;
 }
 
@@ -90,7 +90,7 @@ function autoSelectInterest() {
         return;
     }
     
-    // PrÃ¼fe URL-Parameter
+    // Prüfe URL-Parameter
     const urlParams = new URLSearchParams(window.location.search);
     const interestParam = urlParams.get('interesse');
     
@@ -100,7 +100,7 @@ function autoSelectInterest() {
         return;
     }
     
-    // Fallback: PrÃ¼fe Referrer (vorherige Seite)
+    // Fallback: Prüfe Referrer (vorherige Seite)
     const referrer = document.referrer;
     
     const interestMapping = {
@@ -162,41 +162,25 @@ async function handleFormSubmit(e) {
     submitBtn.textContent = 'Wird gesendet...';
     
     try {
-    // FormData erstellen
-    const formData = new FormData(form);
-
-    console.log('?? Sende Formular...');
-
-    // Strato PHP-Backend - DSGVO-konform
     const response = await fetch('https://forms.werbetechnik-hoiss.de/send-contact.php', {
         method: 'POST',
-        body: formData
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
     });
 
-    if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.error || 'Fehler beim Senden der Nachricht');
-    }
+    const data = await response.json(); // JSON parsen
 
-    const result = await response.json();
-    if (!result.success) {
-        throw new Error(result.error || 'Fehler beim Senden');
+    if (data.success === true) {
+        showSuccessMessage();
+    } else {
+        showErrorMessage(data.message || 'Ein Fehler ist aufgetreten');
     }
-
-    // Zeige Success-Message
-    showSuccess();
-        
-        // Formular zurÃ¼cksetzen
-        form.reset();
-        
-        // Neue Matheaufgabe generieren
-        generateMathQuestion();
-        
-        // Scroll zur Success-Message
-        const successElement = document.getElementById('formSuccess');
-        if (successElement) {
-            successElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
+} catch (error) {
+    console.error('Fetch-Error:', error);
+    showErrorMessage('Netzwerkfehler beim Senden');
+}
         
     } catch (error) {
         console.error('Fehler beim Senden:', error);
@@ -212,7 +196,7 @@ function validateForm(form) {
     let isValid = true;
     
     requiredFields.forEach(field => {
-        // Ãœberspringe Math-Answer (wird separat validiert)
+        // Überspringe Math-Answer (wird separat validiert)
         if (field.id === 'math-answer') return;
         
         if (!field.value.trim()) {
@@ -232,12 +216,12 @@ function validateForm(form) {
         if (!emailRegex.test(emailField.value)) {
             isValid = false;
             emailField.style.borderColor = '#dc3545';
-            alert('Bitte geben Sie eine gÃ¼ltige E-Mail-Adresse ein.');
+            alert('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
         }
     }
     
     if (!isValid) {
-        alert('Bitte fÃ¼llen Sie alle Pflichtfelder aus.');
+        alert('Bitte füllen Sie alle Pflichtfelder aus.');
     }
     
     return isValid;
@@ -278,20 +262,20 @@ function initGoogleMaps() {
         return;
     }
     
-    // PrÃ¼fe ob User bereits zugestimmt hat
+    // Prüfe ob User bereits zugestimmt hat
     if (hasMapConsent()) {
         console.log('? Zustimmung bereits vorhanden, lade Karte...');
         loadMap();
     }
     
-    // Event Listener fÃ¼r Aktivierungs-Button
+    // Event Listener für Aktivierungs-Button
     activateBtn.addEventListener('click', function() {
         console.log('??? Karte aktivieren Button geklickt');
         setMapConsent();
         loadMap();
     });
     
-    // Event Listener fÃ¼r Widerruf-Button
+    // Event Listener für Widerruf-Button
     if (revokeBtn) {
         revokeBtn.addEventListener('click', function() {
             console.log('??? Karte deaktivieren Button geklickt');
@@ -335,7 +319,7 @@ function loadMap() {
         console.log('? Consent-Box ausgeblendet');
     }
     
-    // PrÃ¼fe ob Iframe bereits existiert
+    // Prüfe ob Iframe bereits existiert
     const existingIframe = mapIframe.querySelector('iframe');
     if (existingIframe) {
         console.log('?? Karte bereits geladen');
@@ -349,12 +333,12 @@ function loadMap() {
     iframe.setAttribute('loading', 'lazy');
     iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
     iframe.setAttribute('allowfullscreen', '');
-    iframe.setAttribute('title', 'Google Maps - HoiÃŸ Werbetechnik Standort');
+    iframe.setAttribute('title', 'Google Maps - Hoiß Werbetechnik Standort');
     iframe.style.width = '100%';
     iframe.style.height = '100%';
     iframe.style.border = 'none';
     
-    // FÃ¼ge Iframe ein (vor dem Widerruf-Button)
+    // Füge Iframe ein (vor dem Widerruf-Button)
     const revokeBtn = mapIframe.querySelector('#revokeMap');
     if (revokeBtn) {
         mapIframe.insertBefore(iframe, revokeBtn);
@@ -391,6 +375,4 @@ function unloadMap() {
     }
     
     console.log('? Google Maps entfernt');
-
 }
-
