@@ -159,9 +159,11 @@ async function handleFormSubmit(e) {
 
     // Strato PHP-Backend - DSGVO-konform
     const response = await fetch('https://forms.werbetechnik-hoiss.de/send-contact.php', {
-        method: 'POST',
-        body: formData
-    });
+    method: 'POST',
+    mode: 'cors',
+    credentials: 'omit',
+    body: formData
+});
 
     if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
