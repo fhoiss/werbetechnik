@@ -30,28 +30,18 @@ function initMathCaptcha() {
 }
 
 function generateMathQuestion() {
-    const mathQuestionElement = document.getElementById('mathQuestion');
-    if (!mathQuestionElement) return;
+    // Nur Addition verwenden (positive Ergebnisse)
+    const num1 = Math.floor(Math.random() * 10) + 1;  // 1-10
+    const num2 = Math.floor(Math.random() * 10) + 1;  // 1-10
     
-    // Generiere zwei Zufallszahlen zwischen 1 und 20
-    const num1 = Math.floor(Math.random() * 20) + 1;
-    const num2 = Math.floor(Math.random() * 20) + 1;
+    mathAnswer = num1 + num2;
     
-    // Wähle zufällig eine Operation (+ oder -)
-    const operations = ['+', '-'];
-    const operation = operations[Math.floor(Math.random() * operations.length)];
-    
-    // Berechne korrekte Antwort
-    if (operation === '+') {
-        mathAnswer = num1 + num2;
-    } else {
-        mathAnswer = num1 - num2;
+    const questionElement = document.getElementById('mathQuestion');
+    if (questionElement) {
+        questionElement.textContent = `${num1} + ${num2}`;
     }
     
-    // Zeige Frage an
-    mathQuestionElement.textContent = `${num1} ${operation} ${num2} = ?`;
-    
-    console.log(`?? Neue Matheaufgabe: ${num1} ${operation} ${num2} = ${mathAnswer}`);
+    console.log('? Neue Matheaufgabe:', num1, '+', num2, '=', mathAnswer);
 }
 
 function validateMathAnswer() {
