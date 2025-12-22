@@ -162,25 +162,41 @@ async function handleFormSubmit(e) {
     submitBtn.textContent = 'Wird gesendet...';
     
     try {
+    // FormData erstellen
+    const formData = new FormData(form);
+
+    console.log('?? Sende Formular...');
+
+    // Strato PHP-Backend - DSGVO-konform
     const response = await fetch('https://forms.werbetechnik-hoiss.de/send-contact.php', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
+        body: formData
     });
 
-    const data = await response.json(); // JSON parsen
-
-    if (data.success === true) {
-        showSuccessMessage();
-    } else {
-        showErrorMessage(data.message || 'Ein Fehler ist aufgetreten');
+    if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Fehler beim Senden der Nachricht');
     }
-} catch (error) {
-    console.error('Fetch-Error:', error);
-    showErrorMessage('Netzwerkfehler beim Senden');
-}
+
+    const result = await response.json();
+    if (!result.success) {
+        throw new Error(result.error || 'Fehler beim Senden');
+    }
+
+    // Zeige Success-Message
+    showSuccess();
+        
+        // Formular zurücksetzen
+        form.reset();
+        
+        // Neue Matheaufgabe generieren
+        generateMathQuestion();
+        
+        // Scroll zur Success-Message
+        const successElement = document.getElementById('formSuccess');
+        if (successElement) {
+            successElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
         
     } catch (error) {
         console.error('Fehler beim Senden:', error);
