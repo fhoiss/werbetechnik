@@ -167,39 +167,21 @@ async function handleFormSubmit(e) {
 
     console.log('?? Sende Formular...');
 
-const response = await fetch('https://forms.werbetechnik-hoiss.de/send-contact.php', {
+    // Strato PHP-Backend - DSGVO-konform
+    const response = await fetch('https://forms.werbetechnik-hoiss.de/send-contact.php', {
         method: 'POST',
         body: formData
     });
 
-    // ? DEBUG: Server-Antwort in Konsole ausgeben
-    const responseText = await response.text();
-    console.log('=== SERVER RESPONSE ===');
-    console.log('Status:', response.status);
-    console.log('Response Text:', responseText);
-    console.log('=======================');
-
-    // JSON parsen
-    let data;
-    try {
-        data = JSON.parse(responseText);
-    } catch (e) {
-        console.error('JSON Parse Error:', e);
-        console.error('Received:', responseText);
-        showErrorMessage('Server-Antwort ist kein gültiges JSON');
-        return;
+    if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Fehler beim Senden der Nachricht');
     }
 
-    if (response.ok && data.success === true) {
-        showSuccessMessage();
-    } else {
-        showErrorMessage(data.error || data.message || 'Ein Fehler ist aufgetreten');
+    const result = await response.json();
+    if (!result.success) {
+        throw new Error(result.error || 'Fehler beim Senden');
     }
-
-} catch (error) {
-    console.error('Network Error:', error);
-    showErrorMessage('Netzwerkfehler beim Senden');
-}
 
     // Zeige Success-Message
     showSuccess();
