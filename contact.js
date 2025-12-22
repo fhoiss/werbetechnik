@@ -161,7 +161,7 @@ async function handleFormSubmit(e) {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Wird gesendet...';
     
-    try {
+try {
     // FormData erstellen
     const formData = new FormData(form);
 
@@ -173,12 +173,27 @@ async function handleFormSubmit(e) {
         body: formData
     });
 
-    if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.error || 'Fehler beim Senden der Nachricht');
+    // ? DEBUG: Server-Antwort in Konsole ausgeben
+    const responseText = await response.text();
+    console.log('=== SERVER RESPONSE ===');
+    console.log('Status:', response.status);
+    console.log('Response Text:', responseText);
+    console.log('=======================');
+
+    // JSON parsen
+    let result;
+    try {
+        result = JSON.parse(responseText);
+    } catch (e) {
+        console.error('? JSON Parse Error:', e);
+        console.error('Received:', responseText);
+        throw new Error('Server-Antwort ist kein gültiges JSON');
     }
 
-    const result = await response.json();
+    if (!response.ok) {
+        throw new Error(result.error || 'Fehler beim Senden der Nachricht');
+    }
+
     if (!result.success) {
         throw new Error(result.error || 'Fehler beim Senden');
     }
@@ -186,25 +201,24 @@ async function handleFormSubmit(e) {
     // Zeige Success-Message
     showSuccess();
         
-        // Formular zurücksetzen
-        form.reset();
-        
-        // Neue Matheaufgabe generieren
-        generateMathQuestion();
-        
-        // Scroll zur Success-Message
-        const successElement = document.getElementById('formSuccess');
-        if (successElement) {
-            successElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-        
-    } catch (error) {
-        console.error('Fehler beim Senden:', error);
-        showError();
-    } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
+    // Formular zurücksetzen
+    form.reset();
+    
+    // Neue Matheaufgabe generieren
+    generateMathQuestion();
+    
+    // Scroll zur Success-Message
+    const successElement = document.getElementById('formSuccess');
+    if (successElement) {
+        successElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
+    
+} catch (error) {
+    console.error('? Fehler beim Senden:', error);
+    showError();
+} finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
 }
 
 function validateForm(form) {
