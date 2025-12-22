@@ -161,8 +161,13 @@ async function handleFormSubmit(e) {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Wird gesendet...';
     
-try {
-    const response = await fetch('https://forms.werbetechnik-hoiss.de/send-contact.php', {
+    try {
+    // FormData erstellen
+    const formData = new FormData(form);
+
+    console.log('?? Sende Formular...');
+
+const response = await fetch('https://forms.werbetechnik-hoiss.de/send-contact.php', {
         method: 'POST',
         body: formData
     });
